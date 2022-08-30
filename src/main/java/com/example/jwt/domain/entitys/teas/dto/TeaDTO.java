@@ -14,6 +14,8 @@ public class TeaDTO extends ExtendedDTO {
 
     private Date harvestDate;
 
+    private Integer stock;
+
     private TeaTypeDTO teaType;
 
     private CountryDTO country;
@@ -46,6 +48,15 @@ public class TeaDTO extends ExtendedDTO {
 
     public TeaDTO setHarvestDate(Date harvestDate) {
         this.harvestDate = harvestDate;
+        return this;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public TeaDTO setStock(Integer stock) {
+        this.stock = stock;
         return this;
     }
 

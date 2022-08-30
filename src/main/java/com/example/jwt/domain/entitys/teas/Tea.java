@@ -24,6 +24,9 @@ public class Tea extends ExtendedEntity {
     @Column(name = "harvest_date")
     private Date harvestDate;
 
+    @Column(name = "stock")
+    private Integer stock;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tea_type_id", referencedColumnName = "id", nullable = false)
     private TeaType teaType;
@@ -40,11 +43,12 @@ public class Tea extends ExtendedEntity {
 
     }
 
-    public Tea(UUID id, String description, float price, Date harvestDate, TeaType teaType, Country country) {
+    public Tea(UUID id, String description, float price, Date harvestDate, Integer stock, TeaType teaType, Country country) {
         super(id);
         this.description = description;
         this.price = price;
         this.harvestDate = harvestDate;
+        this.stock = stock;
         this.teaType = teaType;
         this.country = country;
     }
@@ -73,6 +77,15 @@ public class Tea extends ExtendedEntity {
 
     public Tea setHarvestDate(Date harvestDate) {
         this.harvestDate = harvestDate;
+        return this;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public Tea setStock(Integer stock) {
+        this.stock = stock;
         return this;
     }
 

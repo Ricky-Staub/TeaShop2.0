@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-08-30T12:13:32+0200",
+    date = "2022-08-30T16:31:04+0200",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.2 (Oracle Corporation)"
 )
 @Component
@@ -166,6 +166,7 @@ public class OrderMapperImpl implements OrderMapper {
         tea.setDescription( teaDTO.getDescription() );
         tea.setPrice( teaDTO.getPrice() );
         tea.setHarvestDate( teaDTO.getHarvestDate() );
+        tea.setStock( teaDTO.getStock() );
         tea.setTeaType( teaTypeDTOToTeaType( teaDTO.getTeaType() ) );
         tea.setCountry( countryDTOToCountry( teaDTO.getCountry() ) );
 
@@ -253,6 +254,7 @@ public class OrderMapperImpl implements OrderMapper {
         teaDTO.setDescription( tea.getDescription() );
         teaDTO.setPrice( tea.getPrice() );
         teaDTO.setHarvestDate( tea.getHarvestDate() );
+        teaDTO.setStock( tea.getStock() );
         teaDTO.setTeaType( teaTypeToTeaTypeDTO( tea.getTeaType() ) );
         teaDTO.setCountry( countryToCountryDTO( tea.getCountry() ) );
 

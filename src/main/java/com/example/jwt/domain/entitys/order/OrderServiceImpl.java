@@ -5,6 +5,7 @@ import com.example.jwt.core.generic.ExtendedServiceImpl;
 import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
 import com.example.jwt.domain.entitys.ranking.Rank;
 import com.example.jwt.domain.entitys.ranking.RankService;
+import com.example.jwt.domain.entitys.teas.Tea;
 import com.example.jwt.domain.entitys.teas.TeaService;
 import com.example.jwt.domain.entitys.user.UserService;
 import com.example.jwt.domain.orderposition.OrderPosition;
@@ -59,7 +60,17 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         order1.getUser().setRank(rank);
 
 
-        /*if (orderService.findTeas(teaService.findById('a47d9683-2aed-42a3-846f-ccea365c7c9d')) && userService.findCurrentUser().user().getAge() >= 18) {
+        List<Tea> teas = new ArrayList<>();
+
+        for (OrderPosition orderPosition : order.getOrderPositions()){
+            teas.add(orderPosition.getTea());
+        }
+
+        if (!isUserOver18(teas)){
+            throw new RuntimeException("Fuck you");
+        }
+
+  /*      if (findTeas(teaService.findByName("white jasmine")) && userService.findCurrentUser().user().getAge() >= 18) {
             return save(order1);
         } else{
             System.out.println("fuck you.");
@@ -67,7 +78,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
 
 
 
-        if (userService.findCurrentUser().user().getRank().getTitle() == "platinum") {
+     /*   if (userService.findCurrentUser().user().getRank().getTitle() == "platinum") {
             return save(order1);
 
         }else if(userService.findCurrentUser().user().getRank().getTitle() == "diamond") {
@@ -75,7 +86,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         }else{
             System.out.println("fuck you.");
         }
-
+*/
         //return save(cachedOrdering);
 
         return cachedOrdering;
@@ -98,4 +109,22 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
             throw new NoSuchElementException("No value present");
         }
     }
+
+
+    public boolean isUserOver18(List<Tea> teas){
+
+        boolean isIts18 = false;
+
+        for (Tea tea : teas) {
+            if (userService.findCurrentUser().user().getAge() >= tea.getTeaType().getMinAge()) {
+                   isIts18 = true;
+            } else {
+                isIts18 = false;
+                break;
+            }
+        }
+
+       return isIts18;
+    }
+
 }

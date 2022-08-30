@@ -11,4 +11,9 @@ public class TeaServiceImpl extends ExtendedServiceImpl<Tea> implements TeaServi
     public TeaServiceImpl(TeaRepository teaRepository){
         super(teaRepository);
     }
+
+    @Override
+    public Object findByName(String name) {
+        return null;
+    }
 }

@@ -9,18 +9,18 @@ insert into country(id, country)values('76ff2095-2bd5-455b-9b1a-6d71cfa986b7','t
 insert into country(id, country)values('16ded094-2341-49bd-85ae-78451faac49f','japan');
 insert into country(id, country)values('6bed40bc-1f21-4126-9046-5bdb208cd7e4','indien');
 
-insert into tea_type(id, tea_type) values ('1e12b05a-2915-447b-a8a1-6bbd5864e8cd','white');
-insert into tea_type(id, tea_type) values ('4d195cc9-9491-4b62-b1d4-b16c76cc9c8b','yellow');
-insert into tea_type(id, tea_type) values ('0b227894-f73d-4e2c-9fed-d9167c88b1db','raw puerh');
-insert into tea_type(id, tea_type) values ('d64dc94d-33be-4855-ae43-79194dcea7fe','medicinal herbs');
-insert into tea_type(id, tea_type) values ('09b1cf5b-2426-4b31-8a18-c68adfcc9dcb','green');
-insert into tea_type(id, tea_type) values ('005956c8-7494-4df8-8e6e-a9492d19c982','oolong');
-insert into tea_type(id, tea_type) values ('1d2e4628-91a0-49cd-8dd5-b67267c6ff1c','ripened');
-insert into tea_type(id, tea_type) values ('4d731a42-bc28-4f2f-9dc4-78e8498cfc0f','scented');
-insert into tea_type(id, tea_type) values ('072667ca-852f-4775-ac2c-049acde27718','matcha');
-insert into tea_type(id, tea_type) values ('16ff9d0b-1c35-4b62-a655-19f79e905f09','black');
-insert into tea_type(id, tea_type) values ('de07ede6-b210-4707-8c9e-5223e3d66ba6','tisanes');
-insert into tea_type(id, tea_type) values ('1085142b-b7f2-4bcd-a44f-e4798744faaf','functional blends');
+insert into tea_type(id, min_age, tea_type) values ('1e12b05a-2915-447b-a8a1-6bbd5864e8cd', 0, 'white');
+insert into tea_type(id, min_age, tea_type) values ('4d195cc9-9491-4b62-b1d4-b16c76cc9c8b', 0, 'yellow');
+insert into tea_type(id, min_age, tea_type) values ('0b227894-f73d-4e2c-9fed-d9167c88b1db', 0, 'raw puerh');
+insert into tea_type(id, min_age, tea_type) values ('d64dc94d-33be-4855-ae43-79194dcea7fe', 18, 'medicinal herbs');
+insert into tea_type(id, min_age, tea_type) values ('09b1cf5b-2426-4b31-8a18-c68adfcc9dcb', 0, 'green');
+insert into tea_type(id, min_age, tea_type) values ('005956c8-7494-4df8-8e6e-a9492d19c982', 0, 'oolong');
+insert into tea_type(id, min_age, tea_type) values ('1d2e4628-91a0-49cd-8dd5-b67267c6ff1c', 0, 'ripened');
+insert into tea_type(id, min_age, tea_type) values ('4d731a42-bc28-4f2f-9dc4-78e8498cfc0f', 0, 'scented');
+insert into tea_type(id, min_age, tea_type) values ('072667ca-852f-4775-ac2c-049acde27718', 0, 'matcha');
+insert into tea_type(id, min_age, tea_type) values ('16ff9d0b-1c35-4b62-a655-19f79e905f09', 0, 'black');
+insert into tea_type(id, min_age, tea_type) values ('de07ede6-b210-4707-8c9e-5223e3d66ba6', 0, 'tisanes');
+insert into tea_type(id, min_age, tea_type) values ('1085142b-b7f2-4bcd-a44f-e4798744faaf', 18, 'functional blends');
 
 insert into tea(id, harvest_date, price,description, country_id, tea_type_id) values('a47d9683-2aed-42a3-846f-ccea365c7c9d','2021-04-23', 34,'white jasmine','b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1e12b05a-2915-447b-a8a1-6bbd5864e8cd');
 insert into tea(id, harvest_date, price,description, country_id, tea_type_id) values('4b484dad-fab1-4833-99a1-9060e44b7556','2021-04-14', 31,'amber mountain','b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d195cc9-9491-4b62-b1d4-b16c76cc9c8b');
