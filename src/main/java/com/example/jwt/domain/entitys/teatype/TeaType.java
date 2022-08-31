@@ -16,15 +16,19 @@ public class TeaType extends ExtendedEntity {
     @Column(name = "minAge")
     private Integer minAge;
 
+    @Column(name = "minSeeds")
+    private Integer minSeeds;
+
 
     public TeaType() {
 
     }
 
-    public TeaType(UUID id, String teatype, Integer minAge) {
+    public TeaType(UUID id, String teatype, Integer minAge, Integer minSeeds) {
         super(id);
         this.teatype = teatype;
         this.minAge = minAge;
+        this.minSeeds = minSeeds;
     }
 
     public String getTeatype() {
@@ -42,6 +46,15 @@ public class TeaType extends ExtendedEntity {
 
     public TeaType setMinAge(Integer minAge) {
         this.minAge = minAge;
+        return this;
+    }
+
+    public Integer getMinSeeds() {
+        return minSeeds;
+    }
+
+    public TeaType setMinSeeds(Integer minSeeds) {
+        this.minSeeds = minSeeds;
         return this;
     }
 }

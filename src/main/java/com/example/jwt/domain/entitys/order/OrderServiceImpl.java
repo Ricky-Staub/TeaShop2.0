@@ -24,16 +24,12 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
     private RankService rankService;
 
 
-
-
     @Autowired
     public OrderServiceImpl(ExtendedRepository<Order> repository, UserService userService, TeaService teaService, RankService rankService) {
         super(repository);
         this.userService = userService;
         this.teaService = teaService;
         this.rankService = rankService;
-
-
     }
 
 
@@ -50,7 +46,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
             return orderPosition.setOrder(order1);
         }).collect(Collectors.toSet()));
 
-        Integer sum = order.getOrderPositions().stream().mapToInt(p -> (int) p.getTea().getPrice() * p.getAmount() /*p.getReduction()*/).sum();
+        Integer sum = order.getOrderPositions().stream().mapToInt(p -> (int) p.getTea().getPrice() * p.getAmount()).sum();
         order1.setPrice(sum);
         float i = sum * userService.findCurrentUser().user().getRank().getReduction();
         order1.setPrice(i);
@@ -59,39 +55,55 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         Rank rank = rankService.findRankBySeeds(order1.getUser().getSeeds());
         order1.getUser().setRank(rank);
 
-
+// age check
         List<Tea> teas = new ArrayList<>();
-
         for (OrderPosition orderPosition : order.getOrderPositions()){
             teas.add(orderPosition.getTea());
         }
-
-        if (!isUserOver18(teas)){
-            throw new RuntimeException("Fuck you");
+        if (!isUserOldEnough(teas)){
+            throw new RuntimeException("Error");
         }
 
-  /*      if (findTeas(teaService.findByName("white jasmine")) && userService.findCurrentUser().user().getAge() >= 18) {
-            return save(order1);
-        } else{
-            System.out.println("fuck you.");
-        }*/
+// rank check
 
-
-
-     /*   if (userService.findCurrentUser().user().getRank().getTitle() == "platinum") {
-            return save(order1);
-
-        }else if(userService.findCurrentUser().user().getRank().getTitle() == "diamond") {
-            return save(order1);
-        }else{
-            System.out.println("fuck you.");
+        List<Tea> teas2 = new ArrayList<>();
+        for (OrderPosition orderPosition : order.getOrderPositions()){
+            teas2.add(orderPosition.getTea());
         }
-*/
-        //return save(cachedOrdering);
+        if (!isRankHightEnaught(teas2)){
+            throw new RuntimeException("Error NR2");
+        }
 
+
+//stock check
+
+        List<Tea> teas3 = new ArrayList<>();
+        for (OrderPosition orderPosition : order.getOrderPositions()){
+            teas3.add(orderPosition.getTea());
+        }
+
+        boolean stockIsEnaught = false;
+        for (Tea tea : teas3) {
+            if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount()  > tea.getStock())) {
+                stockIsEnaught = true;
+            } else {
+                stockIsEnaught = false;
+                break;
+            }
+        }
+
+        if (!stockIsEnaught) {
+            throw new RuntimeException("Error NR3");
+        }
+
+
+
+        //return if ok
         return cachedOrdering;
     }
 
+
+    //other stuff
     public List<Order> findOwn(){
         Optional<List<Order>> optional=((OrderRepository)super.getRepository()).findOwn(userService.findCurrentUser().user().getId());
         if (optional.isPresent()) {
@@ -110,11 +122,9 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         }
     }
 
-
-    public boolean isUserOver18(List<Tea> teas){
-
+// age check
+    public boolean isUserOldEnough(List<Tea> teas){
         boolean isIts18 = false;
-
         for (Tea tea : teas) {
             if (userService.findCurrentUser().user().getAge() >= tea.getTeaType().getMinAge()) {
                    isIts18 = true;
@@ -123,8 +133,27 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
                 break;
             }
         }
-
        return isIts18;
     }
+
+
+    // rank check
+
+    public boolean isRankHightEnaught(List<Tea> teas2){
+        boolean rankIsEnaught = false;
+        for (Tea tea : teas2) {
+            if (userService.findCurrentUser().user().getSeeds() >= tea.getTeaType().getMinSeeds()) {
+                rankIsEnaught = true;
+            } else {
+                rankIsEnaught = false;
+                break;
+            }
+        }
+        return rankIsEnaught;
+    }
+
+
+
+
 
 }
