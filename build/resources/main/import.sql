@@ -41,9 +41,11 @@ insert into role(id, name) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','USER')
 insert into authority(id, name) values('3648810a-6722-4e70-9667-69409afc699d','USER_SEE');
 insert into authority(id, name) values('5fc20c1e-afbc-4e22-804b-85bf0b828b56','USER_MODIFY');
 insert into authority(id, name) values('94f30ecd-8f8c-4a15-acdf-08d020496305','PRODUCT_SEE');
+insert into authority(id, name) values('94f30eef-8f8c-4a15-acdf-08d020496305','CAN_SEE_STATISTICS');
 
 insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','3648810a-6722-4e70-9667-69409afc699d');
 insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','5fc20c1e-afbc-4e22-804b-85bf0b828b56');
 insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','94f30ecd-8f8c-4a15-acdf-08d020496305');
+insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','94f30eef-8f8c-4a15-acdf-08d020496305');
 insert into role_authority(role_id, authority_id) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','94f30ecd-8f8c-4a15-acdf-08d020496305');
 insert into role_authority(role_id, authority_id) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','3648810a-6722-4e70-9667-69409afc699d');

@@ -43,7 +43,11 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         order1.getUser().getRank().getReduction();
         order.setOrderPositions(order.getOrderPositions().stream().map(orderPosition -> {
             orderPosition.setTea(teaService.findById(orderPosition.getTea().getId()));
-            return orderPosition.setOrder(order1);
+            if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount()  > orderPosition.getTea().getStock())) {
+                orderPosition.getTea().setStock(orderPosition.getTea().getStock() - orderPosition.getAmount());
+            } else {
+                throw new RuntimeException("Du hurensohn!");
+            } return orderPosition.setOrder(order1);
         }).collect(Collectors.toSet()));
 
         Integer sum = order.getOrderPositions().stream().mapToInt(p -> (int) p.getTea().getPrice() * p.getAmount()).sum();
@@ -75,26 +79,26 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         }
 
 
-//stock check
-
-        List<Tea> teas3 = new ArrayList<>();
-        for (OrderPosition orderPosition : order.getOrderPositions()){
-            teas3.add(orderPosition.getTea());
-        }
-
-        boolean stockIsEnaught = false;
-        for (Tea tea : teas3) {
-            if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount()  > tea.getStock())) {
-                stockIsEnaught = true;
-            } else {
-                stockIsEnaught = false;
-                break;
-            }
-        }
-
-        if (!stockIsEnaught) {
-            throw new RuntimeException("Error NR3");
-        }
+////stock check
+//
+//        List<Tea> teas3 = new ArrayList<>();
+//        for (OrderPosition orderPosition : order.getOrderPositions()){
+//            teas3.add(orderPosition.getTea());
+//        }
+//
+//        boolean stockIsEnaught = false;
+//        for (Tea tea : teas3) {
+//            if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount()  > tea.getStock())) {
+//                stockIsEnaught = true;
+//            } else {
+//                stockIsEnaught = false;
+//                break;
+//            }
+//        }
+//
+//        if (!stockIsEnaught) {
+//            throw new RuntimeException("Error NR3");
+//        }
 
 
 

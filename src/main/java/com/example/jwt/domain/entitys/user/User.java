@@ -30,6 +30,9 @@ public class User extends ExtendedAuditEntity {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "locked")
+    private boolean locked = false;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Rank rank;
 
