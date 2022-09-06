@@ -5,6 +5,6 @@ public interface UserLostMoneyDTO {
 
 
     float getRabatt();
-    String getMail();
+    String getEmail();
 
 }

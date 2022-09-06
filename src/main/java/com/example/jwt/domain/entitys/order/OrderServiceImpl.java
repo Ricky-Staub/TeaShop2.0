@@ -3,6 +3,8 @@ package com.example.jwt.domain.entitys.order;
 import com.example.jwt.core.generic.ExtendedRepository;
 import com.example.jwt.core.generic.ExtendedServiceImpl;
 import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
+import com.example.jwt.domain.entitys.order.dto.OrderCreateDTO;
+import com.example.jwt.domain.entitys.order.dto.OrderMapper;
 import com.example.jwt.domain.entitys.ranking.Rank;
 import com.example.jwt.domain.entitys.ranking.RankService;
 import com.example.jwt.domain.entitys.teas.Tea;
@@ -10,6 +12,7 @@ import com.example.jwt.domain.entitys.teas.TeaService;
 import com.example.jwt.domain.entitys.user.UserService;
 import com.example.jwt.domain.orderposition.OrderPosition;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,15 +25,20 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
     private UserService userService;
     private TeaService teaService;
     private RankService rankService;
+    private OrderMapper orderMapper;
 
 
     @Autowired
-    public OrderServiceImpl(ExtendedRepository<Order> repository, UserService userService, TeaService teaService, RankService rankService) {
+    public OrderServiceImpl(ExtendedRepository<Order> repository, UserService userService, TeaService teaService, RankService rankService, OrderMapper orderMapper) {
         super(repository);
         this.userService = userService;
         this.teaService = teaService;
         this.rankService = rankService;
+        this.orderMapper = orderMapper;
     }
+
+
+
 
 
     @Override
@@ -157,7 +165,11 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
     }
 
 
-
+    @Override
+    public List<OrderCreateDTO> getAllOrdersPage(Integer pageNo, Integer pageSize){
+        List<Order> order =  findAll(PageRequest.of(pageNo,pageSize));
+        return orderMapper.toDTOs(order);
+    }
 
 
 }

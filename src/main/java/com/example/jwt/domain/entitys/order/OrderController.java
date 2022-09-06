@@ -43,4 +43,12 @@ public class OrderController {
     public List<OrderCountDTO> findTeas() { return orderService.findTeas();
     }
 
+    @GetMapping("/page/{pageNo}/{pageSize}")
+    public ResponseEntity<List<OrderCreateDTO>> getAllOrdersPage(
+            @PathVariable Integer pageNo,
+            @PathVariable Integer pageSize)
+    {
+        List<OrderCreateDTO> list = orderService.getAllOrdersPage(pageNo, pageSize);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 }
