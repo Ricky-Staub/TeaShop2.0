@@ -1,10 +1,7 @@
 package com.example.jwt.domain.entitys.user;
 
 import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
-import com.example.jwt.domain.entitys.user.dto.UserBestDTO;
-import com.example.jwt.domain.entitys.user.dto.UserDTO;
-import com.example.jwt.domain.entitys.user.dto.UserMapper;
-import com.example.jwt.domain.entitys.user.dto.UserRegisterDTO;
+import com.example.jwt.domain.entitys.user.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,5 +70,11 @@ public class UserController {
     @GetMapping("/best/user")
     //@PreAuthorize("hasAuthority('CAN_SEE_STATISTICS')")
     public List<UserBestDTO> findMostOrders() { return userService.findMostOrders();
+    }
+
+
+    @GetMapping("/moneylost")
+    //@PreAuthorize("hasAuthority('CAN_SEE_STATISTICS')")
+    public List<UserLostMoneyDTO> findLostMoney() { return userService.findLostMoney();
     }
 }

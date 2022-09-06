@@ -7,6 +7,7 @@ import com.example.jwt.domain.entitys.ranking.Rank;
 import com.example.jwt.domain.entitys.ranking.RankService;
 import com.example.jwt.domain.entitys.user.dto.UserBestDTO;
 import com.example.jwt.domain.entitys.user.dto.UserDTO;
+import com.example.jwt.domain.entitys.user.dto.UserLostMoneyDTO;
 import com.example.jwt.domain.role.Role;
 import com.example.jwt.domain.role.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,16 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
 
     public List<UserBestDTO> findMostOrders(){
         Optional<List<UserBestDTO>> optional = ((UserRepository) super.getRepository()).findMostOrders();
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            throw new NoSuchElementException("No value present");
+        }
+    }
+
+
+    public List<UserLostMoneyDTO> findLostMoney(){
+        Optional<List<UserLostMoneyDTO>> optional = ((UserRepository) super.getRepository()).findLostMoney();
         if (optional.isPresent()) {
             return optional.get();
         } else {

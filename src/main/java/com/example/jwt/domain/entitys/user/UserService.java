@@ -4,6 +4,7 @@ import com.example.jwt.core.generic.ExtendedService;
 import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
 import com.example.jwt.domain.entitys.user.dto.UserBestDTO;
 import com.example.jwt.domain.entitys.user.dto.UserDTO;
+import com.example.jwt.domain.entitys.user.dto.UserLostMoneyDTO;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface UserService extends UserDetailsService, ExtendedService<User> {
     User lockUser(UUID id, User user);
 
     List<UserBestDTO> findMostOrders();
+
+    List<UserLostMoneyDTO> findLostMoney();
 }
