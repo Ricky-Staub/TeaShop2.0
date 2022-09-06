@@ -1,7 +1,6 @@
 package com.example.jwt.domain.entitys.teatype;
 
 import com.example.jwt.core.generic.ExtendedEntity;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.UUID;

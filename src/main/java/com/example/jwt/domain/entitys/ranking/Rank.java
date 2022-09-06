@@ -17,7 +17,6 @@ public class Rank extends ExtendedEntity {
     @Column(name="reduction", nullable = false)
     private float reduction;
 
-
     public Rank() {
 
     }

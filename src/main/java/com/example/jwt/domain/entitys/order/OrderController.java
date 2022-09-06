@@ -2,18 +2,15 @@ package com.example.jwt.domain.entitys.order;
 
 import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
 import com.example.jwt.domain.entitys.order.dto.OrderCreateDTO;
-import com.example.jwt.domain.entitys.order.dto.OrderDTOWithoutID;
 import com.example.jwt.domain.entitys.order.dto.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.UUID;
 
 @Validated
 @RestController
@@ -28,7 +25,7 @@ public class OrderController {
         this.orderMapper = orderMapper;
     }
 
-    // HIER SPEICHERST DU EINE NEUE BESTELLUNG
+// HIER SPEICHERST DU EINE NEUE BESTELLUNG
     @PostMapping
     public ResponseEntity<OrderCreateDTO> save(@RequestBody @Valid OrderCreateDTO orderCreateDTO) {
         Order order = orderService.createOrder(orderMapper.fromDTO(orderCreateDTO));

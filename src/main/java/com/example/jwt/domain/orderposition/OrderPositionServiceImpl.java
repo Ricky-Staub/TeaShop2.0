@@ -12,6 +12,4 @@ public class OrderPositionServiceImpl extends ExtendedServiceImpl<OrderPosition>
     protected OrderPositionServiceImpl(ExtendedRepository<OrderPosition> repository) {
         super(repository);
     }
-
-
 }

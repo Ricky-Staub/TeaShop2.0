@@ -3,8 +3,6 @@ package com.example.jwt.domain.orderposition;
 import com.example.jwt.core.generic.ExtendedEntity;
 import com.example.jwt.domain.entitys.teas.Tea;
 import com.example.jwt.domain.entitys.order.Order;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.UUID;

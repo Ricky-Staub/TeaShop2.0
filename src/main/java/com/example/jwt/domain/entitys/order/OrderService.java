@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface OrderService extends ExtendedService<Order> {
 
-
     @Transactional
     Order createOrder(Order order);
 

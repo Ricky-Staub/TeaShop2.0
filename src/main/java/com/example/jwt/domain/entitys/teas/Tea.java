@@ -3,12 +3,9 @@ package com.example.jwt.domain.entitys.teas;
 import com.example.jwt.core.generic.ExtendedEntity;
 import com.example.jwt.domain.entitys.country.Country;
 import com.example.jwt.domain.entitys.teatype.TeaType;
-import com.example.jwt.domain.orderposition.OrderPosition;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -34,10 +31,6 @@ public class Tea extends ExtendedEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id", referencedColumnName = "id", nullable = false)
     private Country country;
-
-//    @JsonBackReference
-//    @OneToMany(mappedBy = "tea", fetch = FetchType.EAGER)
-//    private Set<OrderPosition> orderPositions;
 
     public Tea() {
 

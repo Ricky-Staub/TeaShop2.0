@@ -27,7 +27,6 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
     private RankService rankService;
     private OrderMapper orderMapper;
 
-
     @Autowired
     public OrderServiceImpl(ExtendedRepository<Order> repository, UserService userService, TeaService teaService, RankService rankService, OrderMapper orderMapper) {
         super(repository);
@@ -36,10 +35,6 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         this.rankService = rankService;
         this.orderMapper = orderMapper;
     }
-
-
-
-
 
     @Override
     @Transactional
@@ -77,7 +72,6 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         }
 
 // rank check
-
         List<Tea> teas2 = new ArrayList<>();
         for (OrderPosition orderPosition : order.getOrderPositions()){
             teas2.add(orderPosition.getTea());
@@ -86,36 +80,11 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
             throw new RuntimeException("Rank Error");
         }
 
-
-////stock check
-//
-//        List<Tea> teas3 = new ArrayList<>();
-//        for (OrderPosition orderPosition : order.getOrderPositions()){
-//            teas3.add(orderPosition.getTea());
-//        }
-//
-//        boolean stockIsEnaught = false;
-//        for (Tea tea : teas3) {
-//            if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount()  > tea.getStock())) {
-//                stockIsEnaught = true;
-//            } else {
-//                stockIsEnaught = false;
-//                break;
-//            }
-//        }
-//
-//        if (!stockIsEnaught) {
-//            throw new RuntimeException("Error NR3");
-//        }
-
-
-
-        //return if ok
+//return if ok
         return cachedOrdering;
     }
 
-
-    //other stuff
+//other stuff
     public List<Order> findOwn(){
         Optional<List<Order>> optional=((OrderRepository)super.getRepository()).findOwn(userService.findCurrentUser().user().getId());
         if (optional.isPresent()) {
@@ -148,9 +117,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
        return isIts18;
     }
 
-
-    // rank check
-
+// rank check
     public boolean isRankHightEnaught(List<Tea> teas2){
         boolean rankIsEnaught = false;
         for (Tea tea : teas2) {
@@ -164,12 +131,9 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         return rankIsEnaught;
     }
 
-
     @Override
     public List<OrderCreateDTO> getAllOrdersPage(Integer pageNo, Integer pageSize){
         List<Order> order =  findAll(PageRequest.of(pageNo,pageSize));
         return orderMapper.toDTOs(order);
     }
-
-
 }

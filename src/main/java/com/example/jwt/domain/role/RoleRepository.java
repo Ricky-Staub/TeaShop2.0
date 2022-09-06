@@ -12,5 +12,4 @@ import java.util.UUID;
 public interface RoleRepository extends ExtendedRepository<Role> {
 
     Optional<Role> findByName(String name);
-
 }

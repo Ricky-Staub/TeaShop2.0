@@ -1,14 +1,11 @@
 package com.example.jwt.domain.entitys.order;
 
 import com.example.jwt.core.generic.ExtendedAuditEntity;
-import com.example.jwt.core.generic.ExtendedEntity;
 import com.example.jwt.domain.entitys.user.User;
 import com.example.jwt.domain.orderposition.OrderPosition;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 

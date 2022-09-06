@@ -31,18 +31,10 @@ public class OrderPositionContoller{
         return new ResponseEntity<OrderPosition>(orderPositionService.save(orderPosition), HttpStatus.OK);
     }
 
-    /*@GetMapping
-    @PreAuthorize("hasAnyAuthority('PRODUCT_SEE')")
-    public ResponseEntity<List<OrderPosition>> findAll() {
-        List<OrderPosition> orderPosition = orderPositionService.findAll();
-        return new ResponseEntity<>(orderPositionService.findAll(),HttpStatus.OK);
-    }*/
-
     @GetMapping
     @PreAuthorize("hasAnyAuthority('PRODUCT_SEE')")
     public List<OnlyAmountDTO> findAll(){
         return orderPositionService.findAll().stream().map(orderPosition -> orderPositionMapper.orderpositionToOnlyAmountDTO(orderPosition))
                 .collect(Collectors.toList());
     }
-
 }

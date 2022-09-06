@@ -1,12 +1,9 @@
 package com.example.jwt.domain.entitys.user;
 
 import com.example.jwt.core.generic.ExtendedServiceImpl;
-import com.example.jwt.domain.entitys.order.OrderRepository;
-import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
 import com.example.jwt.domain.entitys.ranking.Rank;
 import com.example.jwt.domain.entitys.ranking.RankService;
 import com.example.jwt.domain.entitys.user.dto.UserBestDTO;
-import com.example.jwt.domain.entitys.user.dto.UserDTO;
 import com.example.jwt.domain.entitys.user.dto.UserLostMoneyDTO;
 import com.example.jwt.domain.role.Role;
 import com.example.jwt.domain.role.RoleServiceImpl;
@@ -46,7 +43,6 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
         return findOrThrow(((UserRepository) super.getRepository()).findByEmail(email));
     }
 
-
     @Override
     public User register(User user) {
         Rank rank = rankService.findByTitle("bronze");
@@ -82,7 +78,6 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
         }
     }
 
-
     public List<UserLostMoneyDTO> findLostMoney(){
         Optional<List<UserLostMoneyDTO>> optional = ((UserRepository) super.getRepository()).findLostMoney();
         if (optional.isPresent()) {
@@ -91,5 +86,4 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
             throw new NoSuchElementException("No value present");
         }
     }
-
 }

@@ -30,5 +30,4 @@ public class OrderPositionDTO extends ExtendedDTO {
         this.tea = tea;
         return this;
     }
-
 }

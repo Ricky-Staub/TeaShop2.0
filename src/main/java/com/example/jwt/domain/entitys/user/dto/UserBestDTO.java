@@ -7,5 +7,4 @@ public interface UserBestDTO {
     float getSumme();
     LocalDateTime getCreated();
     String getMail();
-
 }

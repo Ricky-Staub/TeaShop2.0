@@ -27,11 +27,6 @@ private TeaMapper teaMapper;
         this.teaMapper = teaMapper;
     }
 
-   /* @GetMapping
-    public ResponseEntity<List<Tea>> findAll(){
-        return new ResponseEntity<List<Tea>>(productService.findAll(), HttpStatus.OK);
-    }*/
-
     @GetMapping("/{id}")
     public ResponseEntity<TeaDTO> findBYId(@PathVariable("id") UUID id) {
         Tea tea = teaServiceImpl.findById(id);
@@ -43,5 +38,4 @@ private TeaMapper teaMapper;
         return teaServiceImpl.findAll().stream().map(tea -> teaMapper.teaToTeaDTOWithoutID(tea))
                 .collect(Collectors.toList());
     }
-
 }
