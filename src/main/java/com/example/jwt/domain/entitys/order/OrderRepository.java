@@ -17,5 +17,8 @@ public interface OrderRepository extends ExtendedRepository<Order> {
 
     @Query (value = "select tt.tea_type as name,count(t.id) as quantity from orders as o left join order_position as op on o.id = op.order_id left join tea as t on t.id = op.tea_id left join tea_type as tt on t.tea_type_id = tt.id where o.user_id = :userId GROUP BY tt.tea_type", nativeQuery = true)
     Optional<List<OrderCountDTO>> findTeas(@Param("userId") UUID userId);
+
+
+
 }
 

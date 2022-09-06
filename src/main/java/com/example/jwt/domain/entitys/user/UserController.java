@@ -1,5 +1,7 @@
 package com.example.jwt.domain.entitys.user;
 
+import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
+import com.example.jwt.domain.entitys.user.dto.UserBestDTO;
 import com.example.jwt.domain.entitys.user.dto.UserDTO;
 import com.example.jwt.domain.entitys.user.dto.UserMapper;
 import com.example.jwt.domain.entitys.user.dto.UserRegisterDTO;
@@ -10,6 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -58,5 +61,17 @@ public class UserController {
     public ResponseEntity<Void> deleteById(@PathVariable UUID id) {
         userService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/locked/{id}")
+   @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<UserDTO> lockUser(@PathVariable UUID id, @Valid @RequestBody UserDTO userDTO) {
+        User user = userService.lockUser(id, userMapper.fromDTO(userDTO));
+        return new ResponseEntity<>(userMapper.toDTO(user), HttpStatus.OK);
+    }
+
+    @GetMapping("/best/user")
+    //@PreAuthorize("hasAuthority('CAN_SEE_STATISTICS')")
+    public List<UserBestDTO> findMostOrders() { return userService.findMostOrders();
     }
 }

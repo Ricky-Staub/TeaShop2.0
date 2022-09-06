@@ -15,4 +15,5 @@ public interface OrderService extends ExtendedService<Order> {
     List<Order> findOwn();
 
     List<OrderCountDTO>findTeas();
+
 }

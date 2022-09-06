@@ -1,8 +1,12 @@
 package com.example.jwt.domain.entitys.user;
 
 import com.example.jwt.core.generic.ExtendedServiceImpl;
+import com.example.jwt.domain.entitys.order.OrderRepository;
+import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
 import com.example.jwt.domain.entitys.ranking.Rank;
 import com.example.jwt.domain.entitys.ranking.RankService;
+import com.example.jwt.domain.entitys.user.dto.UserBestDTO;
+import com.example.jwt.domain.entitys.user.dto.UserDTO;
 import com.example.jwt.domain.role.Role;
 import com.example.jwt.domain.role.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.util.Collections;
+import java.util.*;
 
 @Service
 public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserService{
@@ -58,5 +61,24 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
         return ((UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     }
 
+    @Override
+    public User lockUser(UUID id, User user) {
+        if (existsById(id)) {
+            user.setId(id);
+            user.setLocked(true);
+            return save(user);
+        } else {
+            throw new NoSuchElementException(String.format("EA sport", id));
+        }
+    }
+
+    public List<UserBestDTO> findMostOrders(){
+        Optional<List<UserBestDTO>> optional = ((UserRepository) super.getRepository()).findMostOrders();
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            throw new NoSuchElementException("No value present");
+        }
+    }
 
 }

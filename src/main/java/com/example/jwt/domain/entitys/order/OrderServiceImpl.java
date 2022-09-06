@@ -46,7 +46,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
             if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount()  > orderPosition.getTea().getStock())) {
                 orderPosition.getTea().setStock(orderPosition.getTea().getStock() - orderPosition.getAmount());
             } else {
-                throw new RuntimeException("Du hurensohn!");
+                throw new RuntimeException("Out of Stock Error");
             } return orderPosition.setOrder(order1);
         }).collect(Collectors.toSet()));
 
@@ -65,7 +65,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
             teas.add(orderPosition.getTea());
         }
         if (!isUserOldEnough(teas)){
-            throw new RuntimeException("Error");
+            throw new RuntimeException("Age Error");
         }
 
 // rank check
@@ -75,7 +75,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
             teas2.add(orderPosition.getTea());
         }
         if (!isRankHightEnaught(teas2)){
-            throw new RuntimeException("Error NR2");
+            throw new RuntimeException("Rank Error");
         }
 
 

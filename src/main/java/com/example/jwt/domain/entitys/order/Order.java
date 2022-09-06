@@ -1,5 +1,6 @@
 package com.example.jwt.domain.entitys.order;
 
+import com.example.jwt.core.generic.ExtendedAuditEntity;
 import com.example.jwt.core.generic.ExtendedEntity;
 import com.example.jwt.domain.entitys.user.User;
 import com.example.jwt.domain.orderposition.OrderPosition;
@@ -13,7 +14,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "orders")
-public class Order extends ExtendedEntity {
+public class Order extends ExtendedAuditEntity {
     @Column(name= "price")
     private float price;
 

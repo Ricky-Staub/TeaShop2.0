@@ -47,7 +47,7 @@ public class User extends ExtendedAuditEntity {
     public User() {
     }
 
-    public User(UUID id, Integer seeds, String firstName, String lastName, Integer age, String email, String password, Rank rank, Set<Role> roles) {
+    public User(UUID id, Integer seeds, String firstName, String lastName, Integer age, String email, String password, boolean locked, Rank rank, Set<Role> roles) {
         super(id);
         this.seeds = seeds;
         this.firstName = firstName;
@@ -55,6 +55,7 @@ public class User extends ExtendedAuditEntity {
         this.age = age;
         this.email = email;
         this.password = password;
+        this.locked = locked;
         this.rank = rank;
         this.roles = roles;
     }
@@ -110,6 +111,15 @@ public class User extends ExtendedAuditEntity {
 
     public User setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public User setLocked(boolean locked) {
+        this.locked = locked;
         return this;
     }
 
