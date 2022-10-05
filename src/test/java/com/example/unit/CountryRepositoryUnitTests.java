@@ -1,7 +1,8 @@
-package com.example.testing.domain.product.unit;
+package com.example.unit;
 
-import com.example.testing.domain.product.Product;
-import com.example.testing.domain.product.ProductRepository;
+
+import com.example.jwt.domain.entitys.country.Country;
+import com.example.jwt.domain.entitys.country.CountryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -18,26 +19,26 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @DataJpaTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-public class ProductRepositoryUnitTests {
+public class CountryRepositoryUnitTests {
 
     @Autowired
-    ProductRepository productRepository;
+    CountryRepository countryRepository;
 
-    private List<Product> dummyProducts;
+    private List<Country> dummyProducts;
 
     @BeforeEach
     public void setUp() {
-        dummyProducts = productRepository.saveAll(Stream.of(new Product(UUID.randomUUID(), "shirt", 49), new Product(UUID.randomUUID(), "sandwich", 8)).collect(Collectors.toList()));
+        dummyProducts = countryRepository.saveAll(Stream.of(new Country(UUID.randomUUID(), "shirt", 49), new Country(UUID.randomUUID(), "sandwich", 8)).collect(Collectors.toList()));
     }
 
     @Test
     public void findById_requestProductById_expectProduct() {
-        assertThat(productRepository.findById(dummyProducts.get(0).getId())).hasValue(dummyProducts.get(0));
+        assertThat(countryRepository.findById(dummyProducts.get(0).getId())).hasValue(dummyProducts.get(0));
     }
 
     @Test
     public void findAll_requestAllProducts_expectAllProducts() {
-        assertThat(productRepository.findAll()).usingRecursiveComparison().ignoringCollectionOrder().isEqualTo(dummyProducts);
+        assertThat(countryRepository.findAll()).usingRecursiveComparison().ignoringCollectionOrder().isEqualTo(dummyProducts);
     }
 
     @Test

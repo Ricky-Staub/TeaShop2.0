@@ -1,13 +1,11 @@
-package com.example.testing.domain.product.unit;
+package com.example.unit;
 
-import com.example.testing.core.security.helpers.AuthorizationSchemas;
-import com.example.testing.core.security.helpers.JwtProperties;
-import com.example.testing.domain.authority.Authority;
-import com.example.testing.domain.product.Product;
-import com.example.testing.domain.product.ProductService;
-import com.example.testing.domain.role.Role;
-import com.example.testing.domain.user.User;
-import com.example.testing.domain.user.UserService;
+import com.example.jwt.core.security.config.AuthorizationSchemas;
+import com.example.jwt.core.security.config.JwtProperties;
+import com.example.jwt.domain.entitys.authority.Authority;
+import com.example.jwt.domain.entitys.country.Country;
+import com.example.jwt.domain.entitys.country.CountryService;
+import com.example.jwt.domain.entitys.user.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -42,7 +40,7 @@ import static org.mockito.Mockito.verify;
 @SpringBootTest
 @ActiveProfiles("test")
 @AutoConfigureMockMvc()
-public class ProductControllerUnitTests {
+public class CountryControllerUnitTests {
 
     @Autowired
     private MockMvc mvc;
@@ -54,11 +52,11 @@ public class ProductControllerUnitTests {
     private UserService userService;
 
     @MockBean
-    private ProductService productService;
+    private CountryService countryService;
 
     private String dummyToken;
-    private Product dummyProduct;
-    private List<Product> dummyProducts;
+    private Country dummyCountry;
+    private List<Country> dummyCountrys;
 
     private String generateToken() {
         byte[] keyBytes = Decoders.BASE64.decode(jwtProperties.getSecret());
@@ -75,8 +73,8 @@ public class ProductControllerUnitTests {
     @BeforeEach
     public void setUp() {
         dummyToken = generateToken();
-        dummyProduct = new Product(UUID.randomUUID(), "kettle", 107);
-        dummyProducts = Stream.of(new Product(UUID.randomUUID(), "shirt", 49), new Product(UUID.randomUUID(), "sandwich", 8)).collect(Collectors.toList());
+        dummyCountry = new Country(UUID.randomUUID(), "kettle", 107);
+        dummyCountrys = Stream.of(new Country(UUID.randomUUID(), "shirt", 49), new Country(UUID.randomUUID(), "sandwich", 8)).collect(Collectors.toList());
     }
 
     @Test
@@ -90,120 +88,120 @@ public class ProductControllerUnitTests {
         -   Pass a dummy JWT to the requests triggered by mvc.perform()
         -   Mock the method UserService.findById and return the desired users with the requested roles and authorities
     */
-    public void retrieveAll_requestAllProducts_expectAllProductsAsDTOS() throws Exception {
+    public void retrieveAll_requestAllCountrys_expectAllCountrysAsDTOS() throws Exception {
         given(userService.findById(any(UUID.class))).willReturn(
                 new User().setRoles(Set.of(new Role().setAuthorities(Set.of(new Authority().setName("USER_READ"))))));
-        given(productService.findAll()).willReturn(dummyProducts);
+        given(countryService.findAll()).willReturn(dummyCountrys);
 
         mvc.perform(MockMvcRequestBuilders
-                        .get("/products")
+                        .get("/countrys")
                         .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + dummyToken)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[*].id").value(Matchers.containsInAnyOrder(dummyProducts.get(0).getId().toString(), dummyProducts.get(1).getId().toString())))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[*].name").value(Matchers.containsInAnyOrder(dummyProducts.get(0).getName(), dummyProducts.get(1).getName())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[*].id").value(Matchers.containsInAnyOrder(dummyCountrys.get(0).getId().toString(), dummyCountrys.get(1).getId().toString())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[*].name").value(Matchers.containsInAnyOrder(dummyCountrys.get(0).getName(), dummyCountrys.get(1).getName())))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[*].price").doesNotExist());
 
-        verify(productService, times(1)).findAll();
+        verify(countryService, times(1)).findAll();
     }
 
     @Test
-    public void retrieveById_requestProductById_expectProductAsDTO() throws Exception {
+    public void retrieveById_requestCountryById_expectCountryAsDTO() throws Exception {
         given(userService.findById(any(UUID.class))).willReturn(new User());
-        given(productService.findById(any(UUID.class))).will(invocation -> {
+        given(countryService.findById(any(UUID.class))).will(invocation -> {
             if ("non-existent".equals(invocation.getArgument(0)))
-                throw new NoSuchElementException("No such product present");
-            return dummyProduct;
+                throw new NoSuchElementException("No such Country present");
+            return dummyCountry;
         });
 
         mvc.perform(MockMvcRequestBuilders
-                        .get("/products/{id}", dummyProduct.getId())
+                        .get("/countrys/{id}", dummyCountry.getId())
                         .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + dummyToken)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyProduct.getId().toString()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(dummyProduct.getName()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyCountry.getId().toString()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(dummyCountry.getName()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.price").doesNotExist());
 
-        ArgumentCaptor<UUID> productArgumentCaptor = ArgumentCaptor.forClass(UUID.class);
-        verify(productService, times(1)).findById(productArgumentCaptor.capture());
-        assertThat(productArgumentCaptor.getValue()).isEqualTo(dummyProduct.getId());
+        ArgumentCaptor<UUID> countryArgumentCaptor = ArgumentCaptor.forClass(UUID.class);
+        verify(countryService, times(1)).findById(countryArgumentCaptor.capture());
+        assertThat(countryArgumentCaptor.getValue()).isEqualTo(dummyCountry.getId());
     }
 
     @Test
-    public void create_requestProductDTOToBeCreated_expectCreatedProductAsDTO() throws Exception {
+    public void create_requestCountryDTOToBeCreated_expectCreatedCountryAsDTO() throws Exception {
         UUID uuid = UUID.randomUUID();
 
         given(userService.findById(any(UUID.class))).willReturn(new User());
-        given(productService.save(any(Product.class))).will(invocation -> {
-            if ("non-existent".equals(invocation.getArgument(0))) throw new Exception("Product could not be created");
-            return ((Product) invocation.getArgument(0)).setPrice(dummyProduct.getPrice()).setId(uuid);
+        given(countryService.save(any(Country.class))).will(invocation -> {
+            if ("non-existent".equals(invocation.getArgument(0))) throw new Exception("Country could not be created");
+            return ((Country) invocation.getArgument(0)).setPrice(dummyCountry.getPrice()).setId(uuid);
         });
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/products")
+                        .post("/countrys")
                         .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + dummyToken)
-                        .content(new ObjectMapper().writeValueAsString(dummyProduct.setId(null)))
+                        .content(new ObjectMapper().writeValueAsString(dummyCountry.setId(null)))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(uuid.toString()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(dummyProduct.getName()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(dummyCountry.getName()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.price").doesNotExist());
 
-        ArgumentCaptor<Product> productArgumentCaptor = ArgumentCaptor.forClass(Product.class);
-        verify(productService, times(1)).save(productArgumentCaptor.capture());
-        assertThat(productArgumentCaptor.getValue()).usingRecursiveComparison().isEqualTo(dummyProduct.setId(uuid));
+        ArgumentCaptor<Country> countryArgumentCaptor = ArgumentCaptor.forClass(Country.class);
+        verify(countryService, times(1)).save(countryArgumentCaptor.capture());
+        assertThat(countryArgumentCaptor.getValue()).usingRecursiveComparison().isEqualTo(dummyCountry.setId(uuid));
     }
 
     @Test
-    public void updateProduct_requestProductDTOToBeUpdated_expectUpdatedProductDTO() throws Exception {
-        String updatedProductName = "updatedProductName";
+    public void updateCountry_requestCountryDTOToBeUpdated_expectUpdatedCountryDTO() throws Exception {
+        String updatedCountryName = "updatedCountryName";
 
         given(userService.findById(any(UUID.class))).willReturn(new User());
-        given(productService.save(any(Product.class))).will(invocation -> {
-            if ("non-existent".equals(invocation.getArgument(0))) throw new Exception("Product could not be updated");
-            return ((Product) invocation.getArgument(0)).setName(updatedProductName);
+        given(countryService.save(any(Country.class))).will(invocation -> {
+            if ("non-existent".equals(invocation.getArgument(0))) throw new Exception("Country could not be updated");
+            return ((Country) invocation.getArgument(0)).setName(updatedCountryName);
         });
 
         mvc.perform(MockMvcRequestBuilders
-                        .put("/products")
+                        .put("/countrys")
                         .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + dummyToken)
-                        .content(new ObjectMapper().writeValueAsString(dummyProduct))
+                        .content(new ObjectMapper().writeValueAsString(dummyCountry))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyProduct.getId().toString()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(updatedProductName))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyCountry.getId().toString()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(updatedCountryName))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.price").doesNotExist());
 
-        ArgumentCaptor<Product> productArgumentCaptor = ArgumentCaptor.forClass(Product.class);
-        verify(productService, times(1)).save(productArgumentCaptor.capture());
+        ArgumentCaptor<Country> countryArgumentCaptor = ArgumentCaptor.forClass(Country.class);
+        verify(countryService, times(1)).save(countryArgumentCaptor.capture());
         assertAll(
-                () -> assertThat(productArgumentCaptor.getValue().getId()).isEqualTo(dummyProduct.getId()),
-                () -> assertThat(productArgumentCaptor.getValue().getName()).isEqualTo(updatedProductName),
-                () -> assertThat(productArgumentCaptor.getValue().getPrice()).isNull()
+                () -> assertThat(countryArgumentCaptor.getValue().getId()).isEqualTo(dummyCountry.getId()),
+                () -> assertThat(countryArgumentCaptor.getValue().getName()).isEqualTo(updatedCountryName),
+                () -> assertThat(countryArgumentCaptor.getValue().getPrice()).isNull()
         );
     }
 
     @Test
-    public void deleteProductById_requestDeletionOfProductById_expectAppropriateState() throws Exception {
+    public void deleteCountryById_requestDeletionOfCountryById_expectAppropriateState() throws Exception {
         given(userService.findById(any(UUID.class))).willReturn(new User());
-        given(productService.deleteById(any(UUID.class))).will(invocation -> {
+        given(countryService.deleteById(any(UUID.class))).will(invocation -> {
             if ("non-existent".equals(invocation.getArgument(0)))
-                throw new NoSuchElementException("No such product present");
+                throw new NoSuchElementException("No such country present");
             return null;
         });
 
         mvc.perform(MockMvcRequestBuilders
-                        .delete("/products/{id}", dummyProduct.getId())
+                        .delete("/countrys/{id}", dummyCountry.getId())
                         .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + dummyToken)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isNoContent());
 
-        ArgumentCaptor<UUID> productArgumentCaptor = ArgumentCaptor.forClass(UUID.class);
-        verify(productService, times(1)).deleteById(productArgumentCaptor.capture());
-        assertThat(productArgumentCaptor.getValue()).isEqualTo(dummyProduct.getId());
+        ArgumentCaptor<UUID> countryArgumentCaptor = ArgumentCaptor.forClass(UUID.class);
+        verify(countryService, times(1)).deleteById(countryArgumentCaptor.capture());
+        assertThat(countryArgumentCaptor.getValue()).isEqualTo(dummyCountry.getId());
     }
 }

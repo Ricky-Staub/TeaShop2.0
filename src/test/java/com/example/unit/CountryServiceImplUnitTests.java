@@ -1,8 +1,6 @@
-package com.example.testing.domain.product.unit;
+package com.example.unit;
 
-import com.example.testing.domain.product.Product;
-import com.example.testing.domain.product.ProductRepository;
-import com.example.testing.domain.product.ProductServiceImpl;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -26,7 +24,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-public class ProductServiceImplUnitTests {
+public class CountryServiceImplUnitTests {
 
     @InjectMocks
     private ProductServiceImpl productService;
