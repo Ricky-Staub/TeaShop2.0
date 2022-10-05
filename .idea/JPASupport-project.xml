@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoGeneratorSettingsState">
+    <option name="ignoredFields">
+      <set>
+        <option value="" />
+      </set>
+    </option>
+    <option name="moduleName" value="jwt" />
+    <option name="moduleNameToSettings">
+      <map>
+        <entry key="jwt">
+          <value>
+            <ModuleSettings>
+              <option name="controllerParentDirectory" value="C:\Users\41774\Desktop\TeaShop2.0\src\main\java" />
+              <option name="dtoParentDirectory" value="C:\Users\41774\Desktop\TeaShop2.0\src\main\java" />
+              <option name="entityPackageName" value="com.example.jwt.domain.entitys" />
+              <option name="entityParentDirectory" value="C:\Users\41774\Desktop\TeaShop2.0\src\main\java" />
+              <option name="mapperXmlParentDirectory" value="C:\Users\41774\Desktop\TeaShop2.0\src\main\resources" />
+              <option name="repositoryPackageName" value="com.example.jwt.domain.entitys" />
+              <option name="repositoryParentDirectory" value="C:\Users\41774\Desktop\TeaShop2.0\src\main\java" />
+              <option name="serviceParentDirectory" value="C:\Users\41774\Desktop\TeaShop2.0\src\main\java" />
+              <option name="voParentDirectory" value="C:\Users\41774\Desktop\TeaShop2.0\src\main\java" />
+            </ModuleSettings>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

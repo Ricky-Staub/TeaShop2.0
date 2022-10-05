@@ -4,7 +4,9 @@ public class OnlyAmountDTO {
 
     private Integer Amount;
 
-    public OnlyAmountDTO(){}
+    public OnlyAmountDTO(){
+
+    }
 
     public Integer getAmount() {
         return Amount;
