@@ -39,49 +39,78 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
     @Override
     @Transactional
     public Order createOrder(Order order) {
+        //TEIL 1
         Set<OrderPosition> detachedPositions = order.getOrderPositions();
         Order cachedOrdering = save(order.setOrderPositions(new HashSet<>()).setUser(userService.findCurrentUser().user()));
         cachedOrdering.setOrderPositions(detachedPositions.stream().map(p -> p.setOrder(cachedOrdering)).collect(Collectors.toSet()));
         Order order1 = save(cachedOrdering);
-        order1.getUser().getRank().getReduction();
-        order.setOrderPositions(order.getOrderPositions().stream().map(orderPosition -> {
-            orderPosition.setTea(teaService.findById(orderPosition.getTea().getId()));
-            if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount()  > orderPosition.getTea().getStock())) {
-                orderPosition.getTea().setStock(orderPosition.getTea().getStock() - orderPosition.getAmount());
-            } else {
-                throw new RuntimeException("Out of Stock Error");
-            } return orderPosition.setOrder(order1);
-        }).collect(Collectors.toSet()));
-
-        Integer sum = order.getOrderPositions().stream().mapToInt(p -> (int) p.getTea().getPrice() * p.getAmount()).sum();
-        order1.setPrice(sum);
-        float i = sum * userService.findCurrentUser().user().getRank().getReduction();
-        order1.setPrice(i);
-        float halved = order1.getPrice() / 2;
-        order1.getUser().setSeeds((int) halved + order1.getUser().getSeeds());
-        Rank rank = rankService.findRankBySeeds(order1.getUser().getSeeds());
-        order1.getUser().setRank(rank);
+        isAmountinStockcorrect(cachedOrdering);
+        save(cachedOrdering);
+        calculateSeedsAndRank(cachedOrdering);
+        save(cachedOrdering);
 
 // age check
-        List<Tea> teas = new ArrayList<>();
-        for (OrderPosition orderPosition : order.getOrderPositions()){
-            teas.add(orderPosition.getTea());
-        }
-        if (!isUserOldEnough(teas)){
-            throw new RuntimeException("Age Error");
-        }
+        userOldEnough(cachedOrdering);
+        save(cachedOrdering);
 
 // rank check
-        List<Tea> teas2 = new ArrayList<>();
-        for (OrderPosition orderPosition : order.getOrderPositions()){
-            teas2.add(orderPosition.getTea());
-        }
-        if (!isRankHightEnaught(teas2)){
-            throw new RuntimeException("Rank Error");
-        }
+
+        rankcheck(cachedOrdering);
+        save(cachedOrdering);
 
 //return if ok
         return cachedOrdering;
+    }
+
+
+    private Order isAmountinStockcorrect(Order order) {
+        order.getUser().getRank().getReduction();
+        order.setOrderPositions(order.getOrderPositions().stream().map(orderPosition -> {
+            orderPosition.setTea(teaService.findById(orderPosition.getTea().getId()));
+            if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount() > orderPosition.getTea().getStock())) {
+                orderPosition.getTea().setStock(orderPosition.getTea().getStock() - orderPosition.getAmount());
+            } else {
+                throw new RuntimeException("Out of Stock Error");
+            }
+            return orderPosition.setOrder(order);
+        }).collect(Collectors.toSet()));
+        return order;
+    }
+
+    private Order calculateSeedsAndRank(Order order) {
+        Integer sum = order.getOrderPositions().stream().mapToInt(p -> (int) p.getTea().getPrice() * p.getAmount()).sum();
+        order.setPrice(sum);
+        float i = sum * userService.findCurrentUser().user().getRank().getReduction();
+        order.setPrice(i);
+        float halved = order.getPrice() / 2;
+        order.getUser().setSeeds((int) halved + order.getUser().getSeeds());
+        Rank rank = rankService.findRankBySeeds(order.getUser().getSeeds());
+        order.getUser().setRank(rank);
+
+        return order;
+    }
+
+
+    private Order userOldEnough(Order order) {
+        List<Tea> teas = new ArrayList<>();
+        for (OrderPosition orderPosition : order.getOrderPositions()) {
+            teas.add(orderPosition.getTea());
+        }
+        if (!isUserOldEnough(teas)) {
+            throw new RuntimeException("Age Error");
+        }
+        return order;
+    }
+
+    private Order rankcheck(Order order) {
+        List<Tea> teas2 = new ArrayList<>();
+        for (OrderPosition orderPosition : order.getOrderPositions()) {
+            teas2.add(orderPosition.getTea());
+        }
+        if (!isRankHightEnaught(teas2)) {
+            throw new RuntimeException("Rank Error");
+        }
+        return order;
     }
 
 //other stuff

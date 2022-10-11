@@ -97,4 +97,12 @@ public class OrderServiceImplUnitTests {
         verify(orderRepository, times(1)).findAll();
     }
 
+
+    @Test
+    public void Create_requestOrdernew_expectNewOrders() {
+        given(orderRepository.save(dummyOrder));
+        assertThat(orderService.createOrder(dummyOrder)).isEqualTo(dummyOrder);
+        verify(orderRepository, times(1)).save(dummyOrder);
+    }
+
 }
