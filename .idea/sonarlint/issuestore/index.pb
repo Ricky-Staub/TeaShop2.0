@@ -11,8 +11,6 @@ a
 ]src/main/java/com/example/jwt/core/security/permissionEvaluators/UserPermissionEvaluator.java,2\f\2fdf0d99e110ee5fbca68b59b3287f0f68be0e99
 g
 7src/main/java/com/example/jwt/core/audit/UserAware.java,a\d\ad8b4e21c036ec5e95e021b4cdca3cc2cd47ca5b
-s
-Csrc/main/java/com/example/jwt/core/generic/ExtendedAuditEntity.java,1\1\11070b7bdf1ddfc07d218a0e1112b83fcfc96954
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 k

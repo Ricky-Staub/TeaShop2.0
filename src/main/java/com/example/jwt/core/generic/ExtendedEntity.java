@@ -3,32 +3,22 @@ package com.example.jwt.core.generic;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.UUID;
 
 @MappedSuperclass
 public abstract class ExtendedEntity {
 
-//    @Id
-//    @GeneratedValue(generator = "UUID")
-//    @GenericGenerator(
-//            name = "UUID",
-//            strategy = "org.hibernate.id.UUIDGenerator",
-//            parameters = {
-//                    @org.hibernate.annotations.Parameter(
-//                            name = "uuid_gen_strategy_class",
-//                            value = "org.hibernate.id.uuid.CustomVersionOneStrategy"
-//                    )
-//            }
-//    )
-//    @Column(name = "id", updatable = false, nullable = false)
-//    private UUID id;
-
-
     @Id
-   @Column(name = "id", updatable = false, nullable = false)
-   @Type(type = "uuid-char") // For testing purposes only. H2 does not support binary UUID.
-    private UUID id = UUID.randomUUID();
-
+    @Column(name = "id", updatable = false, nullable = false)
+    @Type(type = "uuid-char")
+    private UUID id;
+    @PrePersist
+    protected void onCreate() {
+        if (Objects.isNull(this.id)) {
+            this.id = UUID.randomUUID();
+        }
+    }
     protected ExtendedEntity() {
     }
 
