@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-05T14:03:12+0200",
+    date = "2022-10-11T10:39:53+0200",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.2 (Oracle Corporation)"
 )
 @Component
@@ -110,6 +110,20 @@ public class OrderMapperImpl implements OrderMapper {
         }
 
         return set;
+    }
+
+    @Override
+    public List<OrderDTO> fromOrderToOrderDTO(List<Order> orders) {
+        if ( orders == null ) {
+            return null;
+        }
+
+        List<OrderDTO> list = new ArrayList<OrderDTO>( orders.size() );
+        for ( Order order : orders ) {
+            list.add( orderToOrderDTO( order ) );
+        }
+
+        return list;
     }
 
     protected User userDTOToUser(UserDTO userDTO) {
@@ -286,5 +300,20 @@ public class OrderMapperImpl implements OrderMapper {
         }
 
         return set1;
+    }
+
+    protected OrderDTO orderToOrderDTO(Order order) {
+        if ( order == null ) {
+            return null;
+        }
+
+        OrderDTO orderDTO = new OrderDTO();
+
+        orderDTO.setId( order.getId() );
+        orderDTO.setPrice( order.getPrice() );
+        orderDTO.setUser( userToUserDTO( order.getUser() ) );
+        orderDTO.setOrderPositions( orderPositionSetToOrderPositionDTOSet( order.getOrderPositions() ) );
+
+        return orderDTO;
     }
 }

@@ -32,9 +32,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 
-
-
     testAnnotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.5.2.Final'
+
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.7.3'
     testImplementation group: 'org.springframework.security', name: 'spring-security-test', version: '5.7.3'
     testImplementation group: 'com.h2database', name: 'h2', version: '2.1.214'

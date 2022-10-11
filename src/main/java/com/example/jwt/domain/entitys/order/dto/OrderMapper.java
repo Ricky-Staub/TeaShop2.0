@@ -7,8 +7,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring",nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+@Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface OrderMapper extends ExtendedMapper<Order, OrderCreateDTO> {
-//    Order orderCreateDTOToOrder (OrderCreateDTO orderCreateDTO);
-//    OrderCreateDTO orderToOrderCreateDTO (Order order);
+    List<OrderDTO> fromOrderToOrderDTO(List<Order> orders);
 }

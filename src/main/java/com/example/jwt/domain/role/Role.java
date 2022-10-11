@@ -38,15 +38,17 @@ public class Role extends ExtendedEntity {
         return name;
     }
 
-    public void setName(String name) {
+    public Role setName(String name) {
         this.name = name;
+        return this;
     }
 
     public Set<Authority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Set<Authority> authorities) {
+    public Role setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
+        return this;
     }
 }

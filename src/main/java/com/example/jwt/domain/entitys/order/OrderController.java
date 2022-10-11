@@ -2,6 +2,7 @@ package com.example.jwt.domain.entitys.order;
 
 import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
 import com.example.jwt.domain.entitys.order.dto.OrderCreateDTO;
+import com.example.jwt.domain.entitys.order.dto.OrderDTO;
 import com.example.jwt.domain.entitys.order.dto.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,14 +26,19 @@ public class OrderController {
         this.orderMapper = orderMapper;
     }
 
-// HIER SPEICHERST DU EINE NEUE BESTELLUNG
-    @PostMapping
-    public ResponseEntity<OrderCreateDTO> save(@RequestBody @Valid OrderCreateDTO orderCreateDTO) {
-        Order order = orderService.createOrder(orderMapper.fromDTO(orderCreateDTO));
-        return new ResponseEntity<>(orderMapper.toDTO(order), HttpStatus.CREATED);
+    @GetMapping
+    public ResponseEntity<List<OrderDTO>> findAll() {
+        List<OrderDTO> orders = orderMapper.fromOrderToOrderDTO(orderService.findAll());
+        return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping("/page/{pageNo}/{pageSize}")
+    public ResponseEntity<List<OrderCreateDTO>> getAllOrdersPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize) {
+        List<OrderCreateDTO> list = orderService.getAllOrdersPage(pageNo, pageSize);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/findown")
     public List<OrderCreateDTO> findOwn() { return orderMapper.toDTOs(orderService.findOwn());
     }
 
@@ -40,12 +46,10 @@ public class OrderController {
     public List<OrderCountDTO> findTeas() { return orderService.findTeas();
     }
 
-    @GetMapping("/page/{pageNo}/{pageSize}")
-    public ResponseEntity<List<OrderCreateDTO>> getAllOrdersPage(
-            @PathVariable Integer pageNo,
-            @PathVariable Integer pageSize)
-    {
-        List<OrderCreateDTO> list = orderService.getAllOrdersPage(pageNo, pageSize);
-        return new ResponseEntity<>(list, HttpStatus.OK);
+    // HIER SPEICHERST DU EINE NEUE BESTELLUNG
+    @PostMapping
+    public ResponseEntity<OrderCreateDTO> save(@RequestBody @Valid OrderCreateDTO orderCreateDTO) {
+        Order order = orderService.createOrder(orderMapper.fromDTO(orderCreateDTO));
+        return new ResponseEntity<>(orderMapper.toDTO(order), HttpStatus.CREATED);
     }
 }

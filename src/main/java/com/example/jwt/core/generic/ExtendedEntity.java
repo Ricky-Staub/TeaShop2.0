@@ -1,33 +1,33 @@
 package com.example.jwt.core.generic;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @MappedSuperclass
 public abstract class ExtendedEntity {
 
+//    @Id
+//    @GeneratedValue(generator = "UUID")
+//    @GenericGenerator(
+//            name = "UUID",
+//            strategy = "org.hibernate.id.UUIDGenerator",
+//            parameters = {
+//                    @org.hibernate.annotations.Parameter(
+//                            name = "uuid_gen_strategy_class",
+//                            value = "org.hibernate.id.uuid.CustomVersionOneStrategy"
+//                    )
+//            }
+//    )
+//    @Column(name = "id", updatable = false, nullable = false)
+//    private UUID id;
+
+
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(
-                            name = "uuid_gen_strategy_class",
-                            value = "org.hibernate.id.uuid.CustomVersionOneStrategy"
-                    )
-            }
-    )
-    @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+   @Column(name = "id", updatable = false, nullable = false)
+   @Type(type = "uuid-char") // For testing purposes only. H2 does not support binary UUID.
+    private UUID id = UUID.randomUUID();
 
     protected ExtendedEntity() {
     }
@@ -40,7 +40,8 @@ public abstract class ExtendedEntity {
         return id;
     }
 
-    public void setId(UUID id) {
+    public Object setId(UUID id) {
         this.id = id;
+        return null;
     }
 }

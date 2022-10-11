@@ -10,4 +10,7 @@ public interface CountryMapper {
     CountryDTO countryToCountryDTOWithoutID(Country country);
 
 
+    Object fromDTO(CountryDTO countryDTO);
+
+    Object toDTO(Country country);
 }
