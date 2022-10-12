@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @Validated
 @RestController
@@ -52,4 +53,12 @@ public class OrderController {
         Order order = orderService.createOrder(orderMapper.fromDTO(orderCreateDTO));
         return new ResponseEntity<>(orderMapper.toDTO(order), HttpStatus.CREATED);
     }
+
+    //update für tests
+    @PutMapping("/{id}")
+    public ResponseEntity<OrderCreateDTO> updateById(@PathVariable UUID id, @Validated @RequestBody OrderCreateDTO orderCreateDTO) {
+        Order order = orderService.updateById(id, orderMapper.fromDTO(new OrderCreateDTO()));
+        return new ResponseEntity<>(orderMapper.toDTO(order), HttpStatus.OK);
+    }
+
 }

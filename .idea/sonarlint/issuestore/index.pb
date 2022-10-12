@@ -15,8 +15,6 @@ g
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 k
 ;src/main/java/com/example/jwt/core/generic/ExtendedDTO.java,d\1\d17e8af571a859b821612bfa9a5655618f528e3e
-o
-?src/main/java/com/example/jwt/core/generic/ExtendedService.java,6\d\6de67dfb8c6bb70fd015ac79603e9d0dd0764bdc
 {
 Ksrc/main/java/com/example/jwt/core/security/CustomAuthenticationFilter.java,5\7\57376df684b58e53882450428c64465c5bfea06a
 m
@@ -71,8 +69,6 @@ y
 Isrc/main/java/com/example/jwt/domain/orderposition/dto/OnlyAmountDTO.java,9\8\98bd3ffb12de63f07cc19af07ce1f904652fb143
 }
 Msrc/main/java/com/example/jwt/domain/entitys/order/dto/OrderDTOWithoutID.java,a\c\acb115a93b512d53ab9fe1e11246a77aed601b48
-r
-Bsrc/main/java/com/example/jwt/domain/entitys/user/dto/UserDTO.java,1\f\1f05b6efac733196502910cbe60efecdea90af9b
 ‰
 Ysrc/test/java/com/example/jwt/domain/entitys/country/unit/CountryRepositoryUnitTests.java,d\8\d84f519fc7e8e6a1f0188fbdde31ce4d53cdb95f
 {
@@ -89,8 +85,6 @@ Psrc/main/java/com/example/jwt/domain/entitys/authority/AuthorityServiceImpl.jav
 Osrc/main/java/com/example/jwt/domain/entitys/authority/AuthorityRepository.java,a\7\a7cee24e34eab32632faaf843a76d034c0e85e9a
 {
 Ksrc/main/java/com/example/jwt/domain/entitys/country/CountryController.java,1\f\1f20d18208e76f5d4422cdc562b0baada02b49e4
-u
-Esrc/main/java/com/example/jwt/domain/entitys/user/UserController.java,2\5\25f89af3efb2b3a98c26527ea5a4d80ea97163c5
 ‰
 Ysrc/test/java/com/example/jwt/domain/entitys/country/unit/CountryControllerUnitTests.java,2\7\279d39de24c144d9335673f8ed676724a9323cb7
 z

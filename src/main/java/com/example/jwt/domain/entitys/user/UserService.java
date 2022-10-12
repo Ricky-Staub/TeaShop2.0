@@ -15,6 +15,8 @@ public interface UserService extends UserDetailsService, ExtendedService<User> {
 
     UserDetailsImpl findCurrentUser();
 
+
+
 // User isAccountNonLocked(UUID id, User user);
 
     User lockUser(UUID id, User user);

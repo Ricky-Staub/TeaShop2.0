@@ -4,6 +4,7 @@ import com.example.jwt.core.security.config.AuthorizationSchemas;
 import com.example.jwt.core.security.config.JwtProperties;
 import com.example.jwt.domain.entitys.authority.Authority;
 import com.example.jwt.domain.entitys.order.Order;
+import com.example.jwt.domain.entitys.order.OrderService;
 import com.example.jwt.domain.entitys.order.OrderServiceImpl;
 import com.example.jwt.domain.entitys.order.dto.OrderMapper;
 import com.example.jwt.domain.entitys.ranking.Rank;
@@ -36,6 +37,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.Matchers.hasSize;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
@@ -56,7 +58,7 @@ public class OrderControllerUnitTests {
     private UserService userService;
 
     @MockBean
-    private OrderServiceImpl orderServiceImpl;
+    private OrderService orderService;
 
 @Autowired
     private OrderMapper orderMapper;
@@ -109,7 +111,7 @@ public class OrderControllerUnitTests {
     @Test
     public void retrieveAll_requestAllOrders_expectAllOrdersAsDTOS() throws Exception {
         given(userService.findById(any(UUID.class))).willReturn(new User().setRoles(Set.of(new Role().setAuthorities(Set.of(new Authority().setName("USER_SEE"))))));
-        given(orderServiceImpl.findAll()).willReturn(dummyOrders);
+        given(orderService.findAll()).willReturn(dummyOrders);
 
         mvc.perform(MockMvcRequestBuilders
                         .get("/order")
@@ -118,7 +120,7 @@ public class OrderControllerUnitTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)));
 //                .andExpect(MockMvcResultMatchers.jsonPath("$[*].order").value(Matchers.containsInAnyOrder(dummyOrders.get(0).getOrder(), dummyOrders.get(1).getOrder())));
-        verify(orderServiceImpl, times(1)).findAll();
+        verify(orderService, times(1)).findAll();
     }
 
     @Test
@@ -126,7 +128,7 @@ public class OrderControllerUnitTests {
         UUID uuid = UUID.randomUUID();
 
         given(userService.findById(any(UUID.class))).willReturn(new User());
-        given(orderServiceImpl.createOrder(any(Order.class))).willReturn(dummyOrder);
+        given(orderService.createOrder(any(Order.class))).willReturn(dummyOrder);
 
         System.out.println("---------->" +dummyOrder.getId());
         System.out.println(dummyOrder.getPrice());
@@ -147,5 +149,33 @@ public class OrderControllerUnitTests {
 //        assertThat(orderArgumentCaptor.getValue()).usingRecursiveComparison().isEqualTo(dummyOrder.setId(uuid));
     }
 
+    @Test
+    public void updateOrder_requestOrderDTOToBeUpdated_expectUpdatedOrderDTO() throws Exception {
+        Float updatedOrderPrice = Float.valueOf("updatedOrderPrice");
 
+        given(userService.findById(any(UUID.class))).willReturn(new User());
+        given(orderService.updateById(any(UUID.class),(any(Order.class)))).will(invocation -> {
+            if ("non-existent".equals(invocation.getArgument(0))) throw new Exception("Order could not be updated");
+            return ((Order) invocation.getArgument(0)).setPrice(updatedOrderPrice);
+        });
+
+        mvc.perform(MockMvcRequestBuilders
+                        .put("/orders")
+                        .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + dummyToken)
+                        .content(new ObjectMapper().writeValueAsString(dummyOrder))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyOrder.getId().toString()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.price").value(updatedOrderPrice));
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.price").doesNotExist());
+
+        ArgumentCaptor<Order> orderArgumentCaptor = ArgumentCaptor.forClass(Order.class);
+        verify(orderService, times(1)).save(orderArgumentCaptor.capture());
+        assertAll(
+                () -> assertThat(orderArgumentCaptor.getValue().getId()).isEqualTo(dummyOrder.getId()),
+//                () -> assertThat(orderArgumentCaptor.getValue().getName()).isEqualTo(updatedOrderName),
+                () -> assertThat(orderArgumentCaptor.getValue().getPrice()).isNull()
+        );
+    }
 }

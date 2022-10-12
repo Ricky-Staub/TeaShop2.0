@@ -11,6 +11,8 @@ import com.example.jwt.domain.entitys.ranking.Rank;
 import com.example.jwt.domain.entitys.teas.Tea;
 import com.example.jwt.domain.entitys.teatype.TeaType;
 import com.example.jwt.domain.entitys.user.User;
+import com.example.jwt.domain.entitys.user.UserDetailsImpl;
+import com.example.jwt.domain.entitys.user.UserServiceImpl;
 import com.example.jwt.domain.orderposition.OrderPosition;
 import com.example.jwt.domain.role.Role;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,9 +35,11 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class OrderServiceImplUnitTests {
-
     @InjectMocks
-    private OrderServiceImpl orderService;
+    private OrderServiceImpl orderServiceImpl;
+
+    @Mock
+    private UserServiceImpl userServiceImpl;
 
     @Mock
     private OrderRepository orderRepository;
@@ -46,29 +50,20 @@ public class OrderServiceImplUnitTests {
 
     private Tea dummyTea;
 
-    private Rank dummyRank;
-
-    private Role dummyRole;
-
-    private Authority dummyAuthority;
-
-    private OrderPosition dummyOrderPosition;
-
     private List<Order> dummyOrders;
 
     @BeforeEach
     public void setUp() {
-
-        dummyAuthority = new Authority(UUID.randomUUID(), "name");
-        dummyRole = new Role(UUID.randomUUID(), "USER_SEE",Set.of(dummyAuthority));
-
+        Authority dummyAuthority = new Authority(UUID.randomUUID(), "name");
+        Role dummyRole = new Role(UUID.randomUUID(), "USER_SEE", Set.of(dummyAuthority));
+        Rank dummyRank = new Rank(UUID.randomUUID(), "title", 55, 7);
         dummyUser = new User(UUID.randomUUID(), 33, "sdfg", "sdfgh", 18, "sdf@jk.ch", "12345", false, dummyRank, Set.of(dummyRole));
+        TeaType dummyTeaType = new TeaType(UUID.randomUUID(), "huso", 18, 0);
+        dummyTea = new Tea(UUID.randomUUID(),  "description", 12, null, 5, dummyTeaType, null);
 
-
-        dummyRank = new Rank(UUID.randomUUID(), "title", 55, 7);
         dummyOrder = new Order(UUID.randomUUID(), 55, dummyUser, null);
-        dummyTea = new Tea(UUID.randomUUID(),  "description", 12, null, 5, null, null);
-        dummyOrderPosition = new OrderPosition(UUID.randomUUID(), 3, dummyOrder, dummyTea);
+
+        OrderPosition dummyOrderPosition = new OrderPosition(UUID.randomUUID(), 3, dummyOrder, dummyTea);
         dummyOrder.setOrderPositions(Set.of(dummyOrderPosition));
         dummyOrders = Stream.of(new Order(UUID.randomUUID(), 55, dummyUser, null), new Order(UUID.randomUUID(), 55, dummyUser, null)).collect(Collectors.toList());
     }
@@ -93,16 +88,44 @@ public class OrderServiceImplUnitTests {
     @Test
     public void findAll_requestOrdersAll_expectOrders() {
         given(orderRepository.findAll()).willReturn(dummyOrders);
-        assertThat(orderService.findAll()).usingRecursiveComparison().isEqualTo(dummyOrders);
+        assertThat(orderServiceImpl.findAll()).usingRecursiveComparison().isEqualTo(dummyOrders);
         verify(orderRepository, times(1)).findAll();
     }
 
+//CreateOrder
+//    @Test
+//    public void Create_requestOrdernew_expectNewOrders() {
+//        given(orderRepository.save(dummyOrder));
+//        assertThat(orderServiceImpl.createOrder(dummyOrder)).isEqualTo(dummyOrder);
+//        verify(orderRepository, times(1)).save(dummyOrder);
+//    }
 
+    //isAmountInStockKorrect
+//    @Test
+//    public void isAmountinStockcorrect_expectStockIsGood() {
+//        given(orderRepository.save(dummyOrder));
+//        assertThat(orderService.createOrder(dummyOrder)).isEqualTo(dummyOrder);
+//        verify(orderRepository, times(1)).save(dummyOrder);
+//    }
+//
+
+    //CalculateSeeds
+
+    //UserOldEnaugh
     @Test
-    public void Create_requestOrdernew_expectNewOrders() {
-        given(orderRepository.save(dummyOrder));
-        assertThat(orderService.createOrder(dummyOrder)).isEqualTo(dummyOrder);
+    public void userOldEnough_expectUserIsOldEnaught() {
+        given(userServiceImpl.findCurrentUser()).willReturn(new UserDetailsImpl(dummyUser));
+        assertThat(orderServiceImpl.isUserOldEnough(List.of(dummyTea))).isEqualTo(true);
         verify(orderRepository, times(1)).save(dummyOrder);
+
     }
+
+    //rankCheck
+//    @Test
+//    public void rankcheck_expectRank() {
+//        given(orderRepository.save(dummyOrder));
+//        assertThat(orderService.isRankHightEnaught(dummyUser)).isEqualTo(dummyOrder);
+//        verify(orderRepository, times(1)).save(dummyRank);
+//    }
 
 }
