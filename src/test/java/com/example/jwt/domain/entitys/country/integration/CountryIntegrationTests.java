@@ -109,7 +109,8 @@ public class CountryIntegrationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
 //                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(1)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyCountry.getId().toString()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.country").value(dummyCountry.getCountry()));
+                .andExpect(MockMvcResultMatchers.jsonPath("$" +
+                        ".country").value(dummyCountry.getCountry()));
     }
 
 }

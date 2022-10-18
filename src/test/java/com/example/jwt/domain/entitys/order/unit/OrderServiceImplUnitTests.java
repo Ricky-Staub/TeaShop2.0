@@ -61,11 +61,12 @@ public class OrderServiceImplUnitTests {
         TeaType dummyTeaType = new TeaType(UUID.randomUUID(), "huso", 18, 0);
         dummyTea = new Tea(UUID.randomUUID(),  "description", 12, null, 5, dummyTeaType, null);
 
-        dummyOrder = new Order(UUID.randomUUID(), 55, dummyUser, null);
+
+        dummyOrders = Stream.of(new Order(UUID.randomUUID(), 55, dummyUser, null), new Order(UUID.randomUUID(), 55, dummyUser, null)).collect(Collectors.toList());
+        dummyOrder = dummyOrders.get(0);
 
         OrderPosition dummyOrderPosition = new OrderPosition(UUID.randomUUID(), 3, dummyOrder, dummyTea);
         dummyOrder.setOrderPositions(Set.of(dummyOrderPosition));
-        dummyOrders = Stream.of(new Order(UUID.randomUUID(), 55, dummyUser, null), new Order(UUID.randomUUID(), 55, dummyUser, null)).collect(Collectors.toList());
     }
 
 //    @Test
@@ -127,5 +128,26 @@ public class OrderServiceImplUnitTests {
 //        assertThat(orderService.isRankHightEnaught(dummyUser)).isEqualTo(dummyOrder);
 //        verify(orderRepository, times(1)).save(dummyRank);
 //    }
+
+
+
+    //updateById
+    //not working
+    @Test
+    public void UpdateById_requestOrdersAll_expectUpdateOrders() {
+        given(orderRepository.findById(any(UUID.class))).will(invocation -> {
+                    if ("non-existent".equals(invocation.getArgument(0)))
+                        throw new NoSuchElementException("No such country present");
+                    return Optional.of(dummyOrder);
+        });
+
+        System.out.println(dummyOrder.getId());
+        System.out.println(dummyOrder.getPrice());
+        assertThat(orderServiceImpl.updateById(dummyOrder.getId(), dummyOrder.setPrice(16.5F)));
+        verify(orderRepository, times(1)).findById(any(UUID.class));
+        System.out.println(dummyOrder.getPrice());
+
+    }
+
 
 }

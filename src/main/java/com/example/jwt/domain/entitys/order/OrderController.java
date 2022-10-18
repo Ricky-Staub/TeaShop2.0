@@ -1,9 +1,6 @@
 package com.example.jwt.domain.entitys.order;
 
-import com.example.jwt.domain.entitys.order.dto.OrderCountDTO;
-import com.example.jwt.domain.entitys.order.dto.OrderCreateDTO;
-import com.example.jwt.domain.entitys.order.dto.OrderDTO;
-import com.example.jwt.domain.entitys.order.dto.OrderMapper;
+import com.example.jwt.domain.entitys.order.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +18,17 @@ public class OrderController {
     private final OrderService orderService;
     private final OrderMapper orderMapper;
 
+    private final OrderMapper2 orderMapper2;
+
+
     @Autowired
-    public OrderController(OrderService orderService, OrderMapper orderMapper) {
+    public OrderController(OrderService orderService, OrderMapper orderMapper, OrderMapper2 orderMapper2) {
         this.orderService = orderService;
         this.orderMapper = orderMapper;
+        this.orderMapper2 = orderMapper2;
     }
+
+
 
     @GetMapping
     public ResponseEntity<List<OrderDTO>> findAll() {
@@ -56,9 +59,9 @@ public class OrderController {
 
     //update für tests
     @PutMapping("/{id}")
-    public ResponseEntity<OrderCreateDTO> updateById(@PathVariable UUID id, @Validated @RequestBody OrderCreateDTO orderCreateDTO) {
-        Order order = orderService.updateById(id, orderMapper.fromDTO(new OrderCreateDTO()));
-        return new ResponseEntity<>(orderMapper.toDTO(order), HttpStatus.OK);
+    public ResponseEntity<OrderDTO> updateById(@PathVariable UUID id, @Validated @RequestBody OrderDTO orderDTO) {
+        Order order = orderService.updateById(id, orderMapper2.fromDTO(orderDTO));
+        return new ResponseEntity<>(orderMapper2.toDTO(order), HttpStatus.OK);
     }
 
 }

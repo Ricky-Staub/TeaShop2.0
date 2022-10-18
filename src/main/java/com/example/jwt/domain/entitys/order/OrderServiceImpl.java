@@ -43,7 +43,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         Set<OrderPosition> detachedPositions = order.getOrderPositions();
         Order cachedOrdering = save(order.setOrderPositions(new HashSet<>()).setUser(userService.findCurrentUser().user()));
         cachedOrdering.setOrderPositions(detachedPositions.stream().map(p -> p.setOrder(cachedOrdering)).collect(Collectors.toSet()));
-        Order order1 = save(cachedOrdering);
+        //Order order1 = save(cachedOrdering);
         isAmountinStockcorrect(cachedOrdering);
         save(cachedOrdering);
         calculateSeedsAndRank(cachedOrdering);
@@ -64,7 +64,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
 
 
     private Order isAmountinStockcorrect(Order order) {
-        order.getUser().getRank().getReduction();
+        //order.getUser().getRank().getReduction();
         order.setOrderPositions(order.getOrderPositions().stream().map(orderPosition -> {
             orderPosition.setTea(teaService.findById(orderPosition.getTea().getId()));
             if (order.getOrderPositions().stream().noneMatch(p -> p.getAmount() > orderPosition.getTea().getStock())) {
@@ -164,5 +164,13 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
     public List<OrderCreateDTO> getAllOrdersPage(Integer pageNo, Integer pageSize){
         List<Order> order =  findAll(PageRequest.of(pageNo,pageSize));
         return orderMapper.toDTOs(order);
+    }
+
+
+    @Override
+    public Order updateById(UUID id, Order entity) throws NoSuchElementException {
+        Order order = findById(id);
+        order.setPrice(entity.getPrice());
+        return save(order);
     }
 }
