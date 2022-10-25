@@ -15,7 +15,7 @@ public class OrderPosition extends ExtendedEntity {
     private Integer amount;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "order_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "order_id", referencedColumnName = "id", nullable = true)
     private Order order;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)

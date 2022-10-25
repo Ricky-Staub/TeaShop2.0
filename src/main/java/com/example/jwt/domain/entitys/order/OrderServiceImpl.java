@@ -136,6 +136,8 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
     public boolean isUserOldEnough(List<Tea> teas){
         boolean isIts18 = false;
         for (Tea tea : teas) {
+            System.out.println(tea.getTeaType().getMinAge());
+            System.out.println(userService.findCurrentUser().user());
             if (userService.findCurrentUser().user().getAge() >= tea.getTeaType().getMinAge()) {
                    isIts18 = true;
             } else {

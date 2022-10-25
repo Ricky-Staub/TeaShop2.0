@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "825f8f88-6fd8-4c6d-84fc-ed6254a2c86a",
+		"name": "testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"huso\",\r\n    \"age\": 18,\r\n    \"email\": \"dfghj@dfggh.ch\",\r\n    \"password\": \"sdfg234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/register",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.to.have.status(200)) {\r",
+									"    const token = pm.response.headers.get(\"Authorization\").replace(\"Bearer \", \"\")\r",
+									"    pm.collectionVariables.set(\"USER_AUTH_TOKEN\", token)\r",
+									"\r",
+									"    const jwtPayload = JSON.parse(atob(token.split('.')[1]));\r",
+									"    const userId = jwtPayload[\"sub\"]\r",
+									"    pm.collectionVariables.set(\"USER_ID\", userId)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dfghj@dfggh.ch\",\r\n    \"password\": \"sdfg234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/users/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "newOrder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"its the order you send it\", () => {\r",
+									"    const resData = pm.response.json();\r",
+									"    const reqData = JSON.parse(pm.request.body.raw);\r",
+									"    for(let i = 0; i < reqData.orderPositions.lenght; i++){\r",
+									"        const reqOrderPosition = reqData.orderPositions[i];\r",
+									"        const resOrderPosition = resData.orderPositions[i];\r",
+									"        pm.expect(reqOrderPosition.tea.id).to.eql(resOrderPosition.tea.id)\r",
+									"        pm.expect(reqOrderPosition.amount).to.eql(resOrderPosition.amount)\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.set(\"ORDER_ID\", pm.response.json().id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"52c0d20d-5d8b-414b-a473-e041f8313b62\",\r\n    \"orderPositions\": [\r\n        {\r\n            \"amount\": 4,\r\n            \"tea\": {\r\n                \"id\": \"9167ba4f-5374-4f08-bae5-489d3d06e53a\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/order",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById (somethings wrong i csn feel it)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"same id -> es funtzt\", ()=> {\r",
+									"    const data = pm.response.json();\r",
+									"    pm.expect(data.id).to.eql(pm.collectionVariables.get(\"ORDER_ID\"))\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/order/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ORDER_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"alle vorhanden du huso\", function () {\r",
+									"    const data = pm.response.json();\r",
+									"    pm.expect(data.length).to.eql(1)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/order",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(621);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"52c0d20d-5d8b-414b-a473-e041f8313b62\",\r\n    \"price\": 69.9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/order/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ORDER_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOrder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"nix vorhanden du huso\", function () {\r",
+									"    const data = pm.response.data;\r",
+									"    pm.expect(data === undefined || data.lenght === 0)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/order/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ORDER_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{USER_AUTH_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost:8080",
+			"type": "default"
+		},
+		{
+			"key": "USER_AUTH_TOKEN",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "USER_ID",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "ORDER_ID",
+			"value": "52c0d20d-5d8b-414b-a473-e041f8313b62",
+			"type": "default"
+		}
+	]
+}

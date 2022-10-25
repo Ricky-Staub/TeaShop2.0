@@ -1,5 +1,7 @@
 package com.example.jwt.domain.entitys.order;
 
+import com.example.jwt.domain.entitys.country.Country;
+import com.example.jwt.domain.entitys.country.dto.CountryDTO;
 import com.example.jwt.domain.entitys.order.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,6 +44,12 @@ public class OrderController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<OrderCreateDTO> findById(@PathVariable("id") UUID id) {
+        Order order = orderService.findById(id);
+        return new ResponseEntity<>(orderMapper.toDTO(order),HttpStatus.OK);
+    }
+
     @GetMapping("/findown")
     public List<OrderCreateDTO> findOwn() { return orderMapper.toDTOs(orderService.findOwn());
     }
@@ -64,4 +72,10 @@ public class OrderController {
         return new ResponseEntity<>(orderMapper2.toDTO(order), HttpStatus.OK);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable UUID id) {
+        orderService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    
 }

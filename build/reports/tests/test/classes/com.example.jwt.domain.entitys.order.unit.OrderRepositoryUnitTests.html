@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - OrderRepositoryUnitTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>OrderRepositoryUnitTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.jwt.domain.entitys.order.unit.html">com.example.jwt.domain.entitys.order.unit</a> &gt; OrderRepositoryUnitTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.614s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">update_requestOrderToBeUpdated_expectUpdateOrder()</td>
+<td class="success">1.614s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>09:19:05.139 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+09:19:05.157 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+09:19:05.213 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests] from class [org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper]
+09:19:05.229 [Test worker] INFO org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests], using SpringBootContextLoader
+09:19:05.233 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests]: class path resource [com/example/jwt/domain/entitys/order/unit/OrderRepositoryUnitTests-context.xml] does not exist
+09:19:05.234 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests]: class path resource [com/example/jwt/domain/entitys/order/unit/OrderRepositoryUnitTestsContext.groovy] does not exist
+09:19:05.234 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+09:19:05.235 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests]: OrderRepositoryUnitTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:19:05.337 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests]
+09:19:05.490 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\41774\Desktop\TeaShop2.0\build\classes\java\main\com\example\jwt\JwtApplication.class]
+09:19:05.492 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.jwt.JwtApplication for test class com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests
+09:19:05.499 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper - @TestExecutionListeners is not present for class [com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests]: using defaults.
+09:19:05.500 [Test worker] INFO org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+09:19:05.569 [Test worker] INFO org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2cb3d0f7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4e517165, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@44e3760b, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6a66a204, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5860f3d7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1d7f7be7, org.springframework.test.context.transaction.TransactionalTestExecutionListener@42f3156d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1ddae9b5, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@427b5f92, org.springframework.test.context.event.EventPublishingTestExecutionListener@24bdb479, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@7e3f95fe, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@34625ccd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2c7d121c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@65aa6596, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@67389cb8, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@419a20a6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@533377b]
+09:19:05.573 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@162be91c testClass = OrderRepositoryUnitTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@2488b073 testClass = OrderRepositoryUnitTests, locations = '{}', classes = '{class com.example.jwt.JwtApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1b765a2c, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@72c28d64, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@8b99b029, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3a393455, [ImportsContextCustomizer@1c9f0a20 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@20b12f8a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@54a67a45, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [true] with mode [BEFORE_EACH_TEST_METHOD].
+09:19:05.590 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@162be91c testClass = OrderRepositoryUnitTests, testInstance = com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests@274872f8, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@2488b073 testClass = OrderRepositoryUnitTests, locations = '{}', classes = '{class com.example.jwt.JwtApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1b765a2c, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@72c28d64, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@8b99b029, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3a393455, [ImportsContextCustomizer@1c9f0a20 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@20b12f8a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@54a67a45, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.2)
+
+2022-10-25 09:19:06.230  INFO 14248 --- [    Test worker] c.e.j.d.e.o.u.OrderRepositoryUnitTests   : Starting OrderRepositoryUnitTests using Java 17.0.2 on LAPTOP-1FULM01B with PID 14248 (started by 41774 in C:\Users\41774\Desktop\TeaShop2.0)
+2022-10-25 09:19:06.231  INFO 14248 --- [    Test worker] c.e.j.d.e.o.u.OrderRepositoryUnitTests   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2022-10-25 09:19:06.792  INFO 14248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-25 09:19:06.966  INFO 14248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 163 ms. Found 10 JPA repository interfaces.
+2022-10-25 09:19:07.042  INFO 14248 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-10-25 09:19:07.326  INFO 14248 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:a21237d6-73bf-4874-b51a-f1917506516e;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-10-25 09:19:07.818  INFO 14248 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-25 09:19:07.879  INFO 14248 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-10-25 09:19:08.122  INFO 14248 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-25 09:19:08.356  INFO 14248 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: drop table if exists public.authority CASCADE 
+Hibernate: drop table if exists public.country CASCADE 
+Hibernate: drop table if exists public.order_position CASCADE 
+Hibernate: drop table if exists public.orders CASCADE 
+Hibernate: drop table if exists public.rank CASCADE 
+Hibernate: drop table if exists public.role CASCADE 
+Hibernate: drop table if exists public.role_authority CASCADE 
+Hibernate: drop table if exists public.tea CASCADE 
+Hibernate: drop table if exists public.tea_type CASCADE 
+Hibernate: drop table if exists public.users CASCADE 
+Hibernate: drop table if exists public.users_role CASCADE 
+Hibernate: create table public.authority (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.country (id varchar(255) not null, country varchar(255) not null, primary key (id))
+Hibernate: create table public.order_position (id varchar(255) not null, amount integer, order_id varchar(255), tea_id varchar(255) not null, primary key (id))
+Hibernate: create table public.orders (id varchar(255) not null, created_at timestamp, modified_at timestamp, price float, created_by varchar(255), last_modified_by varchar(255), user_id varchar(255) not null, primary key (id))
+Hibernate: create table public.rank (id varchar(255) not null, reduction float not null, seeds integer not null, title varchar(255) not null, primary key (id))
+Hibernate: create table public.role (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.role_authority (role_id varchar(255) not null, authority_id varchar(255) not null, primary key (role_id, authority_id))
+Hibernate: create table public.tea (id varchar(255) not null, description varchar(255), harvest_date timestamp, price float not null, stock integer, country_id varchar(255), tea_type_id varchar(255) not null, primary key (id))
+Hibernate: create table public.tea_type (id varchar(255) not null, min_age integer, min_seeds integer, tea_type varchar(255) not null, primary key (id))
+Hibernate: create table public.users (id varchar(255) not null, created_at timestamp, modified_at timestamp, age integer, email varchar(255) not null, first_name varchar(255), last_name varchar(255), locked boolean, password varchar(255), seeds integer, created_by varchar(255), last_modified_by varchar(255), rank_id varchar(255), primary key (id))
+Hibernate: create table public.users_role (users_id varchar(255) not null, role_id varchar(255) not null, primary key (users_id, role_id))
+Hibernate: alter table public.authority add constraint UK_jdeu5vgpb8k5ptsqhrvamuad2 unique (name)
+Hibernate: alter table public.country add constraint UK_3s51q344kj9jse05r86moo9ka unique (country)
+Hibernate: alter table public.rank add constraint UK_jiqais2j6uppxw3x0sgjs51ph unique (title)
+Hibernate: alter table public.role add constraint UK_8sewwnpamngi6b1dwaa88askk unique (name)
+Hibernate: alter table public.tea add constraint UK_2uxeb1n2hvuitho87kdr210e3 unique (description)
+Hibernate: alter table public.tea_type add constraint UK_980tjkgv2sak223asbdl5us5e unique (tea_type)
+Hibernate: alter table public.users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table public.order_position add constraint FK3igx1tkv35h6g9avj261ts7d7 foreign key (order_id) references public.orders
+Hibernate: alter table public.order_position add constraint FK1lnkpwuy7kwyp67u551440fq3 foreign key (tea_id) references public.tea
+Hibernate: alter table public.orders add constraint FKtjwuphstqm46uffgc7l1r27a9 foreign key (created_by) references public.users
+Hibernate: alter table public.orders add constraint FKdklenonclskgpikwa9ga4kfnf foreign key (last_modified_by) references public.users
+Hibernate: alter table public.orders add constraint FK32ql8ubntj5uh44ph9659tiih foreign key (user_id) references public.users
+Hibernate: alter table public.role_authority add constraint FKqbri833f7xop13bvdje3xxtnw foreign key (authority_id) references public.authority
+Hibernate: alter table public.role_authority add constraint FK2052966dco7y9f97s1a824bj1 foreign key (role_id) references public.role
+Hibernate: alter table public.tea add constraint FK76si8a4nn9awwviuippjx5wgh foreign key (country_id) references public.country
+Hibernate: alter table public.tea add constraint FKbcay65o8iltx322gsd8ujle88 foreign key (tea_type_id) references public.tea_type
+Hibernate: alter table public.users add constraint FKibk1e3kaxy5sfyeekp8hbhnim foreign key (created_by) references public.users
+Hibernate: alter table public.users add constraint FKj1vmabulqqfwd5q8w2wxm73c3 foreign key (last_modified_by) references public.users
+Hibernate: alter table public.users add constraint FKrcuxs4dkkhwmmyj1kjogq8kmv foreign key (rank_id) references public.rank
+Hibernate: alter table public.users_role add constraint FK3qjq7qsiigxa82jgk0i0wuq3g foreign key (role_id) references public.role
+Hibernate: alter table public.users_role add constraint FKiu0xsee0dmwa28nffgyf4bcvc foreign key (users_id) references public.users
+2022-10-25 09:19:09.656  INFO 14248 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-25 09:19:09.667  INFO 14248 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-25 09:19:10.687  INFO 14248 --- [    Test worker] c.e.j.d.e.o.u.OrderRepositoryUnitTests   : Started OrderRepositoryUnitTests in 5.041 seconds (JVM running for 6.759)
+2022-10-25 09:19:10.713  INFO 14248 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-10-25 09:19:10.714  INFO 14248 --- [    Test worker] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+Hibernate: drop table if exists public.authority CASCADE 
+Hibernate: drop table if exists public.country CASCADE 
+Hibernate: drop table if exists public.order_position CASCADE 
+Hibernate: drop table if exists public.orders CASCADE 
+Hibernate: drop table if exists public.rank CASCADE 
+Hibernate: drop table if exists public.role CASCADE 
+Hibernate: drop table if exists public.role_authority CASCADE 
+Hibernate: drop table if exists public.tea CASCADE 
+Hibernate: drop table if exists public.tea_type CASCADE 
+Hibernate: drop table if exists public.users CASCADE 
+Hibernate: drop table if exists public.users_role CASCADE 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.2)
+
+2022-10-25 09:19:10.785  INFO 14248 --- [    Test worker] c.e.j.d.e.o.u.OrderRepositoryUnitTests   : Starting OrderRepositoryUnitTests using Java 17.0.2 on LAPTOP-1FULM01B with PID 14248 (started by 41774 in C:\Users\41774\Desktop\TeaShop2.0)
+2022-10-25 09:19:10.786  INFO 14248 --- [    Test worker] c.e.j.d.e.o.u.OrderRepositoryUnitTests   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2022-10-25 09:19:10.941  INFO 14248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-25 09:19:11.014  INFO 14248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 10 JPA repository interfaces.
+2022-10-25 09:19:11.036  INFO 14248 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-10-25 09:19:11.102  INFO 14248 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:8d765bfb-17f8-4280-9007-96cd16d80ecf;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-10-25 09:19:11.190  INFO 14248 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-25 09:19:11.203  INFO 14248 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: drop table if exists public.authority CASCADE 
+Hibernate: drop table if exists public.country CASCADE 
+Hibernate: drop table if exists public.order_position CASCADE 
+Hibernate: drop table if exists public.orders CASCADE 
+Hibernate: drop table if exists public.rank CASCADE 
+Hibernate: drop table if exists public.role CASCADE 
+Hibernate: drop table if exists public.role_authority CASCADE 
+Hibernate: drop table if exists public.tea CASCADE 
+Hibernate: drop table if exists public.tea_type CASCADE 
+Hibernate: drop table if exists public.users CASCADE 
+Hibernate: drop table if exists public.users_role CASCADE 
+Hibernate: create table public.authority (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.country (id varchar(255) not null, country varchar(255) not null, primary key (id))
+Hibernate: create table public.order_position (id varchar(255) not null, amount integer, order_id varchar(255), tea_id varchar(255) not null, primary key (id))
+Hibernate: create table public.orders (id varchar(255) not null, created_at timestamp, modified_at timestamp, price float, created_by varchar(255), last_modified_by varchar(255), user_id varchar(255) not null, primary key (id))
+Hibernate: create table public.rank (id varchar(255) not null, reduction float not null, seeds integer not null, title varchar(255) not null, primary key (id))
+Hibernate: create table public.role (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.role_authority (role_id varchar(255) not null, authority_id varchar(255) not null, primary key (role_id, authority_id))
+Hibernate: create table public.tea (id varchar(255) not null, description varchar(255), harvest_date timestamp, price float not null, stock integer, country_id varchar(255), tea_type_id varchar(255) not null, primary key (id))
+Hibernate: create table public.tea_type (id varchar(255) not null, min_age integer, min_seeds integer, tea_type varchar(255) not null, primary key (id))
+Hibernate: create table public.users (id varchar(255) not null, created_at timestamp, modified_at timestamp, age integer, email varchar(255) not null, first_name varchar(255), last_name varchar(255), locked boolean, password varchar(255), seeds integer, created_by varchar(255), last_modified_by varchar(255), rank_id varchar(255), primary key (id))
+Hibernate: create table public.users_role (users_id varchar(255) not null, role_id varchar(255) not null, primary key (users_id, role_id))
+Hibernate: alter table public.authority add constraint UK_jdeu5vgpb8k5ptsqhrvamuad2 unique (name)
+Hibernate: alter table public.country add constraint UK_3s51q344kj9jse05r86moo9ka unique (country)
+Hibernate: alter table public.rank add constraint UK_jiqais2j6uppxw3x0sgjs51ph unique (title)
+Hibernate: alter table public.role add constraint UK_8sewwnpamngi6b1dwaa88askk unique (name)
+Hibernate: alter table public.tea add constraint UK_2uxeb1n2hvuitho87kdr210e3 unique (description)
+Hibernate: alter table public.tea_type add constraint UK_980tjkgv2sak223asbdl5us5e unique (tea_type)
+Hibernate: alter table public.users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table public.order_position add constraint FK3igx1tkv35h6g9avj261ts7d7 foreign key (order_id) references public.orders
+Hibernate: alter table public.order_position add constraint FK1lnkpwuy7kwyp67u551440fq3 foreign key (tea_id) references public.tea
+Hibernate: alter table public.orders add constraint FKtjwuphstqm46uffgc7l1r27a9 foreign key (created_by) references public.users
+Hibernate: alter table public.orders add constraint FKdklenonclskgpikwa9ga4kfnf foreign key (last_modified_by) references public.users
+Hibernate: alter table public.orders add constraint FK32ql8ubntj5uh44ph9659tiih foreign key (user_id) references public.users
+Hibernate: alter table public.role_authority add constraint FKqbri833f7xop13bvdje3xxtnw foreign key (authority_id) references public.authority
+Hibernate: alter table public.role_authority add constraint FK2052966dco7y9f97s1a824bj1 foreign key (role_id) references public.role
+Hibernate: alter table public.tea add constraint FK76si8a4nn9awwviuippjx5wgh foreign key (country_id) references public.country
+Hibernate: alter table public.tea add constraint FKbcay65o8iltx322gsd8ujle88 foreign key (tea_type_id) references public.tea_type
+Hibernate: alter table public.users add constraint FKibk1e3kaxy5sfyeekp8hbhnim foreign key (created_by) references public.users
+Hibernate: alter table public.users add constraint FKj1vmabulqqfwd5q8w2wxm73c3 foreign key (last_modified_by) references public.users
+Hibernate: alter table public.users add constraint FKrcuxs4dkkhwmmyj1kjogq8kmv foreign key (rank_id) references public.rank
+Hibernate: alter table public.users_role add constraint FK3qjq7qsiigxa82jgk0i0wuq3g foreign key (role_id) references public.role
+Hibernate: alter table public.users_role add constraint FKiu0xsee0dmwa28nffgyf4bcvc foreign key (users_id) references public.users
+2022-10-25 09:19:11.436  INFO 14248 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-25 09:19:11.436  INFO 14248 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-25 09:19:11.815  INFO 14248 --- [    Test worker] c.e.j.d.e.o.u.OrderRepositoryUnitTests   : Started OrderRepositoryUnitTests in 1.079 seconds (JVM running for 7.887)
+2022-10-25 09:19:11.834  INFO 14248 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@162be91c testClass = OrderRepositoryUnitTests, testInstance = com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests@274872f8, testMethod = update_requestOrderToBeUpdated_expectUpdateOrder@OrderRepositoryUnitTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@2488b073 testClass = OrderRepositoryUnitTests, locations = '{}', classes = '{class com.example.jwt.JwtApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1b765a2c, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@72c28d64, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@8b99b029, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3a393455, [ImportsContextCustomizer@1c9f0a20 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@20b12f8a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@54a67a45, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@40d04cf8]; rollback [true]
+Hibernate: select authority0_.id as id1_0_0_, authority0_.name as name2_0_0_ from public.authority authority0_ where authority0_.id=?
+Hibernate: insert into public.authority (name, id) values (?, ?)
+Hibernate: select role0_.id as id1_5_0_, role0_.name as name2_5_0_ from public.role role0_ where role0_.id=?
+Hibernate: insert into public.role (name, id) values (?, ?)
+Hibernate: insert into public.role_authority (role_id, authority_id) values (?, ?)
+Hibernate: select user0_.id as id1_9_0_, user0_.created_at as created_2_9_0_, user0_.created_by as created11_9_0_, user0_.last_modified_by as last_mo12_9_0_, user0_.modified_at as modified3_9_0_, user0_.age as age4_9_0_, user0_.email as email5_9_0_, user0_.first_name as first_na6_9_0_, user0_.last_name as last_nam7_9_0_, user0_.locked as locked8_9_0_, user0_.password as password9_9_0_, user0_.rank_id as rank_id13_9_0_, user0_.seeds as seeds10_9_0_ from public.users user0_ where user0_.id=?
+Hibernate: insert into public.users (created_at, created_by, last_modified_by, modified_at, age, email, first_name, last_name, locked, password, rank_id, seeds, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into public.users_role (users_id, role_id) values (?, ?)
+Hibernate: select order0_.id as id1_3_2_, order0_.created_at as created_2_3_2_, order0_.created_by as created_5_3_2_, order0_.last_modified_by as last_mod6_3_2_, order0_.modified_at as modified3_3_2_, order0_.price as price4_3_2_, order0_.user_id as user_id7_3_2_, orderposit1_.order_id as order_id3_2_4_, orderposit1_.id as id1_2_4_, orderposit1_.id as id1_2_0_, orderposit1_.amount as amount2_2_0_, orderposit1_.order_id as order_id3_2_0_, orderposit1_.tea_id as tea_id4_2_0_, user2_.id as id1_9_1_, user2_.created_at as created_2_9_1_, user2_.created_by as created11_9_1_, user2_.last_modified_by as last_mo12_9_1_, user2_.modified_at as modified3_9_1_, user2_.age as age4_9_1_, user2_.email as email5_9_1_, user2_.first_name as first_na6_9_1_, user2_.last_name as last_nam7_9_1_, user2_.locked as locked8_9_1_, user2_.password as password9_9_1_, user2_.rank_id as rank_id13_9_1_, user2_.seeds as seeds10_9_1_ from public.orders order0_ left outer join public.order_position orderposit1_ on order0_.id=orderposit1_.order_id inner join public.users user2_ on order0_.user_id=user2_.id where order0_.id=?
+Hibernate: select order0_.id as id1_3_2_, order0_.created_at as created_2_3_2_, order0_.created_by as created_5_3_2_, order0_.last_modified_by as last_mod6_3_2_, order0_.modified_at as modified3_3_2_, order0_.price as price4_3_2_, order0_.user_id as user_id7_3_2_, orderposit1_.order_id as order_id3_2_4_, orderposit1_.id as id1_2_4_, orderposit1_.id as id1_2_0_, orderposit1_.amount as amount2_2_0_, orderposit1_.order_id as order_id3_2_0_, orderposit1_.tea_id as tea_id4_2_0_, user2_.id as id1_9_1_, user2_.created_at as created_2_9_1_, user2_.created_by as created11_9_1_, user2_.last_modified_by as last_mo12_9_1_, user2_.modified_at as modified3_9_1_, user2_.age as age4_9_1_, user2_.email as email5_9_1_, user2_.first_name as first_na6_9_1_, user2_.last_name as last_nam7_9_1_, user2_.locked as locked8_9_1_, user2_.password as password9_9_1_, user2_.rank_id as rank_id13_9_1_, user2_.seeds as seeds10_9_1_ from public.orders order0_ left outer join public.order_position orderposit1_ on order0_.id=orderposit1_.order_id inner join public.users user2_ on order0_.user_id=user2_.id where order0_.id=?
+Hibernate: select order0_.id as id1_3_2_, order0_.created_at as created_2_3_2_, order0_.created_by as created_5_3_2_, order0_.last_modified_by as last_mod6_3_2_, order0_.modified_at as modified3_3_2_, order0_.price as price4_3_2_, order0_.user_id as user_id7_3_2_, orderposit1_.order_id as order_id3_2_4_, orderposit1_.id as id1_2_4_, orderposit1_.id as id1_2_0_, orderposit1_.amount as amount2_2_0_, orderposit1_.order_id as order_id3_2_0_, orderposit1_.tea_id as tea_id4_2_0_, user2_.id as id1_9_1_, user2_.created_at as created_2_9_1_, user2_.created_by as created11_9_1_, user2_.last_modified_by as last_mo12_9_1_, user2_.modified_at as modified3_9_1_, user2_.age as age4_9_1_, user2_.email as email5_9_1_, user2_.first_name as first_na6_9_1_, user2_.last_name as last_nam7_9_1_, user2_.locked as locked8_9_1_, user2_.password as password9_9_1_, user2_.rank_id as rank_id13_9_1_, user2_.seeds as seeds10_9_1_ from public.orders order0_ left outer join public.order_position orderposit1_ on order0_.id=orderposit1_.order_id inner join public.users user2_ on order0_.user_id=user2_.id where order0_.id=?
+Hibernate: insert into public.orders (created_at, created_by, last_modified_by, modified_at, price, user_id, id) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into public.orders (created_at, created_by, last_modified_by, modified_at, price, user_id, id) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into public.orders (created_at, created_by, last_modified_by, modified_at, price, user_id, id) values (?, ?, ?, ?, ?, ?, ?)
+2022-10-25 09:19:12.314  INFO 14248 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@162be91c testClass = OrderRepositoryUnitTests, testInstance = com.example.jwt.domain.entitys.order.unit.OrderRepositoryUnitTests@274872f8, testMethod = update_requestOrderToBeUpdated_expectUpdateOrder@OrderRepositoryUnitTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@2488b073 testClass = OrderRepositoryUnitTests, locations = '{}', classes = '{class com.example.jwt.JwtApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1b765a2c, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@72c28d64, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@8b99b029, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3a393455, [ImportsContextCustomizer@1c9f0a20 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@20b12f8a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@54a67a45, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.5</a> at 25.10.2022, 09:19:12</p>
+</div>
+</div>
+</body>
+</html>

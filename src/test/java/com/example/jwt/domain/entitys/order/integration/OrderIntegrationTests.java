@@ -4,6 +4,8 @@ import com.example.jwt.core.security.config.AuthorizationSchemas;
 import com.example.jwt.core.security.config.JwtProperties;
 import com.example.jwt.domain.entitys.authority.Authority;
 import com.example.jwt.domain.entitys.authority.AuthorityRepository;
+import com.example.jwt.domain.entitys.country.Country;
+import com.example.jwt.domain.entitys.country.CountryRepository;
 import com.example.jwt.domain.entitys.order.Order;
 import com.example.jwt.domain.entitys.order.OrderRepository;
 import com.example.jwt.domain.entitys.order.OrderService;
@@ -11,7 +13,9 @@ import com.example.jwt.domain.entitys.order.dto.OrderMapper;
 import com.example.jwt.domain.entitys.ranking.Rank;
 import com.example.jwt.domain.entitys.ranking.RankRepository;
 import com.example.jwt.domain.entitys.teas.Tea;
+import com.example.jwt.domain.entitys.teas.TeaRepository;
 import com.example.jwt.domain.entitys.teatype.TeaType;
+import com.example.jwt.domain.entitys.teatype.TeaTypeRepository;
 import com.example.jwt.domain.entitys.user.User;
 import com.example.jwt.domain.entitys.user.UserRepository;
 import com.example.jwt.domain.orderposition.OrderPosition;
@@ -52,15 +56,21 @@ public class OrderIntegrationTests {
     private AuthorityRepository authorityRepository;
     @Autowired
     private RoleRepository roleRepository;
-
+    @Autowired
+    private CountryRepository countryRepository;
     @Autowired
     private RankRepository rankRepository;
     @Autowired
     private UserRepository userRepository;
     @Autowired
+    private TeaTypeRepository teaTypeRepository;
+    @Autowired
+    private TeaRepository teaRepository;
+    @Autowired
     private OrderPositionRepository orderPositionRepository;
     @Autowired
     private OrderRepository orderRepository;
+
     @Autowired
     private MockMvc mvc;
     @Autowired
@@ -68,7 +78,20 @@ public class OrderIntegrationTests {
     @Autowired
     private OrderMapper orderMapper;
 
+    private Role dummyRole;
     private Rank dummyRank;
+    private Tea dummyTea;
+
+    private TeaType dummyTeaType;
+
+    private Country dummyCountry;
+
+    private User dummyUser;
+
+    private Authority dummyAuthority;
+
+
+
     private  OrderPosition dummyOrderPosition;
 
     private String generateToken(UUID subject) {
@@ -83,16 +106,26 @@ public class OrderIntegrationTests {
                 .compact();
     }
 
-//    private Order dummyOrder;
-//    private List<Order> dummyOrders;
+    private Order dummyOrder;
+    private List<Order> dummyOrders;
 
     @BeforeEach
     public void setUp() {
-//        dummyOrder = new Order(UUID.randomUUID(), "kettle");
-//        dummyOrders = Stream.of(new Order(UUID.randomUUID(), "shirt"), new Order(UUID.randomUUID(), "sandwich")).collect(Collectors.toList()
+        dummyAuthority = authorityRepository.save( new Authority(UUID.randomUUID(), "name"));
+        dummyRole = roleRepository.save(new Role(UUID.randomUUID(), "USER_SEE", Set.of(dummyAuthority)));
+        dummyUser = userRepository.save(new User (UUID.randomUUID(), 33, "sdfg", "sdfgh", 18, "sdf@jk.ch", "12345", false, dummyRank, Set.of(dummyRole)));
         dummyRank = rankRepository.save(  new Rank(UUID.randomUUID(),"Gold",30,7F));
-        dummyOrderPosition = orderPositionRepository.save( new OrderPosition(UUID.randomUUID(), 3, null, new Tea(UUID.randomUUID(),null,420,null,7,new TeaType(UUID.randomUUID(),null,16,null),null)));
+        dummyCountry = countryRepository.save( new Country(UUID.randomUUID(), "kettle"));
+        dummyTeaType = teaTypeRepository.save(new TeaType(UUID.randomUUID(), "huso", 18, 0));
 
+        //currentuser-fehlndes tea- huso
+        dummyTea = teaRepository.save( new Tea(UUID.randomUUID(),null, 12, null, 9,dummyTeaType,dummyCountry));
+
+        dummyOrderPosition = orderPositionRepository.save( new OrderPosition(UUID.randomUUID(), 3, null, dummyTea));
+
+        dummyOrder = orderRepository.save(new Order(UUID.randomUUID(), 55, dummyUser, Set.of(dummyOrderPosition)));
+
+        dummyOrderPosition = orderPositionRepository.save(dummyOrderPosition.setOrder(dummyOrder));
     }
 
     @Test
@@ -139,7 +172,6 @@ public class OrderIntegrationTests {
         User user = userRepository.saveAndFlush(new User().setEmail("john@doe.com").setRoles(Set.of(role)).setAge(18).setRank(dummyRank));
      //   User user1 = user.setRank(dummyRank);
 
-        userRepository.saveAndFlush(user);
         System.out.println(user.getAge());
 
         List<Order> dummyOrders = orderRepository.saveAllAndFlush(Stream.of(new Order(UUID.randomUUID(), 20, user,new HashSet<>()), new Order(UUID.randomUUID(), 12, user,Set.of(dummyOrderPosition))).collect(Collectors.toList()));

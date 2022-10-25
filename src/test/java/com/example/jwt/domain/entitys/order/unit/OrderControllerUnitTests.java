@@ -176,4 +176,28 @@ public class OrderControllerUnitTests {
 //                () -> assertThat(orderArgumentCaptor.getValue().getPrice()).isEqualTo(updatedOrderPrice)
 //        );
     }
+
+
+    @Test
+    public void deleteById_requestCountryById_expectdeletedCountry() throws Exception {
+        given(userService.deleteById(any(UUID.class)));
+        given(orderService.deleteById(any(UUID.class))).will(invocation -> {
+            if ("non-existent".equals(invocation.getArgument(0)))
+                throw new NoSuchElementException("No such Country present");
+            return dummyOrder;
+        });
+
+        mvc.perform(MockMvcRequestBuilders
+                        .delete("/order/{id}", dummyOrder.getId())
+                        .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + dummyToken)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isNoContent())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyCountry.getId().toString()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.order").value(dummyOrder.getOrderPositions()));
+
+        ArgumentCaptor<UUID> countryArgumentCaptor = ArgumentCaptor.forClass(UUID.class);
+        verify(orderService, times(1)).deleteById(countryArgumentCaptor.capture());
+        assertThat(countryArgumentCaptor.getValue()).isEqualTo(dummyOrder.getId());
+    }
+
 }

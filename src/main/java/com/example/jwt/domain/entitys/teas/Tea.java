@@ -29,7 +29,7 @@ public class Tea extends ExtendedEntity {
     private TeaType teaType;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "country_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "country_id", referencedColumnName = "id", nullable = true)
     private Country country;
 
     public Tea() {
