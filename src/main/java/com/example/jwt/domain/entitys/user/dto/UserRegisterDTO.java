@@ -1,7 +1,7 @@
 package com.example.jwt.domain.entitys.user.dto;
 
 import com.example.jwt.core.generic.ExtendedDTO;
-import com.example.jwt.domain.role.dto.RoleDTO;
+import com.example.jwt.domain.entitys.role.dto.RoleDTO;
 
 import javax.validation.constraints.Email;
 import java.util.Set;

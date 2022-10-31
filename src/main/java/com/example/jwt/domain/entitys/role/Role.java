@@ -1,9 +1,7 @@
-package com.example.jwt.domain.role;
+package com.example.jwt.domain.entitys.role;
 
 import com.example.jwt.core.generic.ExtendedEntity;
 import com.example.jwt.domain.entitys.authority.Authority;
-import com.example.jwt.domain.entitys.user.User;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.HashSet;

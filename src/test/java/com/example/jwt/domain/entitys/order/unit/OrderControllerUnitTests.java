@@ -7,11 +7,11 @@ import com.example.jwt.domain.entitys.order.Order;
 import com.example.jwt.domain.entitys.order.OrderService;
 import com.example.jwt.domain.entitys.order.dto.OrderMapper;
 import com.example.jwt.domain.entitys.ranking.Rank;
+import com.example.jwt.domain.entitys.role.Role;
 import com.example.jwt.domain.entitys.teas.Tea;
 import com.example.jwt.domain.entitys.user.User;
 import com.example.jwt.domain.entitys.user.UserService;
 import com.example.jwt.domain.orderposition.OrderPosition;
-import com.example.jwt.domain.role.Role;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -36,7 +36,6 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
@@ -179,25 +178,22 @@ public class OrderControllerUnitTests {
 
 
     @Test
-    public void deleteById_requestCountryById_expectdeletedCountry() throws Exception {
-        given(userService.deleteById(any(UUID.class)));
+    public void deleteById_requestOrderById_expectdeletedOrder() throws Exception {
+        given(userService.findById(any(UUID.class))).willReturn(new User().setRoles(Set.of(new Role().setAuthorities(Set.of(new Authority().setName("USER_SEE"))))));
         given(orderService.deleteById(any(UUID.class))).will(invocation -> {
             if ("non-existent".equals(invocation.getArgument(0)))
-                throw new NoSuchElementException("No such Country present");
-            return dummyOrder;
+                throw new NoSuchElementException("No such Order present");
+            return null;
         });
 
         mvc.perform(MockMvcRequestBuilders
                         .delete("/order/{id}", dummyOrder.getId())
                         .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + dummyToken)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isNoContent())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyCountry.getId().toString()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.order").value(dummyOrder.getOrderPositions()));
+                .andExpect(MockMvcResultMatchers.status().isNoContent());
 
-        ArgumentCaptor<UUID> countryArgumentCaptor = ArgumentCaptor.forClass(UUID.class);
-        verify(orderService, times(1)).deleteById(countryArgumentCaptor.capture());
-        assertThat(countryArgumentCaptor.getValue()).isEqualTo(dummyOrder.getId());
+        ArgumentCaptor<UUID> orderArgumentCaptor = ArgumentCaptor.forClass(UUID.class);
+        verify(orderService, times(1)).deleteById(orderArgumentCaptor.capture());
+        assertThat(orderArgumentCaptor.getValue()).isEqualTo(dummyOrder.getId());
     }
-
 }

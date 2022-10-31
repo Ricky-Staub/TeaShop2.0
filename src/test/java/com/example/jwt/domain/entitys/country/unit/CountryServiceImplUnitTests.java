@@ -1,11 +1,9 @@
 package com.example.jwt.domain.entitys.country.unit;
 
-
 import com.example.jwt.domain.entitys.country.Country;
 import com.example.jwt.domain.entitys.country.CountryRepository;
 import com.example.jwt.domain.entitys.country.CountryServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -26,7 +24,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class AuthorityServiceImplUnitTests {
+public class CountryServiceImplUnitTests {
 
     @InjectMocks
     private CountryServiceImpl countryService;
@@ -44,7 +42,7 @@ public class AuthorityServiceImplUnitTests {
     }
 
     @Test
-    public void findById_requestCountryById_expectCountry() throws Exception {
+    public void findById_requestCountryById_expectCountry() {
         given(countryRepository.findById(any(UUID.class))).will(invocation -> {
             if ("non-existent".equals(invocation.getArgument(0)))
                 throw new NoSuchElementException("No such country present");
@@ -59,25 +57,23 @@ public class AuthorityServiceImplUnitTests {
     }
 
 
-
     @Test
-    public void findAll_requestCountrysAll_expectCountrys() throws Exception {
+    public void findAll_requestCountrysAll_expectCountrys() {
         given(countryRepository.findAll()).willReturn(dummyCountrys);
+
         assertThat(countryService.findAll()).usingRecursiveComparison().isEqualTo(dummyCountrys);
+
         verify(countryRepository, times(1)).findAll();
     }
 
-
     @Test
-    public void deleteById_requestCountryById_expectdeletedCountry() throws Exception {
-         doNothing().when(countryRepository).deleteById(any(UUID.class));
+    public void deleteById_requestCountryById_expectdeletedCountry() {
+        doNothing().when(countryRepository).deleteById(any(UUID.class));
         given(countryRepository.existsById(any(UUID.class))).willReturn(true);
-//        given(countryService.findById(any(UUID.class))).willReturn(dummyCountry);
 
         assertThat(countryService.deleteById(dummyCountry.getId())).isNull();
 
         ArgumentCaptor<UUID> countryArgumentCaptor = ArgumentCaptor.forClass(UUID.class);
         verify(countryRepository, times(1)).deleteById(countryArgumentCaptor.capture());
     }
-
 }

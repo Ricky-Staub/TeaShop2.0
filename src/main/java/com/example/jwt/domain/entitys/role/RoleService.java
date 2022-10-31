@@ -1,4 +1,4 @@
-package com.example.jwt.domain.role;
+package com.example.jwt.domain.entitys.role;
 
 import com.example.jwt.core.generic.ExtendedService;
 

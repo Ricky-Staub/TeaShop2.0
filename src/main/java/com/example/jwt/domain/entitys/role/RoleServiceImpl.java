@@ -1,6 +1,5 @@
-package com.example.jwt.domain.role;
+package com.example.jwt.domain.entitys.role;
 
-import com.example.jwt.core.generic.ExtendedRepository;
 import com.example.jwt.core.generic.ExtendedServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

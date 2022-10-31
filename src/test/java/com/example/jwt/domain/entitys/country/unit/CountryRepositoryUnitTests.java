@@ -1,10 +1,8 @@
 package com.example.jwt.domain.entitys.country.unit;
 
-
 import com.example.jwt.domain.entitys.country.Country;
 import com.example.jwt.domain.entitys.country.CountryRepository;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -20,7 +18,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DataJpaTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class CountryRepositoryUnitTests {
-
     @Autowired
     CountryRepository countryRepository;
 
@@ -43,10 +40,9 @@ public class CountryRepositoryUnitTests {
 
     @Test
     public void deleteById_requestCountryById_expectdeletedCountry() {
-       UUID id = dummyCountrys.get(0).getId();
+        UUID id = dummyCountrys.get(0).getId();
         countryRepository.deleteById(id);
 
         assertThat(countryRepository.findById(id)).isNotPresent();
     }
-
 }

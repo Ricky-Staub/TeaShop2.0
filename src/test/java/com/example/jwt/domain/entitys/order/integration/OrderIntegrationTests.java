@@ -8,10 +8,11 @@ import com.example.jwt.domain.entitys.country.Country;
 import com.example.jwt.domain.entitys.country.CountryRepository;
 import com.example.jwt.domain.entitys.order.Order;
 import com.example.jwt.domain.entitys.order.OrderRepository;
-import com.example.jwt.domain.entitys.order.OrderService;
 import com.example.jwt.domain.entitys.order.dto.OrderMapper;
 import com.example.jwt.domain.entitys.ranking.Rank;
 import com.example.jwt.domain.entitys.ranking.RankRepository;
+import com.example.jwt.domain.entitys.role.Role;
+import com.example.jwt.domain.entitys.role.RoleRepository;
 import com.example.jwt.domain.entitys.teas.Tea;
 import com.example.jwt.domain.entitys.teas.TeaRepository;
 import com.example.jwt.domain.entitys.teatype.TeaType;
@@ -20,8 +21,6 @@ import com.example.jwt.domain.entitys.user.User;
 import com.example.jwt.domain.entitys.user.UserRepository;
 import com.example.jwt.domain.orderposition.OrderPosition;
 import com.example.jwt.domain.orderposition.OrderPositionRepository;
-import com.example.jwt.domain.role.Role;
-import com.example.jwt.domain.role.RoleRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -51,7 +50,6 @@ import static org.hamcrest.Matchers.hasSize;
 @ActiveProfiles("test")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class OrderIntegrationTests {
-
     @Autowired
     private AuthorityRepository authorityRepository;
     @Autowired
@@ -70,29 +68,22 @@ public class OrderIntegrationTests {
     private OrderPositionRepository orderPositionRepository;
     @Autowired
     private OrderRepository orderRepository;
-
     @Autowired
     private MockMvc mvc;
     @Autowired
     private JwtProperties jwtProperties;
     @Autowired
     private OrderMapper orderMapper;
-
     private Role dummyRole;
     private Rank dummyRank;
     private Tea dummyTea;
-
     private TeaType dummyTeaType;
-
     private Country dummyCountry;
-
     private User dummyUser;
-
     private Authority dummyAuthority;
-
-
-
-    private  OrderPosition dummyOrderPosition;
+    private OrderPosition dummyOrderPosition;
+    private Order dummyOrder;
+    private List<Order> dummyOrders;
 
     private String generateToken(UUID subject) {
         byte[] keyBytes = Decoders.BASE64.decode(jwtProperties.getSecret());
@@ -106,34 +97,28 @@ public class OrderIntegrationTests {
                 .compact();
     }
 
-    private Order dummyOrder;
-    private List<Order> dummyOrders;
-
     @BeforeEach
     public void setUp() {
-        dummyAuthority = authorityRepository.save( new Authority(UUID.randomUUID(), "name"));
+        dummyAuthority = authorityRepository.save(new Authority(UUID.randomUUID(), "name"));
         dummyRole = roleRepository.save(new Role(UUID.randomUUID(), "USER_SEE", Set.of(dummyAuthority)));
-        dummyUser = userRepository.save(new User (UUID.randomUUID(), 33, "sdfg", "sdfgh", 18, "sdf@jk.ch", "12345", false, dummyRank, Set.of(dummyRole)));
-        dummyRank = rankRepository.save(  new Rank(UUID.randomUUID(),"Gold",30,7F));
-        dummyCountry = countryRepository.save( new Country(UUID.randomUUID(), "kettle"));
+        dummyUser = userRepository.save(new User(UUID.randomUUID(), 33, "sdfg", "sdfgh", 18, "sdf@jk.ch", "12345", false, dummyRank, Set.of(dummyRole)));
+        dummyRank = rankRepository.save(new Rank(UUID.randomUUID(), "Gold", 30, 7F));
+        dummyCountry = countryRepository.save(new Country(UUID.randomUUID(), "kettle"));
         dummyTeaType = teaTypeRepository.save(new TeaType(UUID.randomUUID(), "huso", 18, 0));
-
-        //currentuser-fehlndes tea- huso
-        dummyTea = teaRepository.save( new Tea(UUID.randomUUID(),null, 12, null, 9,dummyTeaType,dummyCountry));
-
-        dummyOrderPosition = orderPositionRepository.save( new OrderPosition(UUID.randomUUID(), 3, null, dummyTea));
-
-        dummyOrder = orderRepository.save(new Order(UUID.randomUUID(), 55, dummyUser, Set.of(dummyOrderPosition)));
-
-        dummyOrderPosition = orderPositionRepository.save(dummyOrderPosition.setOrder(dummyOrder));
+        dummyTea = teaRepository.save(new Tea(UUID.randomUUID(), null, 12, null, 9, dummyTeaType, dummyCountry));
+        dummyOrderPosition = orderPositionRepository.save(new OrderPosition(UUID.randomUUID(), 3, null, dummyTea));
+//        dummyOrder = orderRepository.save(new Order(UUID.randomUUID(), 55, dummyUser, Set.of(dummyOrderPosition)));
+//        dummyOrderPosition = orderPositionRepository.save(dummyOrderPosition.setOrder(dummyOrder));
     }
 
+    //TODO: fix this test
     @Test
     public void retrieveAll_requestAllOrders_expectAllOrdersAsDTOS() throws Exception {
         Authority authority = authorityRepository.saveAndFlush(new Authority().setName("USER_SEE"));
-        Role role = roleRepository.saveAndFlush(new Role().setName("ROLE_TESTER").setAuthorities(Set.of(authority)));
+        Role role = roleRepository.saveAndFlush(new Role().setName("USER").setAuthorities(Set.of(authority)));
         User user = userRepository.saveAndFlush(new User().setEmail("john@doe.com").setRoles(Set.of(role)));
-        List<Order> dummyOrders = orderRepository.saveAllAndFlush(Stream.of(new Order(UUID.randomUUID(), (float) 24.1, user, null), new Order(UUID.randomUUID(), (float) 621, user, null)).collect(Collectors.toList()));
+
+        List<Order> dummyOrders = orderRepository.saveAllAndFlush(Stream.of(new Order(UUID.randomUUID(), 21.5F, user, null), new Order(UUID.randomUUID(), 76.8F, user, null)).collect(Collectors.toList()));
 
         mvc.perform(MockMvcRequestBuilders
                         .get("/order")
@@ -141,43 +126,39 @@ public class OrderIntegrationTests {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[*].id").value(Matchers.containsInAnyOrder(dummyOrders.get(0).getId().toString(), dummyOrders.get(1).getId().toString())));
-//                .andExpect(MockMvcResultMatchers.jsonPath("$[*].price").value(Matchers.containsInAnyOrder(dummyOrders.get(0).getPrice() , dummyOrders.get(1).getPrice())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[*].id").value(Matchers.containsInAnyOrder(dummyOrders.get(0).getId().toString(), dummyOrders.get(1).getId().toString())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[*].price").value(Matchers.containsInAnyOrder((((float) dummyOrders.get(0).getPrice())), (float) dummyOrders.get(1).getPrice())));
 //                .andExpect(MockMvcResultMatchers.jsonPath("$[*].user").value(Matchers.containsInAnyOrder(dummyOrders.get(0).getUser() , dummyOrders.get(1).getUser())));
-
     }
 
-//    @Test
-//    public void retrieveById_requestByIdOrder_expectByIdOrderAsDTO() throws Exception {
-//        Authority authority = authorityRepository.saveAndFlush(new Authority().setName("USER_SEE"));
-//        Role role = roleRepository.saveAndFlush(new Role().setName("ROLE_TESTER").setAuthorities(Set.of(authority)));
-//        User user = userRepository.saveAndFlush(new User().setEmail("john@doe.com").setRoles(Set.of(role)));
-//        Order dummyOrder = orderRepository.saveAndFlush(new Order(UUID.randomUUID(), 15, user, null));
-//
-//        mvc.perform(MockMvcRequestBuilders
-//                        .get("/order/{id}", dummyOrder.getId())
-//                        .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + generateToken(user.getId()))
-//                        .accept(MediaType.APPLICATION_JSON))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-////                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(1)))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyOrder.getId().toString()));
-////                .andExpect(MockMvcResultMatchers.jsonPath("$.order").value(dummyOrder.getOrder()));
-//    }
+    @Test
+    public void retrieveById_requestByIdOrder_expectByIdOrderAsDTO() throws Exception {
+        Authority authority = authorityRepository.saveAndFlush(new Authority().setName("USER_SEE"));
+        Role role = roleRepository.saveAndFlush(new Role().setName("ROLE_TESTER").setAuthorities(Set.of(authority)));
+        User user = userRepository.saveAndFlush(new User().setEmail("john@doe.com").setRoles(Set.of(role)));
+        Order dummyOrder = orderRepository.saveAndFlush(new Order(UUID.randomUUID(), 15, user, null));
 
+        mvc.perform(MockMvcRequestBuilders
+                        .get("/order/{id}", dummyOrder.getId())
+                        .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + generateToken(user.getId()))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(1)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyOrder.getId().toString()));
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.order").value(dummyOrder.getOrder()));
+    }
 
+    //TODO: fix this test
     @Test
     public void create_requestProductDTOToBeCreated_expectCreatedProductAsDTO() throws Exception {
         Authority authority = authorityRepository.saveAndFlush(new Authority().setName("USER_SEE"));
         Role role = roleRepository.saveAndFlush(new Role().setName("ROLE_TESTER").setAuthorities(Set.of(authority)));
-        User user = userRepository.saveAndFlush(new User().setEmail("john@doe.com").setRoles(Set.of(role)).setAge(18).setRank(dummyRank));
-     //   User user1 = user.setRank(dummyRank);
+        User user = userRepository.saveAndFlush(new User().setEmail("john@doe.com").setRoles(Set.of(role)).setAge(90).setRank(dummyRank));
+        //   User user1 = user.setRank(dummyRank);
 
-        System.out.println(user.getAge());
-
-        List<Order> dummyOrders = orderRepository.saveAllAndFlush(Stream.of(new Order(UUID.randomUUID(), 20, user,new HashSet<>()), new Order(UUID.randomUUID(), 12, user,Set.of(dummyOrderPosition))).collect(Collectors.toList()));
+        List<Order> dummyOrders = orderRepository.saveAllAndFlush(Stream.of(new Order(UUID.randomUUID(), 20, user, new HashSet<>()), new Order(UUID.randomUUID(), 12, user, Set.of(dummyOrderPosition))).collect(Collectors.toList()));
         dummyOrders.get(0).setId(null);
         dummyOrders.get(1).setId(null);
-
 
         mvc.perform(MockMvcRequestBuilders
                         .post("/order")
@@ -189,11 +170,5 @@ public class OrderIntegrationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyOrders.get(0).getId().toString()));
 //                .andExpect(MockMvcResultMatchers.jsonPath("$.user.id").value(dummyOrder().getId().toString()));
 //                .andExpect(MockMvcResultMatchers.jsonPath("$[*].id").value(Matchers.containsInAnyOrder(dummyOrders.get(0).getId().toString(), dummyOrders.get(1).getId().toString())));
-
-
     }
-//    @Test
-//    public void updateProduct_requestProductDTOToBeUpdated_expectUpdatedProductDTO() throws Exception {}
-
-
 }

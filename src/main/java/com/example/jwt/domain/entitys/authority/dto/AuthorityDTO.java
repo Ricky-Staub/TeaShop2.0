@@ -1,13 +1,10 @@
 package com.example.jwt.domain.entitys.authority.dto;
 
 import com.example.jwt.core.generic.ExtendedDTO;
-import com.example.jwt.domain.role.Role;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
 public class AuthorityDTO extends ExtendedDTO {

@@ -2,11 +2,9 @@ package com.example.jwt.domain.entitys.user.dto;
 
 import com.example.jwt.core.generic.ExtendedDTO;
 import com.example.jwt.domain.entitys.ranking.Rank;
-import com.example.jwt.domain.role.dto.RoleDTO;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
-import java.util.Set;
 import java.util.UUID;
 
 public class UserDTO extends ExtendedDTO {

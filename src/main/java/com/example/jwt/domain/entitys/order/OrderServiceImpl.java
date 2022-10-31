@@ -63,7 +63,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
     }
 
 
-    private Order isAmountinStockcorrect(Order order) {
+    public Order isAmountinStockcorrect(Order order) {
         //order.getUser().getRank().getReduction();
         order.setOrderPositions(order.getOrderPositions().stream().map(orderPosition -> {
             orderPosition.setTea(teaService.findById(orderPosition.getTea().getId()));
@@ -77,7 +77,7 @@ public class OrderServiceImpl extends ExtendedServiceImpl<Order> implements Orde
         return order;
     }
 
-    private Order calculateSeedsAndRank(Order order) {
+    public Order calculateSeedsAndRank(Order order) {
         Integer sum = order.getOrderPositions().stream().mapToInt(p -> (int) p.getTea().getPrice() * p.getAmount()).sum();
         order.setPrice(sum);
         float i = sum * userService.findCurrentUser().user().getRank().getReduction();

@@ -1,4 +1,4 @@
-package com.example.jwt.domain.role.dto;
+package com.example.jwt.domain.entitys.role.dto;
 
 import com.example.jwt.core.generic.ExtendedDTO;
 import com.example.jwt.domain.entitys.authority.dto.AuthorityDTO;

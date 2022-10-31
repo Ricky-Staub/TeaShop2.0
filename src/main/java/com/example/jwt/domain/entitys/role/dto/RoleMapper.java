@@ -1,7 +1,7 @@
-package com.example.jwt.domain.role.dto;
+package com.example.jwt.domain.entitys.role.dto;
 
 import com.example.jwt.core.generic.ExtendedMapper;
-import com.example.jwt.domain.role.Role;
+import com.example.jwt.domain.entitys.role.Role;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
