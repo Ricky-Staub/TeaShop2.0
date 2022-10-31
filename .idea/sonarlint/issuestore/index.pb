@@ -1,6 +1,4 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 u
 Esrc/main/java/com/example/jwt/core/security/config/JwtProperties.java,7\4\7478a315e2959c3bdd7a6e3020f80db90fdcbca6
 r
@@ -11,14 +9,10 @@ a
 ]src/main/java/com/example/jwt/core/security/permissionEvaluators/UserPermissionEvaluator.java,2\f\2fdf0d99e110ee5fbca68b59b3287f0f68be0e99
 g
 7src/main/java/com/example/jwt/core/audit/UserAware.java,a\d\ad8b4e21c036ec5e95e021b4cdca3cc2cd47ca5b
-?
-settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 k
 ;src/main/java/com/example/jwt/core/generic/ExtendedDTO.java,d\1\d17e8af571a859b821612bfa9a5655618f528e3e
 {
 Ksrc/main/java/com/example/jwt/core/security/CustomAuthenticationFilter.java,5\7\57376df684b58e53882450428c64465c5bfea06a
-m
-=src/main/java/com/example/jwt/domain/role/dto/RoleMapper.java,f\c\fc763bd75379d8c86999c84a16c7c9f1fed02193
 z
 Jsrc/main/java/com/example/jwt/domain/entitys/user/dto/UserRegisterDTO.java,e\a\ea1398ec58f78eda1d91c490afff3c3ed66ba7e9
 |
@@ -39,16 +33,8 @@ x
 Hsrc/main/java/com/example/jwt/domain/entitys/ranking/RankRepository.java,d\d\ddc94323e67f4185be0ce08b206aec5c3937588a
 u
 Esrc/main/java/com/example/jwt/domain/entitys/ranking/RankService.java,7\0\70d9ea76ade968d924170348f26e890be25240d4
-j
-:src/main/java/com/example/jwt/domain/role/dto/RoleDTO.java,2\1\21af3e2dae37800d47e774a79ceafbdec80ec503
 
 Osrc/main/java/com/example/jwt/domain/orderposition/dto/OrderPositionMapper.java,a\6\a6560b91a0f0c30e4c741ee695a91d184f91ba68
-j
-:src/main/java/com/example/jwt/domain/role/RoleService.java,e\9\e911a0fbdfca25b6b158773640590f0f60e1d49e
-n
->src/main/java/com/example/jwt/domain/role/RoleServiceImpl.java,4\7\473907376598567450b537dbf16f922983b42246
-m
-=src/main/java/com/example/jwt/domain/role/RoleRepository.java,8\e\8e70fb50dc03f44a048529301ba07b6d2a5d2409
 {
 Ksrc/main/java/com/example/jwt/domain/entitys/user/dto/UserLostMoneyDTO.java,8\0\80a4d6a686518dc00ab59c2bc0bf333ecad52822
 v
@@ -75,17 +61,15 @@ Psrc/main/java/com/example/jwt/domain/entitys/authority/AuthorityServiceImpl.jav
 Osrc/main/java/com/example/jwt/domain/entitys/authority/AuthorityRepository.java,a\7\a7cee24e34eab32632faaf843a76d034c0e85e9a
 n
 >src/main/java/com/example/jwt/domain/entitys/ranking/Rank.java,c\2\c240b41c2f09cf407f78d1021a3e90c7396bdf40
-t
-Dsrc/main/java/com/example/jwt/domain/entitys/order/OrderService.java,4\c\4c97e54d04eefa86492f5f59471b4fdc8c1c602b
 v
 Fsrc/main/java/com/example/jwt/domain/entitys/user/UserDetailsImpl.java,1\3\13cd82c83fc72066d0cb12a10eb0878b50974f0e
 s
 Csrc/main/java/com/example/jwt/core/generic/ExtendedAuditEntity.java,1\1\11070b7bdf1ddfc07d218a0e1112b83fcfc96954
-w
-Gsrc/main/java/com/example/jwt/domain/entitys/order/OrderRepository.java,e\9\e94ff62dbc0a6a1506f806759557e19e16ec7642
 r
 Bsrc/main/java/com/example/jwt/domain/entitys/user/UserService.java,2\d\2dd24cf0ce3e9936b861bc5beed42c1169cb87f0
 ~
 Nsrc/main/java/com/example/jwt/domain/orderposition/OrderPositionContoller.java,f\9\f9b1bdf6e35f92ce037aa28affaad1f71a7e39ec
 t
 Dsrc/main/java/com/example/jwt/domain/entitys/order/dto/OrderDTO.java,d\0\d04e20b1df977b68455985cd24a6d686db24ea15
+m
+=src/main/java/com/example/jwt/domain/entitys/order/Order.java,9\1\91f068c1a78c18c0f588059c44b06c9ba22555b9
