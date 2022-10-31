@@ -2,9 +2,9 @@ package com.example.jwt.domain.entitys.user.dto;
 
 import com.example.jwt.domain.entitys.authority.Authority;
 import com.example.jwt.domain.entitys.authority.dto.AuthorityDTO;
+import com.example.jwt.domain.entitys.role.Role;
+import com.example.jwt.domain.entitys.role.dto.RoleDTO;
 import com.example.jwt.domain.entitys.user.User;
-import com.example.jwt.domain.role.Role;
-import com.example.jwt.domain.role.dto.RoleDTO;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-12T10:17:37+0200",
+    date = "2022-10-26T10:53:51+0200",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.5.jar, environment: Java 17.0.2 (Oracle Corporation)"
 )
 @Component

@@ -2,7 +2,7 @@ package com.example.jwt.domain.entitys.user;
 
 import com.example.jwt.core.generic.ExtendedAuditEntity;
 import com.example.jwt.domain.entitys.ranking.Rank;
-import com.example.jwt.domain.role.Role;
+import com.example.jwt.domain.entitys.role.Role;
 
 import javax.persistence.*;
 import java.util.HashSet;
