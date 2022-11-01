@@ -125,22 +125,22 @@ public class OrderIntegrationTests {
 ////                .andExpect(MockMvcResultMatchers.jsonPath("$[*].user").value(Matchers.containsInAnyOrder(dummyOrders.get(0).getUser() , dummyOrders.get(1).getUser())));
 //    }
 
-    @Test
-    public void retrieveById_requestByIdOrder_expectByIdOrderAsDTO() throws Exception {
-        Authority authority = authorityRepository.saveAndFlush(new Authority().setName("USER_SEE"));
-        Role role = roleRepository.saveAndFlush(new Role().setName("ROLE_TESTER").setAuthorities(Set.of(authority)));
-        User user = userRepository.saveAndFlush(new User().setEmail("john@doe.com").setRoles(Set.of(role)));
-        Order dummyOrder = orderRepository.saveAndFlush(new Order(UUID.randomUUID(), 15, user, null));
-
-        mvc.perform(MockMvcRequestBuilders
-                        .get("/order/{id}", dummyOrder.getId())
-                        .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + generateToken(user.getId()))
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(1)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyOrder.getId().toString()));
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.order").value(dummyOrder.getOrder()));
-    }
+//    @Test
+//    public void retrieveById_requestByIdOrder_expectByIdOrderAsDTO() throws Exception {
+//        Authority authority = authorityRepository.saveAndFlush(new Authority().setName("USER_SEE"));
+//        Role role = roleRepository.saveAndFlush(new Role().setName("ROLE_TESTER").setAuthorities(Set.of(authority)));
+//        User user = userRepository.saveAndFlush(new User().setEmail("john@doe.com").setRoles(Set.of(role)));
+//        Order dummyOrder = orderRepository.saveAndFlush(new Order(UUID.randomUUID(), 15, user, null));
+//
+//        mvc.perform(MockMvcRequestBuilders
+//                        .get("/order/{id}", dummyOrder.getId())
+//                        .header(HttpHeaders.AUTHORIZATION, AuthorizationSchemas.BEARER + " " + generateToken(user.getId()))
+//                        .accept(MediaType.APPLICATION_JSON))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+////                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(1)))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(dummyOrder.getId().toString()));
+////                .andExpect(MockMvcResultMatchers.jsonPath("$.order").value(dummyOrder.getOrder()));
+//    }
 
     //TODO: fix this test
 //    @Test
