@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Call API"
+        uses: indiesdev/curl@v1.1
+        with:
+          url: https://api.heroku.com/pipeline-promotions
+          method: "POST"
+          accept: 201
+          headers: '{ "Accept": "application/vnd.heroku+json; version=3", "Content-Type": "application/json" }'
+          body: '{"pipeline":{"id":"6283ea31-ee5f-47c3-b801-4f990c5cfec2"},"source":{"app":{"id":"4cb21dd1-4813-4058-920a-d3d2e0febf3d"}},"targets":[{"app":{"id":"b63b2cb1-63d7-4295-84c0-200887856b8d"}}]}'
+          timeout: 5000
+          bearer-token: ${{secrets.HEROKU_API_KEY}}
