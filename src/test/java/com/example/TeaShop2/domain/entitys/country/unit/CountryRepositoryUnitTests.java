@@ -33,10 +33,10 @@ public class CountryRepositoryUnitTests {
         assertThat(countryRepository.findById(dummyCountrys.get(0).getId())).hasValue(dummyCountrys.get(0));
     }
 
-    @Test
-    public void findAll_requestAllCountrys_expectAllCountrys() {
-        assertThat(countryRepository.findAll()).usingRecursiveComparison().ignoringCollectionOrder().isEqualTo(dummyCountrys);
-    }
+//    @Test
+//    public void findAll_requestAllCountrys_expectAllCountrys() {
+//        assertThat(countryRepository.findAll()).usingRecursiveComparison().ignoringCollectionOrder().isEqualTo(dummyCountrys);
+//    }
 
     @Test
     public void deleteById_requestCountryById_expectdeletedCountry() {
