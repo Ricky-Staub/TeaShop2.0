@@ -1,0 +1,11 @@
+
+ëcom.example.TeaShop2.core.security.permissionEvaluators.UserPermissionEvaluator#isUserAboveAge(Lcom/example/TeaShop2/domain/entitys/user/User;I)Zè
+ÑC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/permissionEvaluators/UserPermissionEvaluator.java (!"1*≤
+1è
+ÑC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/permissionEvaluators/UserPermissionEvaluator.java ("ö
+è
+ÑC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/permissionEvaluators/UserPermissionEvaluator.java (
+""::
+	principal-com.example.TeaShop2.domain.entitys.user.User:
+""BSQ
+Ocom.example.TeaShop2.core.security.permissionEvaluators.UserPermissionEvaluator

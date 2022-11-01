@@ -1,0 +1,3 @@
+com.example.TeaShop2.core.generic.ExtendedEntity#onCreate()V
+java.util.Objects#isNull(Ljava/lang/Object;)Z
+java.util.UUID#randomUUID()Ljava/util/UUID;

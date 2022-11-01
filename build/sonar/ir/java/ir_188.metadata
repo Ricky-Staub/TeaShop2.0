@@ -1,0 +1,1 @@
+com.example.TeaShop2.domain.entitys.role.Role#setAuthorities(Ljava/util/Set;)Lcom/example/TeaShop2/domain/entitys/role/Role;

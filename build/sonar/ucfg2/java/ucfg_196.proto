@@ -1,0 +1,77 @@
+
+Qcom.example.TeaShop2.core.audit.UserAware#getCurrentAuditor()Ljava/util/Optional;h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (+"5*Ì
+2h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (»¸
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java# (G3
+%4-com.example.TeaShop2.domain.entitys.user.User"ncom.example.TeaShop2.domain.entitys.user.UserDetailsImpl#user()Lcom/example/TeaShop2/domain/entitys/user/User;*
+
+	principaljava.lang.Object2user()•
+’
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (H
+%5java.util.Optional"=java.util.Optional#of(Ljava/lang/Object;)Ljava/util/Optional;*"
+java.util.Optional*5
+3
+%4-com.example.TeaShop2.domain.entitys.user.User"†
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (I
+
+%5java.util.Optional*Õ
+3h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (-®«
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (<
+%3java.lang.Object"Qorg.springframework.security.core.Authentication#getPrincipal()Ljava/lang/Object;*D
+B
+authentication0org.springframework.security.core.Authentication2getPrincipal()¬
+©
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (=
+	principaljava.lang.Object"__id*
+
+%3java.lang.Object*
+2
+1*’
+4h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java& (4š—
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java& (F
+%2boolean"Corg.springframework.security.core.Authentication#isAuthenticated()Z*D
+B
+authentication0org.springframework.security.core.Authentication2isAuthenticated()*
+3
+1*ê
+5h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java( (=ý
+ú
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java( (J?
+%09org.springframework.security.core.context.SecurityContext"‡org.springframework.security.core.context.SecurityContextHolder#getContext()Lorg/springframework/security/core/context/SecurityContext;*C"A
+?org.springframework.security.core.context.SecurityContextHolderþû
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java( (^6
+%10org.springframework.security.core.Authentication"org.springframework.security.core.context.SecurityContext#getAuthentication()Lorg/springframework/security/core/Authentication;*A
+?
+%09org.springframework.security.core.context.SecurityContext2getAuthentication()ñ
+î
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (_B
+authentication0org.springframework.security.core.Authentication"__id*8
+6
+%10org.springframework.security.core.Authentication*
+4
+1*È
+1h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (Ï
+Ì
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java (
+%6java.util.Optional".java.util.Optional#empty()Ljava/util/Optional;*"
+java.util.Optional"†
+h
+^C:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/audit/UserAware.java ( 
+
+%6java.util.OptionalB-+
+)com.example.TeaShop2.core.audit.UserAware

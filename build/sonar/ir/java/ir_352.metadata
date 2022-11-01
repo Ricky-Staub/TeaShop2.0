@@ -1,0 +1,2 @@
+com.example.TeaShop2.domain.entitys.user.UserServiceImpl#register(Lcom/example/TeaShop2/domain/entitys/user/User;)Lcom/example/TeaShop2/domain/entitys/user/User;
+java.util.Collections#singleton(Ljava/lang/Object;)Ljava/util/Set;

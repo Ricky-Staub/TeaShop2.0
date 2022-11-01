@@ -1,0 +1,63 @@
+
+_com.example.TeaShop2.domain.entitys.user.UserDetailsImpl#getAuthorities()Ljava/util/Collection;w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java2 (@"1*œ
+1w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (ˇ
+¸
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (3
+%0-com.example.TeaShop2.domain.entitys.user.User"__id*F*D:
+8com.example.TeaShop2.domain.entitys.user.UserDetailsImpl"
+userùö
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (
+%1java.util.Set"Gcom.example.TeaShop2.domain.entitys.user.User#getRoles()Ljava/util/Set;*5
+3
+%0-com.example.TeaShop2.domain.entitys.user.User2
+getRoles()ÙÒ
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java ('
+%2java.util.stream.Stream"6java.util.Collection#stream()Ljava/util/stream/Stream;*
+
+%1java.util.Set2stream()Å
+˛
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (9!
+%3java.util.function.Function"__declareFunction*MK
+I__sonar_lambda_2$com.example.TeaShop2.domain.entitys.user.UserDetailsImpl‚ﬂ
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (:
+%6java.util.stream.Stream"Wjava.util.stream.Stream#flatMap(Ljava/util/function/Function;)Ljava/util/stream/Stream;*
+
+%2java.util.stream.Stream*#
+!
+%3java.util.function.Function2&flatMap(Ljava/util/function/Function;)Å
+˛
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (A!
+%7java.util.function.Function"__declareFunction*MK
+I__sonar_lambda_3$com.example.TeaShop2.domain.entitys.user.UserDetailsImpl€ÿ
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (B
+%11java.util.stream.Stream"Sjava.util.stream.Stream#map(Ljava/util/function/Function;)Ljava/util/stream/Stream;*
+
+%6java.util.stream.Stream*#
+!
+%7java.util.function.Function2"map(Ljava/util/function/Function;)Ç
+ˇ
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (,!
+%12java.util.stream.Collector"@java.util.stream.Collectors#toList()Ljava/util/stream/Collector;*"
+java.util.stream.Collectors“œ
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (-
+%13java.util.List"Ojava.util.stream.Stream#collect(Ljava/util/stream/Collector;)Ljava/lang/Object;* 
+
+%11java.util.stream.Stream*#
+!
+%12java.util.stream.Collector2%collect(Ljava/util/stream/Collector;)"í
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (.
+
+%13java.util.ListB<:
+8com.example.TeaShop2.domain.entitys.user.UserDetailsImpl

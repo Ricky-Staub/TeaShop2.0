@@ -1,0 +1,21 @@
+name: Unit and Integration Testing
+
+on:
+  pull_request:
+    branches: ["development"]
+
+jobs:
+  unit-integration-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Analysis
+        env:
+          GITHUB_TOKEN: ${{ secrets.GTHUB_ACCESS_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_ACCESS_TOKEN }}
+        run: chmod +x gradlew && ./gradlew build sonarqube --info

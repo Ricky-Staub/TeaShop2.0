@@ -1,0 +1,2 @@
+com.example.TeaShop2.domain.entitys.user.UserDetailsImpl#getAuthorities()Ljava/util/Collection;
+java.util.stream.Collectors#toList()Ljava/util/stream/Collector;

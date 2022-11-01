@@ -1,0 +1,17 @@
+
+—com.example.TeaShop2.domain.entitys.user.dto.UserRegisterDTO#setEmail(Ljava/lang/String;)Lcom/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO;{
+qC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO.javaE E(#"1*³
+1{
+qC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO.javaF F(î
+ë
+{
+qC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO.javaF F(I>
+<com.example.TeaShop2.domain.entitys.user.dto.UserRegisterDTO"
+email"__id*
+
+emailjava.lang.String"¿
+{
+qC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO.javaG G(@>
+<com.example.TeaShop2.domain.entitys.user.dto.UserRegisterDTO:
+emailjava.lang.StringB@>
+<com.example.TeaShop2.domain.entitys.user.dto.UserRegisterDTO
