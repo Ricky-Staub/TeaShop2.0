@@ -1,0 +1,1 @@
+com.example.TeaShop2.domain.entitys.user.User#setRank(Lcom/example/TeaShop2/domain/entitys/ranking/Rank;)Lcom/example/TeaShop2/domain/entitys/user/User;

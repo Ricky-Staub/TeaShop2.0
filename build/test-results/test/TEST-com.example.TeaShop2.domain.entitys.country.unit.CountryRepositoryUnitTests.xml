@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-11-01T12:38:24" hostname="LAPTOP-1FULM01B" time="3.314">
+  <properties/>
+  <testcase name="findById_requestCountryById_expectCountry()" classname="com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests" time="1.55"/>
+  <testcase name="deleteById_requestCountryById_expectdeletedCountry()" classname="com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests" time="1.762"/>
+  <system-out><![CDATA[2022-11-01 13:38:23.341  INFO 13712 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests], using SpringBootContextLoader
+2022-11-01 13:38:23.343  INFO 13712 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-11-01 13:38:23.344  INFO 13712 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests]: CountryRepositoryUnitTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-11-01 13:38:23.363  INFO 13712 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.TeaShop2.TeaShop2Application for test class com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests
+2022-11-01 13:38:23.365  INFO 13712 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-11-01 13:38:23.367  INFO 13712 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@537dc661, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@16b35f2f, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@383e8d4f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3df9b24b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@a355b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@c4c4852, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4054f861, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@30cf61ca, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@61be2a65, org.springframework.test.context.event.EventPublishingTestExecutionListener@f5ee0d8, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@68ae86a2, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@23247b4c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@33d9904f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4b79eecc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@57fefa97, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5700053f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@28a4ac78]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.2)
+
+2022-11-01 13:38:23.418  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : Starting CountryRepositoryUnitTests using Java 18.0.2 on LAPTOP-1FULM01B with PID 13712 (started by 41774 in C:\Users\41774\Desktop\TeaShop2.0)
+2022-11-01 13:38:23.418  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : No active profile set, falling back to 1 default profile: "default"
+2022-11-01 13:38:23.601  INFO 13712 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-01 13:38:23.711  INFO 13712 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 10 JPA repository interfaces.
+2022-11-01 13:38:23.737  INFO 13712 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-11-01 13:38:23.855  INFO 13712 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:877b613f-e9dd-4e63-a857-31e1c46d70a3;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-11-01 13:38:24.025  INFO 13712 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-01 13:38:24.093  INFO 13712 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: drop table if exists public.authority CASCADE 
+Hibernate: drop table if exists public.country CASCADE 
+Hibernate: drop table if exists public.order_position CASCADE 
+Hibernate: drop table if exists public.orders CASCADE 
+Hibernate: drop table if exists public.rank CASCADE 
+Hibernate: drop table if exists public.role CASCADE 
+Hibernate: drop table if exists public.role_authority CASCADE 
+Hibernate: drop table if exists public.tea CASCADE 
+Hibernate: drop table if exists public.tea_type CASCADE 
+Hibernate: drop table if exists public.users CASCADE 
+Hibernate: drop table if exists public.users_role CASCADE 
+Hibernate: create table public.authority (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.country (id varchar(255) not null, country varchar(255) not null, primary key (id))
+Hibernate: create table public.order_position (id varchar(255) not null, amount integer, order_id varchar(255), tea_id varchar(255) not null, primary key (id))
+Hibernate: create table public.orders (id varchar(255) not null, created_at timestamp, modified_at timestamp, price float, created_by varchar(255), last_modified_by varchar(255), user_id varchar(255) not null, primary key (id))
+Hibernate: create table public.rank (id varchar(255) not null, reduction float not null, seeds integer not null, title varchar(255) not null, primary key (id))
+Hibernate: create table public.role (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.role_authority (role_id varchar(255) not null, authority_id varchar(255) not null, primary key (role_id, authority_id))
+Hibernate: create table public.tea (id varchar(255) not null, description varchar(255), harvest_date timestamp, price float not null, stock integer, country_id varchar(255), tea_type_id varchar(255) not null, primary key (id))
+Hibernate: create table public.tea_type (id varchar(255) not null, min_age integer, min_seeds integer, tea_type varchar(255) not null, primary key (id))
+Hibernate: create table public.users (id varchar(255) not null, created_at timestamp, modified_at timestamp, age integer, email varchar(255) not null, first_name varchar(255), last_name varchar(255), locked boolean, password varchar(255), seeds integer, created_by varchar(255), last_modified_by varchar(255), rank_id varchar(255), primary key (id))
+Hibernate: create table public.users_role (users_id varchar(255) not null, role_id varchar(255) not null, primary key (users_id, role_id))
+Hibernate: alter table public.authority add constraint UK_jdeu5vgpb8k5ptsqhrvamuad2 unique (name)
+Hibernate: alter table public.country add constraint UK_3s51q344kj9jse05r86moo9ka unique (country)
+Hibernate: alter table public.rank add constraint UK_jiqais2j6uppxw3x0sgjs51ph unique (title)
+Hibernate: alter table public.role add constraint UK_8sewwnpamngi6b1dwaa88askk unique (name)
+Hibernate: alter table public.tea add constraint UK_2uxeb1n2hvuitho87kdr210e3 unique (description)
+Hibernate: alter table public.tea_type add constraint UK_980tjkgv2sak223asbdl5us5e unique (tea_type)
+Hibernate: alter table public.users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table public.order_position add constraint FK3igx1tkv35h6g9avj261ts7d7 foreign key (order_id) references public.orders
+Hibernate: alter table public.order_position add constraint FK1lnkpwuy7kwyp67u551440fq3 foreign key (tea_id) references public.tea
+Hibernate: alter table public.orders add constraint FKtjwuphstqm46uffgc7l1r27a9 foreign key (created_by) references public.users
+Hibernate: alter table public.orders add constraint FKdklenonclskgpikwa9ga4kfnf foreign key (last_modified_by) references public.users
+Hibernate: alter table public.orders add constraint FK32ql8ubntj5uh44ph9659tiih foreign key (user_id) references public.users
+Hibernate: alter table public.role_authority add constraint FKqbri833f7xop13bvdje3xxtnw foreign key (authority_id) references public.authority
+Hibernate: alter table public.role_authority add constraint FK2052966dco7y9f97s1a824bj1 foreign key (role_id) references public.role
+Hibernate: alter table public.tea add constraint FK76si8a4nn9awwviuippjx5wgh foreign key (country_id) references public.country
+Hibernate: alter table public.tea add constraint FKbcay65o8iltx322gsd8ujle88 foreign key (tea_type_id) references public.tea_type
+Hibernate: alter table public.users add constraint FKibk1e3kaxy5sfyeekp8hbhnim foreign key (created_by) references public.users
+Hibernate: alter table public.users add constraint FKj1vmabulqqfwd5q8w2wxm73c3 foreign key (last_modified_by) references public.users
+Hibernate: alter table public.users add constraint FKrcuxs4dkkhwmmyj1kjogq8kmv foreign key (rank_id) references public.rank
+Hibernate: alter table public.users_role add constraint FK3qjq7qsiigxa82jgk0i0wuq3g foreign key (role_id) references public.role
+Hibernate: alter table public.users_role add constraint FKiu0xsee0dmwa28nffgyf4bcvc foreign key (users_id) references public.users
+2022-11-01 13:38:24.397  INFO 13712 --- [    Test worker] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'file:/C:/Users/41774/Desktop/TeaShop2.0/build/resources/main/import.sql'
+Hibernate: insert into rank(id,title,seeds,reduction) values('805fc890-247d-4d61-a169-e6408f9e231c','bronze',0,0.1)
+Hibernate: insert into rank(id,title,seeds,reduction) values('13e45fae-016c-4342-abb4-744ffc5628e9','silver',20,0.96)
+Hibernate: insert into rank(id,title,seeds,reduction) values('9ef05303-146e-405e-bed8-e481f6f085b1','gold',60,0.93)
+Hibernate: insert into rank(id,title,seeds,reduction) values('131e912c-f211-4526-b362-ffa44743da9d','platinum',140,0.91)
+Hibernate: insert into rank(id,title,seeds,reduction) values('ea83a03e-6326-4020-a721-1d1f0715ef36','diamond',300,0.9)
+Hibernate: insert into country(id, country)values('b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','china')
+Hibernate: insert into country(id, country)values('76ff2095-2bd5-455b-9b1a-6d71cfa986b7','taiwan')
+Hibernate: insert into country(id, country)values('16ded094-2341-49bd-85ae-78451faac49f','japan')
+Hibernate: insert into country(id, country)values('6bed40bc-1f21-4126-9046-5bdb208cd7e4','indien')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1e12b05a-2915-447b-a8a1-6bbd5864e8cd', 0, 0, 'white')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('4d195cc9-9491-4b62-b1d4-b16c76cc9c8b', 0, 0, 'yellow')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('0b227894-f73d-4e2c-9fed-d9167c88b1db', 0, 140, 'raw puerh')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('d64dc94d-33be-4855-ae43-79194dcea7fe', 18, 0, 'medicinal herbs')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('09b1cf5b-2426-4b31-8a18-c68adfcc9dcb', 0, 0, 'green')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('005956c8-7494-4df8-8e6e-a9492d19c982', 0, 140, 'oolong')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1d2e4628-91a0-49cd-8dd5-b67267c6ff1c', 0, 0, 'ripened')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('4d731a42-bc28-4f2f-9dc4-78e8498cfc0f', 0, 0, 'scented')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('072667ca-852f-4775-ac2c-049acde27718', 0, 0, 'matcha')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('16ff9d0b-1c35-4b62-a655-19f79e905f09', 0, 0, 'black')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('de07ede6-b210-4707-8c9e-5223e3d66ba6', 0, 0, 'tisanes')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1085142b-b7f2-4bcd-a44f-e4798744faaf', 18, 0, 'functional blends')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('a47d9683-2aed-42a3-846f-ccea365c7c9d','2021-04-23', 34 , 25, 'white jasmine',                   'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1e12b05a-2915-447b-a8a1-6bbd5864e8cd')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('4b484dad-fab1-4833-99a1-9060e44b7556','2021-04-14', 31 , 25, 'amber mountain',                  'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d195cc9-9491-4b62-b1d4-b16c76cc9c8b')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('aec9da51-98ff-4079-bc05-9f9805939282','2021-04-01', 125, 25, 'mist pilgrim',                   'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','0b227894-f73d-4e2c-9fed-d9167c88b1db')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('ab5acc7d-2826-449c-b5d2-90c60467f653','2021-05-01', 53 , 25, 'ceremonial matcha tea',           '16ded094-2341-49bd-85ae-78451faac49f','09b1cf5b-2426-4b31-8a18-c68adfcc9dcb')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('d37993db-1f5d-4112-b918-267985693245','2021-05-03', 11 , 25, 'dandelion leaf',                  'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','d64dc94d-33be-4855-ae43-79194dcea7fe')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('dc852512-f356-4132-ba8a-52edbd68eb5d','2021-04-02', 50 , 25, 'amber gaba oolong',               '76ff2095-2bd5-455b-9b1a-6d71cfa986b7','005956c8-7494-4df8-8e6e-a9492d19c982')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('fac6b968-827b-4561-a7d2-32991230e3db','2021-05-01', 36 , 25, 'mulberry leaf powder',            '16ded094-2341-49bd-85ae-78451faac49f','de07ede6-b210-4707-8c9e-5223e3d66ba6')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('11276c0e-195e-11ed-861d-0242ac120002','2021-04-01', 54 , 25, 'river high',                      'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1085142b-b7f2-4bcd-a44f-e4798744faaf')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('20f4984f-b376-4523-895c-47fe147e71ec','1996-05-01', 45 , 25, 'black yunnan tuo 96',             'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1d2e4628-91a0-49cd-8dd5-b67267c6ff1c')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('d7eb2c65-c74d-47e9-aa0e-7a7be3ce8304','2021-04-01', 42 , 25, 'traditional lapsang blending set','b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','16ff9d0b-1c35-4b62-a655-19f79e905f09')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('fc0409ba-dc09-411f-add2-709870715be1','2021-04-1',  54 , 25, 'ren shen wulong',                 'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d731a42-bc28-4f2f-9dc4-78e8498cfc0f')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('9167ba4f-5374-4f08-bae5-489d3d06e53a','2021-02-01', 33 , 25, 'juice journo',                    'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d731a42-bc28-4f2f-9dc4-78e8498cfc0f')
+Hibernate: insert into role(id, name) values('48608063-985b-496d-94c6-1df46bb3ba26','ADMIN')
+Hibernate: insert into role(id, name) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','USER')
+Hibernate: insert into authority(id, name) values('3648810a-6722-4e70-9667-69409afc699d','USER_SEE')
+Hibernate: insert into authority(id, name) values('5fc20c1e-afbc-4e22-804b-85bf0b828b56','USER_MODIFY')
+Hibernate: insert into authority(id, name) values('94f30ecd-8f8c-4a15-acdf-08d020496305','PRODUCT_SEE')
+Hibernate: insert into authority(id, name) values('94f30eef-8f8c-4a15-acdf-08d020496305','CAN_SEE_STATISTICS')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','3648810a-6722-4e70-9667-69409afc699d')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','5fc20c1e-afbc-4e22-804b-85bf0b828b56')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','94f30ecd-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','94f30eef-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','94f30ecd-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','3648810a-6722-4e70-9667-69409afc699d')
+2022-11-01 13:38:24.444  INFO 13712 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-01 13:38:24.445  INFO 13712 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-01 13:38:24.960  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : Started CountryRepositoryUnitTests in 1.587 seconds (JVM running for 31.608)
+2022-11-01 13:38:24.972  INFO 13712 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-01 13:38:24.973  INFO 13712 --- [    Test worker] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+Hibernate: drop table if exists public.authority CASCADE 
+Hibernate: drop table if exists public.country CASCADE 
+Hibernate: drop table if exists public.order_position CASCADE 
+Hibernate: drop table if exists public.orders CASCADE 
+Hibernate: drop table if exists public.rank CASCADE 
+Hibernate: drop table if exists public.role CASCADE 
+Hibernate: drop table if exists public.role_authority CASCADE 
+Hibernate: drop table if exists public.tea CASCADE 
+Hibernate: drop table if exists public.tea_type CASCADE 
+Hibernate: drop table if exists public.users CASCADE 
+Hibernate: drop table if exists public.users_role CASCADE 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.2)
+
+2022-11-01 13:38:25.071  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : Starting CountryRepositoryUnitTests using Java 18.0.2 on LAPTOP-1FULM01B with PID 13712 (started by 41774 in C:\Users\41774\Desktop\TeaShop2.0)
+2022-11-01 13:38:25.072  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : No active profile set, falling back to 1 default profile: "default"
+2022-11-01 13:38:25.327  INFO 13712 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-01 13:38:25.460  INFO 13712 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 132 ms. Found 10 JPA repository interfaces.
+2022-11-01 13:38:25.473  INFO 13712 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-11-01 13:38:25.534  INFO 13712 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:a06dfca7-c412-4de9-9527-84e5251bfb0c;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-11-01 13:38:25.633  INFO 13712 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-01 13:38:25.657  INFO 13712 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: drop table if exists public.authority CASCADE 
+Hibernate: drop table if exists public.country CASCADE 
+Hibernate: drop table if exists public.order_position CASCADE 
+Hibernate: drop table if exists public.orders CASCADE 
+Hibernate: drop table if exists public.rank CASCADE 
+Hibernate: drop table if exists public.role CASCADE 
+Hibernate: drop table if exists public.role_authority CASCADE 
+Hibernate: drop table if exists public.tea CASCADE 
+Hibernate: drop table if exists public.tea_type CASCADE 
+Hibernate: drop table if exists public.users CASCADE 
+Hibernate: drop table if exists public.users_role CASCADE 
+Hibernate: create table public.authority (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.country (id varchar(255) not null, country varchar(255) not null, primary key (id))
+Hibernate: create table public.order_position (id varchar(255) not null, amount integer, order_id varchar(255), tea_id varchar(255) not null, primary key (id))
+Hibernate: create table public.orders (id varchar(255) not null, created_at timestamp, modified_at timestamp, price float, created_by varchar(255), last_modified_by varchar(255), user_id varchar(255) not null, primary key (id))
+Hibernate: create table public.rank (id varchar(255) not null, reduction float not null, seeds integer not null, title varchar(255) not null, primary key (id))
+Hibernate: create table public.role (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.role_authority (role_id varchar(255) not null, authority_id varchar(255) not null, primary key (role_id, authority_id))
+Hibernate: create table public.tea (id varchar(255) not null, description varchar(255), harvest_date timestamp, price float not null, stock integer, country_id varchar(255), tea_type_id varchar(255) not null, primary key (id))
+Hibernate: create table public.tea_type (id varchar(255) not null, min_age integer, min_seeds integer, tea_type varchar(255) not null, primary key (id))
+Hibernate: create table public.users (id varchar(255) not null, created_at timestamp, modified_at timestamp, age integer, email varchar(255) not null, first_name varchar(255), last_name varchar(255), locked boolean, password varchar(255), seeds integer, created_by varchar(255), last_modified_by varchar(255), rank_id varchar(255), primary key (id))
+Hibernate: create table public.users_role (users_id varchar(255) not null, role_id varchar(255) not null, primary key (users_id, role_id))
+Hibernate: alter table public.authority add constraint UK_jdeu5vgpb8k5ptsqhrvamuad2 unique (name)
+Hibernate: alter table public.country add constraint UK_3s51q344kj9jse05r86moo9ka unique (country)
+Hibernate: alter table public.rank add constraint UK_jiqais2j6uppxw3x0sgjs51ph unique (title)
+Hibernate: alter table public.role add constraint UK_8sewwnpamngi6b1dwaa88askk unique (name)
+Hibernate: alter table public.tea add constraint UK_2uxeb1n2hvuitho87kdr210e3 unique (description)
+Hibernate: alter table public.tea_type add constraint UK_980tjkgv2sak223asbdl5us5e unique (tea_type)
+Hibernate: alter table public.users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table public.order_position add constraint FK3igx1tkv35h6g9avj261ts7d7 foreign key (order_id) references public.orders
+Hibernate: alter table public.order_position add constraint FK1lnkpwuy7kwyp67u551440fq3 foreign key (tea_id) references public.tea
+Hibernate: alter table public.orders add constraint FKtjwuphstqm46uffgc7l1r27a9 foreign key (created_by) references public.users
+Hibernate: alter table public.orders add constraint FKdklenonclskgpikwa9ga4kfnf foreign key (last_modified_by) references public.users
+Hibernate: alter table public.orders add constraint FK32ql8ubntj5uh44ph9659tiih foreign key (user_id) references public.users
+Hibernate: alter table public.role_authority add constraint FKqbri833f7xop13bvdje3xxtnw foreign key (authority_id) references public.authority
+Hibernate: alter table public.role_authority add constraint FK2052966dco7y9f97s1a824bj1 foreign key (role_id) references public.role
+Hibernate: alter table public.tea add constraint FK76si8a4nn9awwviuippjx5wgh foreign key (country_id) references public.country
+Hibernate: alter table public.tea add constraint FKbcay65o8iltx322gsd8ujle88 foreign key (tea_type_id) references public.tea_type
+Hibernate: alter table public.users add constraint FKibk1e3kaxy5sfyeekp8hbhnim foreign key (created_by) references public.users
+Hibernate: alter table public.users add constraint FKj1vmabulqqfwd5q8w2wxm73c3 foreign key (last_modified_by) references public.users
+Hibernate: alter table public.users add constraint FKrcuxs4dkkhwmmyj1kjogq8kmv foreign key (rank_id) references public.rank
+Hibernate: alter table public.users_role add constraint FK3qjq7qsiigxa82jgk0i0wuq3g foreign key (role_id) references public.role
+Hibernate: alter table public.users_role add constraint FKiu0xsee0dmwa28nffgyf4bcvc foreign key (users_id) references public.users
+2022-11-01 13:38:26.002  INFO 13712 --- [    Test worker] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'file:/C:/Users/41774/Desktop/TeaShop2.0/build/resources/main/import.sql'
+Hibernate: insert into rank(id,title,seeds,reduction) values('805fc890-247d-4d61-a169-e6408f9e231c','bronze',0,0.1)
+Hibernate: insert into rank(id,title,seeds,reduction) values('13e45fae-016c-4342-abb4-744ffc5628e9','silver',20,0.96)
+Hibernate: insert into rank(id,title,seeds,reduction) values('9ef05303-146e-405e-bed8-e481f6f085b1','gold',60,0.93)
+Hibernate: insert into rank(id,title,seeds,reduction) values('131e912c-f211-4526-b362-ffa44743da9d','platinum',140,0.91)
+Hibernate: insert into rank(id,title,seeds,reduction) values('ea83a03e-6326-4020-a721-1d1f0715ef36','diamond',300,0.9)
+Hibernate: insert into country(id, country)values('b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','china')
+Hibernate: insert into country(id, country)values('76ff2095-2bd5-455b-9b1a-6d71cfa986b7','taiwan')
+Hibernate: insert into country(id, country)values('16ded094-2341-49bd-85ae-78451faac49f','japan')
+Hibernate: insert into country(id, country)values('6bed40bc-1f21-4126-9046-5bdb208cd7e4','indien')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1e12b05a-2915-447b-a8a1-6bbd5864e8cd', 0, 0, 'white')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('4d195cc9-9491-4b62-b1d4-b16c76cc9c8b', 0, 0, 'yellow')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('0b227894-f73d-4e2c-9fed-d9167c88b1db', 0, 140, 'raw puerh')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('d64dc94d-33be-4855-ae43-79194dcea7fe', 18, 0, 'medicinal herbs')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('09b1cf5b-2426-4b31-8a18-c68adfcc9dcb', 0, 0, 'green')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('005956c8-7494-4df8-8e6e-a9492d19c982', 0, 140, 'oolong')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1d2e4628-91a0-49cd-8dd5-b67267c6ff1c', 0, 0, 'ripened')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('4d731a42-bc28-4f2f-9dc4-78e8498cfc0f', 0, 0, 'scented')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('072667ca-852f-4775-ac2c-049acde27718', 0, 0, 'matcha')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('16ff9d0b-1c35-4b62-a655-19f79e905f09', 0, 0, 'black')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('de07ede6-b210-4707-8c9e-5223e3d66ba6', 0, 0, 'tisanes')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1085142b-b7f2-4bcd-a44f-e4798744faaf', 18, 0, 'functional blends')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('a47d9683-2aed-42a3-846f-ccea365c7c9d','2021-04-23', 34 , 25, 'white jasmine',                   'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1e12b05a-2915-447b-a8a1-6bbd5864e8cd')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('4b484dad-fab1-4833-99a1-9060e44b7556','2021-04-14', 31 , 25, 'amber mountain',                  'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d195cc9-9491-4b62-b1d4-b16c76cc9c8b')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('aec9da51-98ff-4079-bc05-9f9805939282','2021-04-01', 125, 25, 'mist pilgrim',                   'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','0b227894-f73d-4e2c-9fed-d9167c88b1db')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('ab5acc7d-2826-449c-b5d2-90c60467f653','2021-05-01', 53 , 25, 'ceremonial matcha tea',           '16ded094-2341-49bd-85ae-78451faac49f','09b1cf5b-2426-4b31-8a18-c68adfcc9dcb')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('d37993db-1f5d-4112-b918-267985693245','2021-05-03', 11 , 25, 'dandelion leaf',                  'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','d64dc94d-33be-4855-ae43-79194dcea7fe')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('dc852512-f356-4132-ba8a-52edbd68eb5d','2021-04-02', 50 , 25, 'amber gaba oolong',               '76ff2095-2bd5-455b-9b1a-6d71cfa986b7','005956c8-7494-4df8-8e6e-a9492d19c982')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('fac6b968-827b-4561-a7d2-32991230e3db','2021-05-01', 36 , 25, 'mulberry leaf powder',            '16ded094-2341-49bd-85ae-78451faac49f','de07ede6-b210-4707-8c9e-5223e3d66ba6')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('11276c0e-195e-11ed-861d-0242ac120002','2021-04-01', 54 , 25, 'river high',                      'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1085142b-b7f2-4bcd-a44f-e4798744faaf')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('20f4984f-b376-4523-895c-47fe147e71ec','1996-05-01', 45 , 25, 'black yunnan tuo 96',             'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1d2e4628-91a0-49cd-8dd5-b67267c6ff1c')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('d7eb2c65-c74d-47e9-aa0e-7a7be3ce8304','2021-04-01', 42 , 25, 'traditional lapsang blending set','b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','16ff9d0b-1c35-4b62-a655-19f79e905f09')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('fc0409ba-dc09-411f-add2-709870715be1','2021-04-1',  54 , 25, 'ren shen wulong',                 'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d731a42-bc28-4f2f-9dc4-78e8498cfc0f')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('9167ba4f-5374-4f08-bae5-489d3d06e53a','2021-02-01', 33 , 25, 'juice journo',                    'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d731a42-bc28-4f2f-9dc4-78e8498cfc0f')
+Hibernate: insert into role(id, name) values('48608063-985b-496d-94c6-1df46bb3ba26','ADMIN')
+Hibernate: insert into role(id, name) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','USER')
+Hibernate: insert into authority(id, name) values('3648810a-6722-4e70-9667-69409afc699d','USER_SEE')
+Hibernate: insert into authority(id, name) values('5fc20c1e-afbc-4e22-804b-85bf0b828b56','USER_MODIFY')
+Hibernate: insert into authority(id, name) values('94f30ecd-8f8c-4a15-acdf-08d020496305','PRODUCT_SEE')
+Hibernate: insert into authority(id, name) values('94f30eef-8f8c-4a15-acdf-08d020496305','CAN_SEE_STATISTICS')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','3648810a-6722-4e70-9667-69409afc699d')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','5fc20c1e-afbc-4e22-804b-85bf0b828b56')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','94f30ecd-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','94f30eef-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','94f30ecd-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','3648810a-6722-4e70-9667-69409afc699d')
+2022-11-01 13:38:26.047  INFO 13712 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-01 13:38:26.048  INFO 13712 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-01 13:38:26.470  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : Started CountryRepositoryUnitTests in 1.465 seconds (JVM running for 33.119)
+2022-11-01 13:38:26.485  INFO 13712 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@1727aa28 testClass = CountryRepositoryUnitTests, testInstance = com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests@8a20b8e, testMethod = findById_requestCountryById_expectCountry@CountryRepositoryUnitTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@75c1c32b testClass = CountryRepositoryUnitTests, locations = '{}', classes = '{class com.example.TeaShop2.TeaShop2Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3f78a75, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@3b00856b, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@33298ef4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@2002348, [ImportsContextCustomizer@3fae2cd3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56e8b606, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7966baa7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@482bdb02]; rollback [true]
+Hibernate: select country0_.id as id1_1_0_, country0_.country as country2_1_0_ from public.country country0_ where country0_.id=?
+Hibernate: select country0_.id as id1_1_0_, country0_.country as country2_1_0_ from public.country country0_ where country0_.id=?
+2022-11-01 13:38:26.516  INFO 13712 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@1727aa28 testClass = CountryRepositoryUnitTests, testInstance = com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests@8a20b8e, testMethod = findById_requestCountryById_expectCountry@CountryRepositoryUnitTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@75c1c32b testClass = CountryRepositoryUnitTests, locations = '{}', classes = '{class com.example.TeaShop2.TeaShop2Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3f78a75, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@3b00856b, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@33298ef4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@2002348, [ImportsContextCustomizer@3fae2cd3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56e8b606, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7966baa7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2022-11-01 13:38:26.524  INFO 13712 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-01 13:38:26.525  INFO 13712 --- [    Test worker] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+Hibernate: drop table if exists public.authority CASCADE 
+Hibernate: drop table if exists public.country CASCADE 
+Hibernate: drop table if exists public.order_position CASCADE 
+Hibernate: drop table if exists public.orders CASCADE 
+Hibernate: drop table if exists public.rank CASCADE 
+Hibernate: drop table if exists public.role CASCADE 
+Hibernate: drop table if exists public.role_authority CASCADE 
+Hibernate: drop table if exists public.tea CASCADE 
+Hibernate: drop table if exists public.tea_type CASCADE 
+Hibernate: drop table if exists public.users CASCADE 
+Hibernate: drop table if exists public.users_role CASCADE 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.2)
+
+2022-11-01 13:38:26.606  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : Starting CountryRepositoryUnitTests using Java 18.0.2 on LAPTOP-1FULM01B with PID 13712 (started by 41774 in C:\Users\41774\Desktop\TeaShop2.0)
+2022-11-01 13:38:26.607  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : No active profile set, falling back to 1 default profile: "default"
+2022-11-01 13:38:26.873  INFO 13712 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-01 13:38:27.035  INFO 13712 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 161 ms. Found 10 JPA repository interfaces.
+2022-11-01 13:38:27.054  INFO 13712 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-11-01 13:38:27.122  INFO 13712 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:b69e9557-e0bf-48c6-b1fd-7bf37822e885;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-11-01 13:38:27.240  INFO 13712 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-01 13:38:27.272  INFO 13712 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: drop table if exists public.authority CASCADE 
+Hibernate: drop table if exists public.country CASCADE 
+Hibernate: drop table if exists public.order_position CASCADE 
+Hibernate: drop table if exists public.orders CASCADE 
+Hibernate: drop table if exists public.rank CASCADE 
+Hibernate: drop table if exists public.role CASCADE 
+Hibernate: drop table if exists public.role_authority CASCADE 
+Hibernate: drop table if exists public.tea CASCADE 
+Hibernate: drop table if exists public.tea_type CASCADE 
+Hibernate: drop table if exists public.users CASCADE 
+Hibernate: drop table if exists public.users_role CASCADE 
+Hibernate: create table public.authority (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.country (id varchar(255) not null, country varchar(255) not null, primary key (id))
+Hibernate: create table public.order_position (id varchar(255) not null, amount integer, order_id varchar(255), tea_id varchar(255) not null, primary key (id))
+Hibernate: create table public.orders (id varchar(255) not null, created_at timestamp, modified_at timestamp, price float, created_by varchar(255), last_modified_by varchar(255), user_id varchar(255) not null, primary key (id))
+Hibernate: create table public.rank (id varchar(255) not null, reduction float not null, seeds integer not null, title varchar(255) not null, primary key (id))
+Hibernate: create table public.role (id varchar(255) not null, name varchar(255) not null, primary key (id))
+Hibernate: create table public.role_authority (role_id varchar(255) not null, authority_id varchar(255) not null, primary key (role_id, authority_id))
+Hibernate: create table public.tea (id varchar(255) not null, description varchar(255), harvest_date timestamp, price float not null, stock integer, country_id varchar(255), tea_type_id varchar(255) not null, primary key (id))
+Hibernate: create table public.tea_type (id varchar(255) not null, min_age integer, min_seeds integer, tea_type varchar(255) not null, primary key (id))
+Hibernate: create table public.users (id varchar(255) not null, created_at timestamp, modified_at timestamp, age integer, email varchar(255) not null, first_name varchar(255), last_name varchar(255), locked boolean, password varchar(255), seeds integer, created_by varchar(255), last_modified_by varchar(255), rank_id varchar(255), primary key (id))
+Hibernate: create table public.users_role (users_id varchar(255) not null, role_id varchar(255) not null, primary key (users_id, role_id))
+Hibernate: alter table public.authority add constraint UK_jdeu5vgpb8k5ptsqhrvamuad2 unique (name)
+Hibernate: alter table public.country add constraint UK_3s51q344kj9jse05r86moo9ka unique (country)
+Hibernate: alter table public.rank add constraint UK_jiqais2j6uppxw3x0sgjs51ph unique (title)
+Hibernate: alter table public.role add constraint UK_8sewwnpamngi6b1dwaa88askk unique (name)
+Hibernate: alter table public.tea add constraint UK_2uxeb1n2hvuitho87kdr210e3 unique (description)
+Hibernate: alter table public.tea_type add constraint UK_980tjkgv2sak223asbdl5us5e unique (tea_type)
+Hibernate: alter table public.users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table public.order_position add constraint FK3igx1tkv35h6g9avj261ts7d7 foreign key (order_id) references public.orders
+Hibernate: alter table public.order_position add constraint FK1lnkpwuy7kwyp67u551440fq3 foreign key (tea_id) references public.tea
+Hibernate: alter table public.orders add constraint FKtjwuphstqm46uffgc7l1r27a9 foreign key (created_by) references public.users
+Hibernate: alter table public.orders add constraint FKdklenonclskgpikwa9ga4kfnf foreign key (last_modified_by) references public.users
+Hibernate: alter table public.orders add constraint FK32ql8ubntj5uh44ph9659tiih foreign key (user_id) references public.users
+Hibernate: alter table public.role_authority add constraint FKqbri833f7xop13bvdje3xxtnw foreign key (authority_id) references public.authority
+Hibernate: alter table public.role_authority add constraint FK2052966dco7y9f97s1a824bj1 foreign key (role_id) references public.role
+Hibernate: alter table public.tea add constraint FK76si8a4nn9awwviuippjx5wgh foreign key (country_id) references public.country
+Hibernate: alter table public.tea add constraint FKbcay65o8iltx322gsd8ujle88 foreign key (tea_type_id) references public.tea_type
+Hibernate: alter table public.users add constraint FKibk1e3kaxy5sfyeekp8hbhnim foreign key (created_by) references public.users
+Hibernate: alter table public.users add constraint FKj1vmabulqqfwd5q8w2wxm73c3 foreign key (last_modified_by) references public.users
+Hibernate: alter table public.users add constraint FKrcuxs4dkkhwmmyj1kjogq8kmv foreign key (rank_id) references public.rank
+Hibernate: alter table public.users_role add constraint FK3qjq7qsiigxa82jgk0i0wuq3g foreign key (role_id) references public.role
+Hibernate: alter table public.users_role add constraint FKiu0xsee0dmwa28nffgyf4bcvc foreign key (users_id) references public.users
+2022-11-01 13:38:27.598  INFO 13712 --- [    Test worker] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'file:/C:/Users/41774/Desktop/TeaShop2.0/build/resources/main/import.sql'
+Hibernate: insert into rank(id,title,seeds,reduction) values('805fc890-247d-4d61-a169-e6408f9e231c','bronze',0,0.1)
+Hibernate: insert into rank(id,title,seeds,reduction) values('13e45fae-016c-4342-abb4-744ffc5628e9','silver',20,0.96)
+Hibernate: insert into rank(id,title,seeds,reduction) values('9ef05303-146e-405e-bed8-e481f6f085b1','gold',60,0.93)
+Hibernate: insert into rank(id,title,seeds,reduction) values('131e912c-f211-4526-b362-ffa44743da9d','platinum',140,0.91)
+Hibernate: insert into rank(id,title,seeds,reduction) values('ea83a03e-6326-4020-a721-1d1f0715ef36','diamond',300,0.9)
+Hibernate: insert into country(id, country)values('b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','china')
+Hibernate: insert into country(id, country)values('76ff2095-2bd5-455b-9b1a-6d71cfa986b7','taiwan')
+Hibernate: insert into country(id, country)values('16ded094-2341-49bd-85ae-78451faac49f','japan')
+Hibernate: insert into country(id, country)values('6bed40bc-1f21-4126-9046-5bdb208cd7e4','indien')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1e12b05a-2915-447b-a8a1-6bbd5864e8cd', 0, 0, 'white')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('4d195cc9-9491-4b62-b1d4-b16c76cc9c8b', 0, 0, 'yellow')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('0b227894-f73d-4e2c-9fed-d9167c88b1db', 0, 140, 'raw puerh')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('d64dc94d-33be-4855-ae43-79194dcea7fe', 18, 0, 'medicinal herbs')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('09b1cf5b-2426-4b31-8a18-c68adfcc9dcb', 0, 0, 'green')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('005956c8-7494-4df8-8e6e-a9492d19c982', 0, 140, 'oolong')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1d2e4628-91a0-49cd-8dd5-b67267c6ff1c', 0, 0, 'ripened')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('4d731a42-bc28-4f2f-9dc4-78e8498cfc0f', 0, 0, 'scented')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('072667ca-852f-4775-ac2c-049acde27718', 0, 0, 'matcha')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('16ff9d0b-1c35-4b62-a655-19f79e905f09', 0, 0, 'black')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('de07ede6-b210-4707-8c9e-5223e3d66ba6', 0, 0, 'tisanes')
+Hibernate: insert into tea_type(id, min_age, min_seeds, tea_type) values ('1085142b-b7f2-4bcd-a44f-e4798744faaf', 18, 0, 'functional blends')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('a47d9683-2aed-42a3-846f-ccea365c7c9d','2021-04-23', 34 , 25, 'white jasmine',                   'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1e12b05a-2915-447b-a8a1-6bbd5864e8cd')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('4b484dad-fab1-4833-99a1-9060e44b7556','2021-04-14', 31 , 25, 'amber mountain',                  'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d195cc9-9491-4b62-b1d4-b16c76cc9c8b')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('aec9da51-98ff-4079-bc05-9f9805939282','2021-04-01', 125, 25, 'mist pilgrim',                   'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','0b227894-f73d-4e2c-9fed-d9167c88b1db')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('ab5acc7d-2826-449c-b5d2-90c60467f653','2021-05-01', 53 , 25, 'ceremonial matcha tea',           '16ded094-2341-49bd-85ae-78451faac49f','09b1cf5b-2426-4b31-8a18-c68adfcc9dcb')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('d37993db-1f5d-4112-b918-267985693245','2021-05-03', 11 , 25, 'dandelion leaf',                  'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','d64dc94d-33be-4855-ae43-79194dcea7fe')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('dc852512-f356-4132-ba8a-52edbd68eb5d','2021-04-02', 50 , 25, 'amber gaba oolong',               '76ff2095-2bd5-455b-9b1a-6d71cfa986b7','005956c8-7494-4df8-8e6e-a9492d19c982')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('fac6b968-827b-4561-a7d2-32991230e3db','2021-05-01', 36 , 25, 'mulberry leaf powder',            '16ded094-2341-49bd-85ae-78451faac49f','de07ede6-b210-4707-8c9e-5223e3d66ba6')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('11276c0e-195e-11ed-861d-0242ac120002','2021-04-01', 54 , 25, 'river high',                      'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1085142b-b7f2-4bcd-a44f-e4798744faaf')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('20f4984f-b376-4523-895c-47fe147e71ec','1996-05-01', 45 , 25, 'black yunnan tuo 96',             'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','1d2e4628-91a0-49cd-8dd5-b67267c6ff1c')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('d7eb2c65-c74d-47e9-aa0e-7a7be3ce8304','2021-04-01', 42 , 25, 'traditional lapsang blending set','b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','16ff9d0b-1c35-4b62-a655-19f79e905f09')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('fc0409ba-dc09-411f-add2-709870715be1','2021-04-1',  54 , 25, 'ren shen wulong',                 'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d731a42-bc28-4f2f-9dc4-78e8498cfc0f')
+Hibernate: insert into tea(id, harvest_date, price, stock, description, country_id, tea_type_id) values('9167ba4f-5374-4f08-bae5-489d3d06e53a','2021-02-01', 33 , 25, 'juice journo',                    'b0dd49e3-d4f7-4bf0-91bd-f70930c02fc0','4d731a42-bc28-4f2f-9dc4-78e8498cfc0f')
+Hibernate: insert into role(id, name) values('48608063-985b-496d-94c6-1df46bb3ba26','ADMIN')
+Hibernate: insert into role(id, name) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','USER')
+Hibernate: insert into authority(id, name) values('3648810a-6722-4e70-9667-69409afc699d','USER_SEE')
+Hibernate: insert into authority(id, name) values('5fc20c1e-afbc-4e22-804b-85bf0b828b56','USER_MODIFY')
+Hibernate: insert into authority(id, name) values('94f30ecd-8f8c-4a15-acdf-08d020496305','PRODUCT_SEE')
+Hibernate: insert into authority(id, name) values('94f30eef-8f8c-4a15-acdf-08d020496305','CAN_SEE_STATISTICS')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','3648810a-6722-4e70-9667-69409afc699d')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','5fc20c1e-afbc-4e22-804b-85bf0b828b56')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','94f30ecd-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('48608063-985b-496d-94c6-1df46bb3ba26','94f30eef-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','94f30ecd-8f8c-4a15-acdf-08d020496305')
+Hibernate: insert into role_authority(role_id, authority_id) values('ce7c3462-23f3-4c37-a75b-b945367f59ae','3648810a-6722-4e70-9667-69409afc699d')
+2022-11-01 13:38:27.630  INFO 13712 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-01 13:38:27.630  INFO 13712 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-01 13:38:28.243  INFO 13712 --- [    Test worker] c.e.T.d.e.c.u.CountryRepositoryUnitTests : Started CountryRepositoryUnitTests in 1.701 seconds (JVM running for 34.892)
+2022-11-01 13:38:28.251  INFO 13712 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@1727aa28 testClass = CountryRepositoryUnitTests, testInstance = com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests@f66ac80, testMethod = deleteById_requestCountryById_expectdeletedCountry@CountryRepositoryUnitTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@75c1c32b testClass = CountryRepositoryUnitTests, locations = '{}', classes = '{class com.example.TeaShop2.TeaShop2Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3f78a75, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@3b00856b, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@33298ef4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@2002348, [ImportsContextCustomizer@3fae2cd3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56e8b606, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7966baa7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@7f1c1df5]; rollback [true]
+Hibernate: select country0_.id as id1_1_0_, country0_.country as country2_1_0_ from public.country country0_ where country0_.id=?
+Hibernate: select country0_.id as id1_1_0_, country0_.country as country2_1_0_ from public.country country0_ where country0_.id=?
+2022-11-01 13:38:28.281  INFO 13712 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@1727aa28 testClass = CountryRepositoryUnitTests, testInstance = com.example.TeaShop2.domain.entitys.country.unit.CountryRepositoryUnitTests@f66ac80, testMethod = deleteById_requestCountryById_expectdeletedCountry@CountryRepositoryUnitTests, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@75c1c32b testClass = CountryRepositoryUnitTests, locations = '{}', classes = '{class com.example.TeaShop2.TeaShop2Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@3f78a75, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@3b00856b, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@33298ef4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@2002348, [ImportsContextCustomizer@3fae2cd3 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56e8b606, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7966baa7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

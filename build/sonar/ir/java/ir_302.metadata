@@ -1,0 +1,2 @@
+com.example.TeaShop2.domain.entitys.order.OrderServiceImpl#calculateSeedsAndRank(Lcom/example/TeaShop2/domain/entitys/order/Order;)Lcom/example/TeaShop2/domain/entitys/order/Order;
+com.example.TeaShop2.domain.entitys.user.UserDetailsImpl#user()Lcom/example/TeaShop2/domain/entitys/user/User;

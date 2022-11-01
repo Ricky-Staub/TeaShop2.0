@@ -1,0 +1,16 @@
+
+Vcom.example.TeaShop2.domain.entitys.user.dto.UserRegisterDTO#getRoles()Ljava/util/Set;{
+qC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO.javaS S( "1*‚
+1{
+qC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO.javaT T(è
+å
+{
+qC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO.javaT T(
+%0java.util.Set"__id*K*I>
+<com.example.TeaShop2.domain.entitys.user.dto.UserRegisterDTO"
+roles"”
+{
+qC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/dto/UserRegisterDTO.javaT T(
+
+%0java.util.SetB@>
+<com.example.TeaShop2.domain.entitys.user.dto.UserRegisterDTO

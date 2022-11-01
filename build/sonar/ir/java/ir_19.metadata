@@ -1,0 +1,8 @@
+com.example.TeaShop2.core.security.WebSecurityConfig#corsConfigurationSource()Lorg/springframework/web/cors/CorsConfigurationSource;
+org.springframework.web.cors.UrlBasedCorsConfigurationSource#<init>()V
+java.util.List#of(Ljava/lang/Object;)Ljava/util/List;
+org.springframework.web.cors.CorsConfiguration#instance-init#
+org.springframework.web.cors.CorsConfiguration#<init>()V
+java.util.List#of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
+java.util.List#of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
+org.springframework.web.cors.UrlBasedCorsConfigurationSource#instance-init#

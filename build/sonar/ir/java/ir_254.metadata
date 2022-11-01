@@ -1,0 +1,4 @@
+com.example.TeaShop2.core.generic.ExtendedServiceImpl#updateById(Ljava/util/UUID;Lcom/example/TeaShop2/core/generic/ExtendedEntity;)Lcom/example/TeaShop2/core/generic/ExtendedEntity;
+java.util.NoSuchElementException#<init>(Ljava/lang/String;)V
+java.util.NoSuchElementException#instance-init#
+java.lang.String#format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;

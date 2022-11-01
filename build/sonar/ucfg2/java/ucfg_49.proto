@@ -1,0 +1,27 @@
+
+I__sonar_lambda_3$com.example.TeaShop2.domain.entitys.user.UserDetailsImplw
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (A"1*Ô	
+1w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java5 (6´±
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java5 (@
+%8java.lang.String"Scom.example.TeaShop2.domain.entitys.authority.Authority#getName()Ljava/lang/String;*>
+<
+a7com.example.TeaShop2.domain.entitys.authority.Authority2	getName()Š‡
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (4H
+%9Borg.springframework.security.core.authority.SimpleGrantedAuthority"Borg.springframework.security.core.authority.SimpleGrantedAuthorityÉ
+Æ
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (A
+%10"^org.springframework.security.core.authority.SimpleGrantedAuthority#<init>(Ljava/lang/String;)V*J
+H
+%9Borg.springframework.security.core.authority.SimpleGrantedAuthority*
+
+%8java.lang.String"Å
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (AJ
+H
+%9Borg.springframework.security.core.authority.SimpleGrantedAuthority:<
+a7com.example.TeaShop2.domain.entitys.authority.AuthorityB
+java.util.function.Function

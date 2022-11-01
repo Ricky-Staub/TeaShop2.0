@@ -1,0 +1,42 @@
+
+ccom.example.TeaShop2.core.generic.ExtendedServiceImpl#saveAll(Ljava/lang/Iterable;)Ljava/util/List;t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java ("startingBlock*„
+startingBlockt
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (0Å
+Â
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (
+%2"
+__annotate*
+java.lang.Override* 
+
+entitiesjava.lang.Iterable¯
+¬
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java' (/
+entitiesjava.lang.Iterable"__annotation*
+
+%2*
+1*‰
+1t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (†
+ƒ
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (:
+%04com.example.TeaShop2.core.generic.ExtendedRepository"__id*I*G7
+5com.example.TeaShop2.core.generic.ExtendedServiceImpl"
+
+repositoryóð
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (+
+%1java.util.List"corg.springframework.data.jpa.repository.JpaRepository#saveAll(Ljava/lang/Iterable;)Ljava/util/List;*<
+:
+%04com.example.TeaShop2.core.generic.ExtendedRepository* 
+
+entitiesjava.lang.Iterable2saveAll(Ljava/lang/Iterable;)"Ž
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (,
+
+%1java.util.List:
+entitiesjava.lang.IterableB97
+5com.example.TeaShop2.core.generic.ExtendedServiceImpl

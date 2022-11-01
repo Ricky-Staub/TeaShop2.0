@@ -15,7 +15,7 @@ repositories {
 
 sonarqube {
     properties {
-        property "sonar.projektKey", "Ricky-Staub_TeaShop2.0"
+        property "sonar.projectKey", "Ricky-Staub_TeaShop2.0"
         property "sonar.organization", "ricky-staub"
         property "sonar.host.url", "https://sonarcloud.io"
     }
