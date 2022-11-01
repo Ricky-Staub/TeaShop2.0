@@ -1,0 +1,143 @@
+package com.example.TeaShop2.domain.entitys.user;
+
+import com.example.TeaShop2.core.generic.ExtendedAuditEntity;
+import com.example.TeaShop2.domain.entitys.ranking.Rank;
+import com.example.TeaShop2.domain.entitys.role.Role;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+@Entity
+@Table(name = "users")
+public class User extends ExtendedAuditEntity {
+
+    @Column(name = "seeds")
+    private Integer seeds = 0;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "age")
+    private Integer age;
+
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "locked")
+    private boolean locked = false;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Rank rank;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(
+            name = "users_role",
+            joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+    )
+    private Set<Role> roles = new HashSet<>();
+
+    public User() {
+    }
+
+    public User(UUID id, Integer seeds, String firstName, String lastName, Integer age, String email, String password, boolean locked, Rank rank, Set<Role> roles) {
+        super(id);
+        this.seeds = seeds;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.password = password;
+        this.locked = locked;
+        this.rank = rank;
+        this.roles = roles;
+    }
+
+    public Integer getSeeds() {
+        return seeds;
+    }
+
+    public User setSeeds(Integer seeds) {
+        this.seeds = seeds;
+        return this;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public User setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public User setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public User setAge(Integer age) {
+        this.age = age;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public User setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public User setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public User setLocked(boolean locked) {
+        this.locked = locked;
+        return this;
+    }
+
+    public Rank getRank() {
+        return rank;
+    }
+
+    public User setRank(Rank rank) {
+        this.rank = rank;
+        return this;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public User setRoles(Set<Role> roles) {
+        this.roles = roles;
+        return this;
+    }
+}
