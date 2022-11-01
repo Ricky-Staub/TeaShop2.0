@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.7.2'
     id 'io.spring.dependency-management' version '1.0.12.RELEASE'
     id 'java'
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 group = 'com.example'
@@ -10,6 +11,14 @@ sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
+}
+
+sonarqube {
+    properties {
+        property "sonar.projektKey", "Ricky-Staub_TeaShop2.0"
+        property "sonar.projektKey", "Ricky Staub"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
 
 dependencies {
