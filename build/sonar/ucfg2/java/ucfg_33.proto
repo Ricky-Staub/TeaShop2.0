@@ -1,0 +1,17 @@
+
+ôcom.example.TeaShop2.domain.entitys.order.Order#setUser(Lcom/example/TeaShop2/domain/entitys/user/User;)Lcom/example/TeaShop2/domain/entitys/order/Order;n
+dC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/order/Order.java2 2("1*ç
+1n
+dC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/order/Order.java3 3(Ô
+Ï
+n
+dC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/order/Order.java3 3(;1
+/com.example.TeaShop2.domain.entitys.order.Order"
+user"__id*7
+5
+user-com.example.TeaShop2.domain.entitys.user.User"•
+n
+dC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/order/Order.java4 4(31
+/com.example.TeaShop2.domain.entitys.order.Order:5
+user-com.example.TeaShop2.domain.entitys.user.UserB31
+/com.example.TeaShop2.domain.entitys.order.Order

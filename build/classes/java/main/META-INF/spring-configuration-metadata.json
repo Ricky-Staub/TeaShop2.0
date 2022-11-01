@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "jwt",
+      "type": "com.example.TeaShop2.core.security.config.JwtProperties",
+      "sourceType": "com.example.TeaShop2.core.security.config.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.expiration-millis",
+      "type": "java.lang.Long",
+      "sourceType": "com.example.TeaShop2.core.security.config.JwtProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "jwt.issuer",
+      "type": "java.lang.String",
+      "sourceType": "com.example.TeaShop2.core.security.config.JwtProperties"
+    },
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.example.TeaShop2.core.security.config.JwtProperties"
+    }
+  ],
+  "hints": []
+}

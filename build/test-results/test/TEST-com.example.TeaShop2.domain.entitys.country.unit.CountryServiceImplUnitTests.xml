@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TeaShop2.domain.entitys.country.unit.CountryServiceImplUnitTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-01T12:38:28" hostname="LAPTOP-1FULM01B" time="0.231">
+  <properties/>
+  <testcase name="findById_requestCountryById_expectCountry()" classname="com.example.TeaShop2.domain.entitys.country.unit.CountryServiceImplUnitTests" time="0.207"/>
+  <testcase name="deleteById_requestCountryById_expectdeletedCountry()" classname="com.example.TeaShop2.domain.entitys.country.unit.CountryServiceImplUnitTests" time="0.013"/>
+  <testcase name="findAll_requestCountrysAll_expectCountrys()" classname="com.example.TeaShop2.domain.entitys.country.unit.CountryServiceImplUnitTests" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
