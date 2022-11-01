@@ -17,5 +17,5 @@ jobs:
           heroku_email: "ricky.staub2004@gmail.com"
       - uses: matt-ball/newman-action@master
         with:
-          collection: src/test/java/com/example/TeaShop2/domain/entitys/order/system/testing.json
+          collection: "src/test/java/com/example/TeaShop2/domain/entitys/order/system/testing.json"
           envVar: '[{ "key": "API_URL", "value": "https://schrimp-staging.herokuapp.com" }]'
