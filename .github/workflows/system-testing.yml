@@ -1,0 +1,21 @@
+name: System Testing
+
+on:
+  push:
+    branches: ["release"]
+
+jobs:
+  system-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@3.12.12
+        with:
+          branch: release
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "schrimp-staging"
+          heroku_email: "ricky.staub2004@gmail.com"
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: "src/test/java/com/example/TeaShop2/domain/entitys/order/system/testing.json"
+          envVar: '[{ "key": "API_URL", "value": "https://schrimp-staging.herokuapp.com" }]'
