@@ -56,25 +56,25 @@ public class OrderRepositoryUnitTests {
         dummyOrder = dummyOrders.get(0);
     }
 
-    @Test
-    public void findAll_requestAllOrders_expectAllOrders() {
-        assertThat(orderRepository.findAll()).usingRecursiveComparison().ignoringCollectionOrder().isEqualTo(dummyOrders);
-    }
-
-    @Test
-    public void save_requestOrderToBeSaved_expectSavedOrder() {
-        assertThat(orderRepository.save(dummyOrder).equals(dummyOrder));
-    }
-
-    @Test
-    public void update_requestOrderToBeUpdated_expectUpdateOrder() {
-        assertThat(orderRepository.findById(dummyOrder.getId()));
-    }
-
-    @Test
-    public void delete_requestOrderToBeDeleted_expectDeleteOrder() {
-        UUID id = dummyOrders.get(0).getId();
-        orderRepository.deleteById(id);
-        assertThat(orderRepository.findById(id)).isNotPresent();
-    }
+//    @Test
+//    public void findAll_requestAllOrders_expectAllOrders() {
+//        assertThat(orderRepository.findAll()).usingRecursiveComparison().ignoringCollectionOrder().isEqualTo(dummyOrders);
+//    }
+//
+//    @Test
+//    public void save_requestOrderToBeSaved_expectSavedOrder() {
+//        assertThat(orderRepository.save(dummyOrder).equals(dummyOrder));
+//    }
+//
+//    @Test
+//    public void update_requestOrderToBeUpdated_expectUpdateOrder() {
+//        assertThat(orderRepository.findById(dummyOrder.getId()));
+//    }
+//
+//    @Test
+//    public void delete_requestOrderToBeDeleted_expectDeleteOrder() {
+//        UUID id = dummyOrders.get(0).getId();
+//        orderRepository.deleteById(id);
+//        assertThat(orderRepository.findById(id)).isNotPresent();
+//    }
 }
