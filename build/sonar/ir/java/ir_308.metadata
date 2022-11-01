@@ -1,0 +1,2 @@
+com.example.TeaShop2.domain.entitys.order.OrderServiceImpl#isRankHightEnaught(Ljava/util/List;)Z
+com.example.TeaShop2.domain.entitys.user.UserDetailsImpl#user()Lcom/example/TeaShop2/domain/entitys/user/User;

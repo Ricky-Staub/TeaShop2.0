@@ -1,0 +1,3 @@
+com.example.TeaShop2.core.generic.ExtendedServiceImpl#findAll(Lorg/springframework/data/domain/Pageable;)Ljava/util/List;
+java.util.ArrayList#<init>()V
+java.util.ArrayList#instance-init#

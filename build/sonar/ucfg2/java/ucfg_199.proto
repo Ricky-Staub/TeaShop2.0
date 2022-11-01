@@ -1,0 +1,42 @@
+
+ com.example.TeaShop2.core.generic.ExtendedServiceImpl#save(Lcom/example/TeaShop2/core/generic/ExtendedEntity;)Lcom/example/TeaShop2/core/generic/ExtendedEntity;t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java ("startingBlock*Þ
+startingBlockt
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (²
+¯
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (
+%2"
+__annotate*
+java.lang.Override*
+
+entityTœ
+™
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (
+entityT"__annotation*
+
+%2*
+1*Ñ
+1t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (†
+ƒ
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (:
+%04com.example.TeaShop2.core.generic.ExtendedRepository"__id*I*G7
+5com.example.TeaShop2.core.generic.ExtendedServiceImpl"
+
+repositoryÈÅ
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java (&
+%1T"]org.springframework.data.repository.CrudRepository#save(Ljava/lang/Object;)Ljava/lang/Object;*<
+:
+%04com.example.TeaShop2.core.generic.ExtendedRepository*
+
+entityT2save(Ljava/lang/Object;)"
+t
+jC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/generic/ExtendedServiceImpl.java ('	
+
+%1T:
+entityTB97
+5com.example.TeaShop2.core.generic.ExtendedServiceImpl

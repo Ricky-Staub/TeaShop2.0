@@ -1,0 +1,5 @@
+com.example.TeaShop2.core.security.WebSecurityConfig#authenticationManager()Lorg/springframework/security/authentication/AuthenticationManager;
+org.springframework.security.authentication.ProviderManager#<init>([Lorg/springframework/security/authentication/AuthenticationProvider;)V
+org.springframework.security.authentication.ProviderManager#instance-init#
+org.springframework.security.authentication.dao.DaoAuthenticationProvider#instance-init#
+org.springframework.security.authentication.dao.DaoAuthenticationProvider#<init>()V

@@ -1,0 +1,1 @@
+com.example.TeaShop2.core.generic.ExtendedServiceImpl#findById(Ljava/util/UUID;)Lcom/example/TeaShop2/core/generic/ExtendedEntity;

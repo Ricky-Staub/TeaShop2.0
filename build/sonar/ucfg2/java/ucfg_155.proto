@@ -1,0 +1,17 @@
+
+|com.example.TeaShop2.domain.entitys.role.Role#setAuthorities(Ljava/util/Set;)Lcom/example/TeaShop2/domain/entitys/role/Role;l
+bC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/role/Role.java0 0("1*ñ
+1l
+bC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/role/Role.java1 1(&Ù
+Ö
+l
+bC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/role/Role.java1 1(&@/
+-com.example.TeaShop2.domain.entitys.role.Role"
+authorities"__id*
+
+authoritiesjava.util.Set"¡
+l
+bC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/role/Role.java2 2(1/
+-com.example.TeaShop2.domain.entitys.role.Role:
+authoritiesjava.util.SetB1/
+-com.example.TeaShop2.domain.entitys.role.Role

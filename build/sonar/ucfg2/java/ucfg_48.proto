@@ -1,0 +1,21 @@
+
+I__sonar_lambda_2$com.example.TeaShop2.domain.entitys.user.UserDetailsImplw
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (9"1*»
+1w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (¨¥
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (0
+%4java.util.Set"Mcom.example.TeaShop2.domain.entitys.role.Role#getAuthorities()Ljava/util/Set;*4
+2
+r-com.example.TeaShop2.domain.entitys.role.Role2getAuthorities()ôñ
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (9
+%5java.util.stream.Stream"6java.util.Collection#stream()Ljava/util/stream/Stream;*
+
+%4java.util.Set2stream()"š
+w
+mC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/domain/entitys/user/UserDetailsImpl.java (9
+
+%5java.util.stream.Stream:2
+r-com.example.TeaShop2.domain.entitys.role.RoleB
+java.util.function.Function

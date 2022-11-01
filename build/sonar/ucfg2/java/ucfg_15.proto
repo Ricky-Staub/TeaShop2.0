@@ -1,0 +1,175 @@
+
+¬com.example.TeaShop2.core.security.WebSecurityConfig#filterChain(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)Lorg/springframework/security/web/SecurityFilterChain;s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java+ +(*"startingBlock*Ä
+startingBlocks
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java+* +(=ê
+ç
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java* *(	
+%33"
+__annotate*/-
++org.springframework.context.annotation.Bean*R
+P
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurity·
+ﬁ
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java+8 +(<P
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurity"__annotation*
+
+%33*
+1*˜W
+1s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, ,(å
+â
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java-# 0(54
+%0.org.springframework.security.config.Customizer"__declareFunction*IG
+E__sonar_lambda_1$com.example.TeaShop2.core.security.WebSecurityConfigÚÔ
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 0(6N
+%9Horg.springframework.security.config.annotation.web.builders.HttpSecurity"÷org.springframework.security.config.annotation.web.builders.HttpSecurity#authorizeRequests(Lorg/springframework/security/config/Customizer;)Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;*R
+P
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurity*6
+4
+%0.org.springframework.security.config.Customizer2CauthorizeRequests(Lorg/springframework/security/config/Customizer;)âÜ
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java1C 1(XJ
+%10Corg.springframework.security.web.util.matcher.AntPathRequestMatcher"Corg.springframework.security.web.util.matcher.AntPathRequestMatcher‹
+Ÿ
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java1? 1(p
+%11"qorg.springframework.security.web.util.matcher.AntPathRequestMatcher#<init>(Ljava/lang/String;Ljava/lang/String;)V*L
+J
+%10Corg.springframework.security.web.util.matcher.AntPathRequestMatcher*
+/users/login*
+POSTß§
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java2 2(/H
+%12Aorg.springframework.security.authentication.AuthenticationManager"ècom.example.TeaShop2.core.security.WebSecurityConfig#authenticationManager()Lorg/springframework/security/authentication/AuthenticationManager;*86
+4com.example.TeaShop2.core.security.WebSecurityConfig2authenticationManager()ã
+à
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java21 2(>>
+%137com.example.TeaShop2.core.security.config.JwtProperties"__id*K*I6
+4com.example.TeaShop2.core.security.WebSecurityConfig"
+jwtProperties˝˙
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java1$ 1(>D
+%14=com.example.TeaShop2.core.security.CustomAuthenticationFilter"=com.example.TeaShop2.core.security.CustomAuthenticationFilterß
+§
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java1  2(?
+%15"Åcom.example.TeaShop2.core.security.CustomAuthenticationFilter#<init>(Lorg/springframework/security/web/util/matcher/RequestMatcher;Lorg/springframework/security/authentication/AuthenticationManager;Lcom/example/TeaShop2/core/security/config/JwtProperties;)V*F
+D
+%14=com.example.TeaShop2.core.security.CustomAuthenticationFilter*L
+J
+%10Corg.springframework.security.web.util.matcher.AntPathRequestMatcher*J
+H
+%12Aorg.springframework.security.authentication.AuthenticationManager*@
+>
+%137com.example.TeaShop2.core.security.config.JwtPropertiesÒÓ
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 2(lO
+%16Horg.springframework.security.config.annotation.web.builders.HttpSecurity" org.springframework.security.config.annotation.web.builders.HttpSecurity#addFilterAfter(Ljavax/servlet/Filter;Ljava/lang/Class;)Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;*P
+N
+%9Horg.springframework.security.config.annotation.web.builders.HttpSecurity*F
+D
+%14=com.example.TeaShop2.core.security.CustomAuthenticationFilter*
+""27addFilterAfter(Ljavax/servlet/Filter;Ljava/lang/Class;)Ü
+É
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java3> 3(I;
+%174com.example.TeaShop2.domain.entitys.user.UserService"__id*I*G6
+4com.example.TeaShop2.core.security.WebSecurityConfig"
+userServiceã
+à
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java3K 3(X>
+%187com.example.TeaShop2.core.security.config.JwtProperties"__id*K*I6
+4com.example.TeaShop2.core.security.WebSecurityConfig"
+jwtProperties˚¯
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java3$ 3(=C
+%19<com.example.TeaShop2.core.security.CustomAuthorizationFilter"<com.example.TeaShop2.core.security.CustomAuthorizationFilterˇ
+¸
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java3  3(Y
+%20"µcom.example.TeaShop2.core.security.CustomAuthorizationFilter#<init>(Lcom/example/TeaShop2/domain/entitys/user/UserService;Lcom/example/TeaShop2/core/security/config/JwtProperties;)V*E
+C
+%19<com.example.TeaShop2.core.security.CustomAuthorizationFilter*=
+;
+%174com.example.TeaShop2.domain.entitys.user.UserService*@
+>
+%187com.example.TeaShop2.core.security.config.JwtPropertiesÚÔ
+t
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 3(ÜO
+%21Horg.springframework.security.config.annotation.web.builders.HttpSecurity" org.springframework.security.config.annotation.web.builders.HttpSecurity#addFilterAfter(Ljavax/servlet/Filter;Ljava/lang/Class;)Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;*Q
+O
+%16Horg.springframework.security.config.annotation.web.builders.HttpSecurity*E
+C
+%19<com.example.TeaShop2.core.security.CustomAuthorizationFilter*
+""27addFilterAfter(Ljavax/servlet/Filter;Ljava/lang/Class;)˛˚
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 4($a
+%22Zorg.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer"∏org.springframework.security.config.annotation.web.builders.HttpSecurity#sessionManagement()Lorg/springframework/security/config/annotation/web/configurers/SessionManagementConfigurer;*Q
+O
+%21Horg.springframework.security.config.annotation.web.builders.HttpSecurity2sessionManagement()Õ
+ 
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java4; 4(ZE
+%23>org.springframework.security.config.http.SessionCreationPolicy"__id*
+""Û
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 4([a
+%24Zorg.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer"éorg.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer#sessionCreationPolicy(Lorg/springframework/security/config/http/SessionCreationPolicy;)Lorg/springframework/security/config/annotation/web/configurers/SessionManagementConfigurer;*c
+a
+%22Zorg.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer*G
+E
+%23>org.springframework.security.config.http.SessionCreationPolicy2WsessionCreationPolicy(Lorg/springframework/security/config/http/SessionCreationPolicy;)∆√
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 4(aO
+%25Horg.springframework.security.config.annotation.web.builders.HttpSecurity"éorg.springframework.security.config.annotation.SecurityConfigurerAdapter#and()Lorg/springframework/security/config/annotation/SecurityBuilder;*c
+a
+%24Zorg.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer2and() «
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 5(T
+%26Morg.springframework.security.config.annotation.web.configurers.CorsConfigurer"ûorg.springframework.security.config.annotation.web.builders.HttpSecurity#cors()Lorg/springframework/security/config/annotation/web/configurers/CorsConfigurer;*Q
+O
+%25Horg.springframework.security.config.annotation.web.builders.HttpSecurity2cors()ëé
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java5, 5(E;
+%274org.springframework.web.cors.CorsConfigurationSource"Ñcom.example.TeaShop2.core.security.WebSecurityConfig#corsConfigurationSource()Lorg/springframework/web/cors/CorsConfigurationSource;*86
+4com.example.TeaShop2.core.security.WebSecurityConfig2corsConfigurationSource()ùö
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 5(FT
+%28Morg.springframework.security.config.annotation.web.configurers.CorsConfigurer"Ëorg.springframework.security.config.annotation.web.configurers.CorsConfigurer#configurationSource(Lorg/springframework/web/cors/CorsConfigurationSource;)Lorg/springframework/security/config/annotation/web/configurers/CorsConfigurer;*V
+T
+%26Morg.springframework.security.config.annotation.web.configurers.CorsConfigurer*=
+;
+%274org.springframework.web.cors.CorsConfigurationSource2KconfigurationSource(Lorg/springframework/web/cors/CorsConfigurationSource;)π∂
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 5(LO
+%29Horg.springframework.security.config.annotation.web.builders.HttpSecurity"éorg.springframework.security.config.annotation.SecurityConfigurerAdapter#and()Lorg/springframework/security/config/annotation/SecurityBuilder;*V
+T
+%28Morg.springframework.security.config.annotation.web.configurers.CorsConfigurer2and() «
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 6(T
+%30Morg.springframework.security.config.annotation.web.configurers.CsrfConfigurer"ûorg.springframework.security.config.annotation.web.builders.HttpSecurity#csrf()Lorg/springframework/security/config/annotation/web/configurers/CsrfConfigurer;*Q
+O
+%29Horg.springframework.security.config.annotation.web.builders.HttpSecurity2csrf()÷”
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 6(!O
+%31Horg.springframework.security.config.annotation.web.builders.HttpSecurity"ßorg.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer#disable()Lorg/springframework/security/config/annotation/web/HttpSecurityBuilder;*V
+T
+%30Morg.springframework.security.config.annotation.web.configurers.CsrfConfigurer2	disable()˙˜
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 7(B
+%32;org.springframework.security.web.DefaultSecurityFilterChain"`org.springframework.security.config.annotation.AbstractSecurityBuilder#build()Ljava/lang/Object;*Q
+O
+%31Horg.springframework.security.config.annotation.web.builders.HttpSecurity2build()"ª
+s
+iC:/Users/41774/Desktop/TeaShop2.0/src/main/java/com/example/TeaShop2/core/security/WebSecurityConfig.java, 7(D
+B
+%32;org.springframework.security.web.DefaultSecurityFilterChain:P
+httpHorg.springframework.security.config.annotation.web.builders.HttpSecurityB86
+4com.example.TeaShop2.core.security.WebSecurityConfig

@@ -1,0 +1,5 @@
+com.example.TeaShop2.core.audit.UserAware#getCurrentAuditor()Ljava/util/Optional;
+com.example.TeaShop2.domain.entitys.user.UserDetailsImpl#user()Lcom/example/TeaShop2/domain/entitys/user/User;
+java.util.Optional#empty()Ljava/util/Optional;
+java.util.Optional#of(Ljava/lang/Object;)Ljava/util/Optional;
+org.springframework.security.core.context.SecurityContextHolder#getContext()Lorg/springframework/security/core/context/SecurityContext;

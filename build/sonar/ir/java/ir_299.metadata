@@ -1,0 +1,1 @@
+com.example.TeaShop2.domain.entitys.order.OrderServiceImpl#<init>(Lcom/example/TeaShop2/core/generic/ExtendedRepository;Lcom/example/TeaShop2/domain/entitys/user/UserService;Lcom/example/TeaShop2/domain/entitys/teas/TeaService;Lcom/example/TeaShop2/domain/entitys/ranking/RankService;Lcom/example/TeaShop2/domain/entitys/order/dto/OrderMapper;)V

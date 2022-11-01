@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TeaShop2.domain.entitys.order.unit.OrderServiceImplUnitTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-11-01T12:38:31" hostname="LAPTOP-1FULM01B" time="0.195">
+  <properties/>
+  <testcase name="UpdateById_requestOrdersAll_expectUpdateOrders()" classname="com.example.TeaShop2.domain.entitys.order.unit.OrderServiceImplUnitTests" time="0.143"/>
+  <testcase name="isAmountinStockcorrect_expectStockIsGood()" classname="com.example.TeaShop2.domain.entitys.order.unit.OrderServiceImplUnitTests" time="0.008"/>
+  <testcase name="findAll_requestOrdersAll_expectOrders()" classname="com.example.TeaShop2.domain.entitys.order.unit.OrderServiceImplUnitTests" time="0.005"/>
+  <testcase name="findById_requestOrderById_expectOrder()" classname="com.example.TeaShop2.domain.entitys.order.unit.OrderServiceImplUnitTests" time="0.007"/>
+  <testcase name="Create_requestOrdernew_expectNewOrders()" classname="com.example.TeaShop2.domain.entitys.order.unit.OrderServiceImplUnitTests" time="0.014"/>
+  <testcase name="userOldEnough_expectUserIsOldEnaught()" classname="com.example.TeaShop2.domain.entitys.order.unit.OrderServiceImplUnitTests" time="0.007"/>
+  <testcase name="rankCheck_expectRank()" classname="com.example.TeaShop2.domain.entitys.order.unit.OrderServiceImplUnitTests" time="0.004"/>
+  <system-out><![CDATA[18
+com.example.TeaShop2.domain.entitys.user.User@611f774a
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
